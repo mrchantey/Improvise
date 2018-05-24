@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta lang="en-us">
+    <title>NAO Controller</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" width=device-width>
+    <!-- <script src="utility/libs/qimessaging/1.0/jquery.min.js"></script>
+    <script src="utility/libs/qimessaging/1.0/socket.io.min.js"></script> -->
+    <script src="utility/libs/qimessaging/1.0/qimessaging.js"></script>
+
+
+    <!-- <script src="../node_modules/vue/dist/vue.js"></script> -->
+    <script src="utility/vue.js"></script>
+    <script src="utility/utilty.js"></script>
+    <script src="utility/testbehaviors.js"></script>
+    <script src="utility/behaviorsorter.js"></script>
+    <script src="utility/nao-connector.js"></script>
+    <script src="utility/nao-action.js"></script>
+    <script src="utility/prepared-text.js"></script>
+
+
+    <!-- <script src="modules/connect.js"></script> -->
+    <script src="modules/audio.js"></script>
+    <script src="modules/autonomy.js"></script>
+    <script src="modules/behavior.js"></script>
+    <script src="modules/tree-item.js"></script>
+    <script src="modules/camera.js"></script>
+    <script src="modules/listen.js"></script>
+    <script src="modules/perception.js"></script>
+    <script src="modules/speech.js"></script>
+    <script src="modules/speechlog.js"></script>
+    <script src="modules/text-item.js"></script>
+    <script src="modules/module-item-range.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">NAO Controller</div>
+
+    <div class="content" id="app">
+        <audio-module v-bind:audio='nao.Audio'></audio-module>
+        <autonomy-module v-bind:autonomy='nao.Autonomy'></autonomy-module>
+        <behavior-module v-bind:behavior='nao.Behavior'></behavior-module>
+        <speech-module v-bind:speech='nao.Speech'></speech-module>
+        <listen-module v-bind:listen='nao.Listen'></listen-module>
+        <camera-module v-bind:camera='nao.Camera'></camera-module>
+        <perception-module v-bind:perception='nao.Perception'></perception-module>
+    </div>
+    <script>
+        LoadJSON("actions.json", (json) => console.log(json))
+
+        let debug = true
+        let test = false
+        // const naoDeployed = true
+        const naoDeployed = false
+        let ipAddress = "10.50.16.90"
+
+        const app = new Vue({
+            el: '#app',
+            data: () => {
+                const data = {
+                    nao: ''
+                }
+                data.onconnect = (nao) => data.nao = nao
+                return data
+
+            },
+            created() {
+                console.log('auto connecting...')
+                BeginNaoSession(ipAddress, this.onconnect);
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
