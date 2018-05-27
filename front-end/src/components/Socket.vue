@@ -1,8 +1,6 @@
 <template>
 <div>socket
-
-<input v-model="message">
-<button v-on:click="onSubmit"> Submit</button>
+<div>Nao Ip address: {{$route.params.naoIP}}</div>
 
 </div>
 </template>
@@ -19,17 +17,16 @@ export default {
     };
     return data;
   },
-  methods: {
-    onSubmit() {
-      this.socket.send(this.message);
-      this.message = "";
-    }
-  },
+  methods: {},
   created() {
     this.socket = io("http://localhost:5000");
 
     this.socket.on("connect", function() {
       console.log("connected!");
+    });
+
+    this.socket.on("message", function(msg) {
+      console.log("message from server: " + msg);
     });
   }
 };
