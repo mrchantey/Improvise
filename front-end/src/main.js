@@ -3,17 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-//import socketio from 'socket.io-client'
-//import vueSocketIo from 'vue-socket.io'
-
-//export const SocketInstance = socketio('http://')
-
+import ServerInterface from './serverInterface.js'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  $serverInterface: "this is a test",
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  beforeCreate() {
+    //  window.$serverInterface = ServerInterface("http://localhost:5000", true)
+  }
 })
+

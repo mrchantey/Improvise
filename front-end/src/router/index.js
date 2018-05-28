@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import HelloWorld from '@/components/HelloWorld'
+import Connection from '@/components/Connection'
+import Settings from '@/components/Settings'
 import SocketView from '@/components/Socket'
 import Subtitles from '@/components/Subtitles'
 
 Vue.use(Router)
+
 
 export default new Router({
   routes: [
@@ -15,9 +17,12 @@ export default new Router({
       component: Home
     },
     {
-      path: '/hello',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '/connection',
+      component: Connection
+    },
+    {
+      path: '/settings',
+      component: Settings
     },
     {
       path: '/socket/:naoIP',

@@ -1,36 +1,40 @@
 <template>
   <div id="app">
   
-    <nao-header></nao-header>
-    <hr>
-    <router-link to="/">Home</router-link>
-    <router-link to="/subtitles">Subtitles</router-link>
-    <router-link to="/socket/69">Socket Test</router-link>
-    <hr>
-
-    <!-- <img src="./assets/logo.png"> -->
+    <heading></heading>
+    <navigation></navigation>
     <router-view/>
   </div>
 </template>
 
 <script>
-import NaoHeader from "./components/NaoHeader.vue";
+import Heading from "./components/Heading.vue";
+import Navigation from "./components/Navigation.vue";
 
 export default {
   name: "App",
   components: {
-    NaoHeader
+    Heading,
+    Navigation
   }
 };
 </script>
 
 <style>
-/* #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+/* @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"; */
+
+body {
+  background-color: #f7f7f7;
+}
+
+#app {
+  font-family: "Montserrat", sans-serif;
+  /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+  /* text-align: center; */
+  /* color: #2c3e50; */
+  /* margin-top: 60px; */
+}
 </style>

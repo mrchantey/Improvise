@@ -1,0 +1,36 @@
+<template>
+
+<div class="container">
+  <div class="content">
+    <div class="title">{{title}}</div>
+    <slot></slot>
+  </div>
+</div>
+
+</template>
+
+
+<script>
+export default {
+  props: ["title"]
+};
+</script>
+
+
+<style scoped>
+.container {
+  display: grid;
+  grid-template-columns: 1fr 50em 1fr;
+}
+
+.content {
+  background-color: #ffffff;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.title {
+  font-size: 2em;
+  text-align: center;
+}
+</style>
