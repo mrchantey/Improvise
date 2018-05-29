@@ -15,5 +15,6 @@ export default {
 <style scoped>
 .title {
   font-size: 1.5em;
+  /* display: inline; */
 }
 </style>

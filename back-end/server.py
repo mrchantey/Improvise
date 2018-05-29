@@ -4,6 +4,7 @@ import threading
 import sys
 import signal
 import naoInterface
+import utility
 
 
 def signal_handler(signal, frame):
@@ -41,16 +42,30 @@ def handleMessage(msg):
 
 
 @socketio.on('ConnectRobot')
-def handleRobotConnect(obj):
-    print 'socket robot connect attempt..'
-    ipAddress = obj['ipAddress']
-    strIpAddress = ipAddress.encode('ascii', 'replace')
-    sessionId = naoInterface.beginSession(strIpAddress)
+def handleRobotConnect(uniIpAddress):
+    ipAddress = utility.unicodeToAscii(uniIpAddress)
+    print 'socket robot connect attempt at', ipAddress, '..'
+    print type(ipAddress)
+    sessionId = naoInterface.beginSession(ipAddress)
     print 'session id:', sessionId
     if(sessionId == -1):
-        socketio.emit('ConnectRobotFail')
+        socketio.emit('ConnectRobotReject')
     else:
-        socketio.emit('ConnectRobotSuccess', sessionId)
+        socketio.emit('ConnectRobotResolve', sessionId)
+
+
+@socketio.on('GetRobotBehaviors')
+def handleGetRobotStatus(sessionId):
+    #    sessionId = obj['sessionId']
+    print 'retreiving robot behaviors'
+    behaviors = naoInterface.getInstalledBehaviors(sessionId)
+    socketio.emit('SetRobotBehaviors', behaviors)
+
+
+@socketio.on('GetRobotName')
+def handleGetRobotName(sessionId):
+    name = naoInterface.getName(sessionId)
+    socketio.emit('SetRobotName', name)
 
 
 def run():

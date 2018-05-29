@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ServerInterface from './serverInterface.js'
+import ServerInterface from './js/serverInterface.js'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -14,7 +14,7 @@ new Vue({
   components: { App },
   template: '<App/>',
   beforeCreate() {
-    //  window.$serverInterface = ServerInterface("http://localhost:5000", true)
+    window.$serverInterface = ServerInterface("http://localhost:5000", true)
   }
 })
 

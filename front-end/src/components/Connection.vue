@@ -3,11 +3,11 @@
     <module v-bind:title="'Connections'">
       <module-item v-bind:title="'Create a new Connection'">
         <p>Enter IP Address:</p>
-        <input v-model="ipAddress" @keypress="onIpKeypress">
+        <input v-model="serverIp" @keypress="onIpKeypress">
         <button @click="onIpSubmit">Submit</button>
-
-
-      </module-item></module>
+      </module-item>
+      <list-robots></list-robots>
+      </module>
 </div>
 
 </template>
@@ -15,23 +15,23 @@
 <script>
 import Module from "./items/Module.vue";
 import ModuleItem from "./items/ModuleItem.vue";
-// import ServerInterface from "./serverInterface.js";
-// const serverInterface = ServerInterface();
+import ListRobots from "./items/ListRobots.vue";
 
 export default {
   components: {
     Module,
-    ModuleItem
+    ModuleItem,
+    ListRobots
   },
   data() {
     return {
-      ipAddress: ""
+      serverIp: ""
     };
   },
   methods: {
     onIpSubmit() {
       console.log("ip submitted");
-      window.$serverInterface.ConnectRobot(this.ipAddress);
+      window.$serverInterface.ConnectRobot(this.serverIp);
     },
     onIpKeypress(event) {
       if (event.key == "Enter") this.onIpSubmit();
