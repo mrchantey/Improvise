@@ -1,25 +1,24 @@
 <template>
     <div>
-        <module v-bind:title="'Actions'">
-            <li-item 
+            <list-actions 
             v-for="(robot,index) in connectedRobots"
             v-bind:key="index"
             v-bind:robot="robot"
-            ></module-item>
-
-
+            ></list-actions>
     </div>
 </template>
 
 
 <script>
-import Module from "../items/Module.vue";
-import ModuleItem from "./Items/ModuleItem.vue";
+// import Module from "../items/Module.vue";
+// import ModuleItem from "../Items/ModuleItem.vue";
+import ListActions from "./ListActions.vue";
 
 export default {
   components: {
-    Module,
-    ModuleItem
+    // Module,
+    // ModuleItem,
+    ListActions
   },
   data() {
     return {

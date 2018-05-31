@@ -1,7 +1,6 @@
-
-import socketMessenger from "./socketMessenger";
-import connectRobot from "./connectRobot"
-import io from "socket.io-client"
+import SocketClient from "./socketClient";
+import RobotProxy from "./robotProxy"
+import testRobot from "./test/testRobot"
 
 export default (serverAddress, dev) => {
 
@@ -9,21 +8,33 @@ export default (serverAddress, dev) => {
         connectedRobots: []
     }
 
-    const messenger = socketMessenger(serverAddress)
+
+    ////------------------TESTING STUFF----------------------
+    const socketClient = {}
+
+    serverInterface.connectedRobots.push(testRobot())
+    serverInterface.connectedRobots.push(testRobot())
+    serverInterface.connectedRobots.push(testRobot())
+    serverInterface.connectedRobots.push(testRobot())
+    serverInterface.connectedRobots.push(testRobot())
+    //DISABLED FOR TESTING
+    //    const socketClient = SocketClient(serverAddress)
+    //----------------------
 
     serverInterface.ConnectRobot = (robotIP) => {
-        connectRobot(robotIP, messenger).then((robot) => {
+        RobotProxy(robotIP, socketClient).then((robot) => {
             console.log('robot created!')
             // console.log(robot)
             serverInterface.connectedRobots.push(robot)
         }, () => console.log('could not connect to robot at ' + robotIP))
     }
 
-    messenger.onConnect = () => {
-        console.log(serverInterface)
-        serverInterface.ConnectRobot("10.50.16.67")
+    socketClient.onConnect = () => {
+        // console.log(serverInterface)
+        //TESTING ONLY
+        serverInterface.ConnectRobot("10.50.16.81")
     }
-    messenger.onDisconnect = () => {
+    socketClient.onDisconnect = () => {
         connectedRobots = []
     }
 

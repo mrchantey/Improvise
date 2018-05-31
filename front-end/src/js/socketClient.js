@@ -1,20 +1,19 @@
 import io from "socket.io-client"
 import { resolve } from "url";
 import { rejects } from "assert";
-import { Socket } from "net";
+import { Socket } from "net";//dont think we need this
 
 export default (serverAddress) => {
 
-    const messenger = {}
-    const socket = io(serverAddress)
+    const client = {}
+    // const socket = io(serverAddress)
+    const socket = io(serverAddress, { reconnection: false })
 
-    //   messenger.ConnectServer = () => socket = io(serverAddress)
-    messenger.DisconnectServer = () => socket.close()
-
-    // messenger.ConnectServer()
+    client.DisconnectServer = () => socket.close()
+    // client.ConnectServer()
 
 
-    messenger.ConnectRobot = (robotAddress) => {
+    client.ConnectRobot = (robotAddress) => {
         console.log("Connecting to robot at " + robotAddress + "..")
         socket.emit("ConnectRobot", robotAddress)
         return new Promise((resolve, reject) => {
@@ -29,18 +28,18 @@ export default (serverAddress) => {
         })
     }
 
-    messenger.DisconnectRobot = (robot) => {
-        socket.emit("DisconnectRobot", robot)
+    client.DisconnectRobot = (sessionId) => {
+        socket.emit("DisconnectRobot", sessionId)
     }
 
-    messenger.GetRobotBehaviors = (sessionId) => {
+    client.GetRobotBehaviors = (sessionId) => {
         socket.emit("GetRobotBehaviors", sessionId)
         return new Promise((resolve, reject) => {
             socket.on("SetRobotBehaviors", (behaviors) => resolve(behaviors))
         })
     }
 
-    messenger.GetRobotName = (sessionId) => {
+    client.GetRobotName = (sessionId) => {
         socket.emit("GetRobotName", sessionId)
         return new Promise((resolve, reject) => {
             socket.on("SetRobotName", (name) => resolve(name))
@@ -49,13 +48,13 @@ export default (serverAddress) => {
 
     socket.on("connect", () => {
         console.log("Connected to server at " + serverAddress)
-        if (messenger.onConnect !== undefined)
-            messenger.onConnect()
+        if (client.onConnect !== undefined)
+            client.onConnect()
     })
     socket.on("disconnect", () => {
         console.log("Disconnected from server at " + serverAddress)
-        if (messenger.onDisconnect !== undefined)
-            messenger.onDisconnect()
+        if (client.onDisconnect !== undefined)
+            client.onDisconnect()
     })
-    return messenger
+    return client
 }

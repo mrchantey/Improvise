@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Connection from '@/components/Connection'
+import Connection from '@/components/connection/Connection'
 import Settings from '@/components/Settings'
-import SocketView from '@/components/Socket'
 import Subtitles from '@/components/Subtitles'
+import Actions from '@/components/actions/Actions'
 
 Vue.use(Router)
 
@@ -25,9 +25,9 @@ export default new Router({
       component: Settings
     },
     {
-      path: '/socket/:naoIP',
-      name: 'SocketView',
-      component: SocketView,
+      path: '/actions',
+      name: 'Actions',
+      component: Actions,
 
     },
     {

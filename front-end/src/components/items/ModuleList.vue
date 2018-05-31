@@ -1,8 +1,10 @@
 <template>
 <div>
     <module-item v-bind:title="title">
+      <table>
         <slot>
-        </slot>
+          </slot>
+      </table>
     </module-item>
 </div>
 
@@ -14,9 +16,30 @@
 import ModuleItem from "./ModuleItem.vue";
 
 export default {
-  props: ["title"],
+  props: ["title", "headers", "contents"],
   components: {
     ModuleItem
   }
 };
 </script>
+
+<style>
+table {
+  width: 100%;
+}
+
+th {
+  padding: 0.3em;
+}
+th:nth-child(even) {
+  background-color: #eeeeee;
+}
+th:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+tr:nth-child(odd) {
+  background-color: #eeeeee;
+}
+</style>
+

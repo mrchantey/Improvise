@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Module from "./items/Module.vue";
-import ModuleItem from "./items/ModuleItem.vue";
-import ListRobots from "./items/ListRobots.vue";
+import Module from "../items/Module.vue";
+import ModuleItem from "../items/ModuleItem.vue";
+import ListRobots from "./ListRobots.vue";
 
 export default {
   components: {
