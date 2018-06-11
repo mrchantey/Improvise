@@ -1,9 +1,17 @@
 
 
 import testBehaviors from "./testBehaviors"
-import parseActions from "../parseRobotActions"
+import ActionParser from "../ActionParser"
 
 export default () => {
+
+    // fetch("testMusic.json")
+    // .then(()=>console.log('success'))
+    // .cacth(()=>console.log('no dice'))
+
+
+
+    const actionParser = ActionParser()
 
     const robot = {
         name: "Test Robot",
@@ -11,6 +19,6 @@ export default () => {
         sessionId: 9999,
         behaviors: testBehaviors
     }
-    robot.actions = parseActions(robot.behaviors)
+    robot.actions = actionParser.parseBehaviors(robot.behaviors)
     return robot
 }

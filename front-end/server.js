@@ -4,10 +4,12 @@ const serveStatic = require('serve-static')
 const PORT = 4000
 
 const app = express()
+app.use(serveStatic(__dirname + "/dist"))
+
 const server = app.listen(PORT)
+
 console.log("server is running on port " + PORT)
 
-app.use(serveStatic(__dirname + "/dist"))
 
 // app.get('/', function (req, res) {
 //     res.sendFile(__dirname + '/inddxex.html')

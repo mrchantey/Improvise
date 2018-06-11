@@ -5,6 +5,8 @@ import Connection from '@/components/connection/Connection'
 import Settings from '@/components/Settings'
 import Subtitles from '@/components/Subtitles'
 import Actions from '@/components/actions/Actions'
+import Remote from '@/components/remote/Remote'
+
 
 Vue.use(Router)
 
@@ -15,6 +17,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/remote',
+      name: 'Remote',
+      component: Remote
     },
     {
       path: '/connection',

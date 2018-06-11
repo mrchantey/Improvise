@@ -1,10 +1,10 @@
 <template>
     <div>
-            <list-actions 
+            <table-actions 
             v-for="(robot,index) in connectedRobots"
             v-bind:key="index"
             v-bind:robot="robot"
-            ></list-actions>
+            ></table-actions>
     </div>
 </template>
 
@@ -12,13 +12,13 @@
 <script>
 // import Module from "../items/Module.vue";
 // import ModuleItem from "../Items/ModuleItem.vue";
-import ListActions from "./ListActions.vue";
+import TableActions from "./TableActions.vue";
 
 export default {
   components: {
     // Module,
     // ModuleItem,
-    ListActions
+    TableActions
   },
   data() {
     return {

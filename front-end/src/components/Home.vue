@@ -1,9 +1,9 @@
 <template>
 <div>
     <h1>Home</h1>
-    <div>Welcome to the Nao Controller app. To get started, please enter the ip address below</div>
-    <input v-model="naoIP" @keydown="ipKeyDown">
-    <button @click="submit">Submit</button>
+    <div>Welcome to the Nao Controller app.</div>
+    <!-- <input v-model="naoIP" @keydown="ipKeyDown"> -->
+    <!-- <button @click="submit">Submit</button> -->
 </div>
 </template>
 

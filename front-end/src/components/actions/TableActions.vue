@@ -1,6 +1,8 @@
 <template>
 
 <div>
+  <module-table 
+  v-bind:title="robot.name + ' Actions'">
   <div
   v-for="(tag,index) in tags"
   v-bind:key="index"
@@ -8,8 +10,9 @@
   {{tag.checked}}
     <input type="checkbox" v-model="tag.checked">
   </div>
-  <module-list 
-  v-bind:title="robot.name + ' Actions'">
+    
+    
+    
     <tr>
       <th>Name</th>
       <th>Type</th>
@@ -23,24 +26,19 @@
       <td>{{action.type}}</td>
       <td>{{action.tags}}</td>
     </tr>
-  </module-list>
+  </module-table>
 </div>
-
-
-
-
-
 </template>
 
 
 
 <script>
-import ModuleList from "../items/ModuleList.vue";
+import ModuleTable from "../items/ModuleTable.vue";
 
 export default {
   props: ["robot"],
   components: {
-    ModuleList
+    ModuleTable
   },
   data() {
     return {

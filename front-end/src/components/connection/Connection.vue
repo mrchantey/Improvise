@@ -1,12 +1,17 @@
 <template>
 <div>
     <module v-bind:title="'Connections'">
-      <module-item v-bind:title="'Create a new Connection'">
+      <output-text 
+      v-bind:title="'Server Status:'"
+      v-bind:value="apiConnected"
+      ></output-text>
+      
+      <!-- <module-item v-bind:title="'Create a new Connection'">
         <p>Enter IP Address:</p>
         <input v-model="serverIp" @keypress="onIpKeypress">
         <button @click="onIpSubmit">Submit</button>
-      </module-item>
-      <list-robots></list-robots>
+      </module-item> -->
+      <table-robots v-bind:robot="robot"></table-robots>
       </module>
 </div>
 
@@ -15,28 +20,31 @@
 <script>
 import Module from "../items/Module.vue";
 import ModuleItem from "../items/ModuleItem.vue";
-import ListRobots from "./ListRobots.vue";
+import TableRobots from "./TableRobots.vue";
+import OutputText from "../items/OutputText.vue";
 
 export default {
   components: {
     Module,
     ModuleItem,
-    ListRobots
+    TableRobots,
+    OutputText
   },
   data() {
     return {
-      serverIp: ""
+      serverIp: "",
+      apiConnected: window.$apiInterface.connectionStatus,
+      robot: window.$apiInterface.robot
     };
-  },
-  methods: {
-    onIpSubmit() {
-      console.log("ip submitted");
-      window.$serverInterface.ConnectRobot(this.serverIp);
-    },
-    onIpKeypress(event) {
-      if (event.key == "Enter") this.onIpSubmit();
-    }
-  },
-  created() {}
+  }
+  // methods: {
+  //   onIpSubmit() {
+  //     console.log("ip submitted");
+  //     window.$serverInterface.ConnectRobot(this.serverIp);
+  //   },
+  //   onIpKeypress(event) {
+  //     if (event.key == "Enter") this.onIpSubmit();
+  //   }
+  // },
 };
 </script>
