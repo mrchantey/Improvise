@@ -4,19 +4,17 @@
   <module-table 
   v-bind:title="robot.name + ' Actions'">
   <div
-  v-for="(tag,index) in tags"
-  v-bind:key="index"
-  >{{tag.name}}
-  {{tag.checked}}
+    v-for="(tag,index) in tags"
+    v-bind:key="index">
+    {{tag.name}}
+    {{tag.checked}}
     <input type="checkbox" v-model="tag.checked">
   </div>
-    
-    
-    
     <tr>
       <th>Name</th>
       <th>Type</th>
       <th>Tags</th>
+      <th>Controls</th>
     </tr>
     <tr v-for="(action,index) in robot.actions"
       v-bind:key="index"
@@ -25,6 +23,7 @@
       <td>{{action.name}}</td>
       <td>{{action.type}}</td>
       <td>{{action.tags}}</td>
+      <td><button>Run</button></td>
     </tr>
   </module-table>
 </div>

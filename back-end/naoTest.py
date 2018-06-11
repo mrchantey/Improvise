@@ -8,7 +8,7 @@ class NaoTest():
             'name': 'Test Robot',
             'volume': 66,
             'behaviors': ['behavior1', 'behavior2'],
-            'autoState': ['solitary']
+            'autoState': 'solitary'
         }
 
     def GetProperty(self, propName):

@@ -1,8 +1,6 @@
 <template>
     <div>
             <table-actions 
-            v-for="(robot,index) in connectedRobots"
-            v-bind:key="index"
             v-bind:robot="robot"
             ></table-actions>
     </div>
@@ -22,7 +20,7 @@ export default {
   },
   data() {
     return {
-      connectedRobots: window.$serverInterface.connectedRobots
+      robot: window.$apiInterface.robot
     };
   }
 };

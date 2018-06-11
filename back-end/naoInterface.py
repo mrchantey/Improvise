@@ -56,8 +56,7 @@ class NaoInterface():
             self.properties['ipAddress'] = ipAddress
             self.properties['name'] = self.system.robotName()
             self.properties['volume'] = self.audioDevice.getOutputVolume()
-            self.properties['behaviors'] = self.behaviorManager.getInstalledBehaviors(
-            )
+            self.properties['behaviors'] = self.behaviorManager.getInstalledBehaviors()
             self.properties['autoState'] = self.autonomousLife.getState()
 
             return True

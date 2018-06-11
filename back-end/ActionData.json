@@ -1,0 +1,28 @@
+{
+    "actions": [
+        {
+            "name": "I have a dream",
+            "type": "audio",
+            "someInteger": 49,
+            "tags": [
+                "speech"
+            ],
+            "path": "/home/nao/recordings/king.wav"
+        },
+        {
+            "name": "Harry and Meghans Wedding",
+            "type": "speech",
+            "tags": [
+                "speech"
+            ],
+            "text": "We're just days away"
+        },
+        {
+            "name": "The Man From Snowy River",
+            "tags": [
+                "speech"
+            ],
+            "text": "There was movement at the station"
+        }
+    ]
+}

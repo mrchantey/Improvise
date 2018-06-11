@@ -8,7 +8,7 @@ from naoTest import NaoTest
 from eventListener import CreateEventListener
 
 PORT = 5000
-nao = None
+# nao = None
 eventListener = None
 app = Flask(__name__)
 eventStack = []
