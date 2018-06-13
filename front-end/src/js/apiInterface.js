@@ -1,31 +1,47 @@
 import { stat } from "fs";
+import FilterEvents from "./EventFilter";
+
+// window.pollEvents = true
+window.pollEvents = false
+
 
 export default (serverAddress, dev) => {
+    const naoAddress = serverAddress + "/nao/"
 
     const robot = {
         name: 'na',
         ipAddress: 'na',
         behaviors: [],
-        isConnected: false,
+        actions: [],
+        isConnected: true,
         volume: -1,
+        speechVolume: -1,
+        speechSpeed: -1,
+        speechPitch: -1,
+        speechLog: [],
         autoState: 'na',
-        InitializeProperties,
-        DoMethod,
-        GetProperty,
+        // InitializeRobot,
         SetProperty,
-        GetEvents
+        DoMethod,
+        RunAction
+        // GetProperty,
     }
+
+    setInterval(() => {
+        if (pollEvents)
+            DrainEvents().then((events) => FilterEvents(robot, events))
+    }, 5000)
+
 
     const apiInterface = {
         robot,
         connectionStatus: "not connected",
     }
 
-    InitializeProperties()
+    InitializeRobot()
 
     // GetProperty('Volume')
     // DoMethod('Dance')
-    // MakeRequest(serverAddress + '/cors')
     function MakeRequest(url, body = undefined) {
         const request = (body == undefined) ? {} : {
             headers: {
@@ -58,43 +74,50 @@ export default (serverAddress, dev) => {
         })
     }
 
-    function InitializeProperties() {
-        const url = serverAddress + '/property'
-        MakeRequest(url)
+    function InitializeRobot() {
+        const urlProp = naoAddress + 'property'
+        MakeRequest(urlProp)
             .then((props) => {
                 console.log('All properties received')
-                console.log(props.volume)
                 //this apparently does not lead to losing references
                 Object.assign(apiInterface.robot, props)
                 apiInterface.connectionStatus = true
             })
+        const urlAction = naoAddress + 'action'
+        MakeRequest(urlAction)
+            .then((actions) => {
+                apiInterface.robot.actions = actions
+            })
     }
-
-    function GetProperty(propName) {
-        const url = serverAddress + "/property/" + propName
-        MakeRequest(url)
-            .then((prop) => console.log(prop))
-    }
+    //not sure when this is ever used
+    // function GetProperty(propName) {
+    //     const url = naoAddress + "/property/" + propName
+    //     MakeRequest(url)
+    //         .then((prop) => console.log(prop))
+    // }
 
     function SetProperty(propName, propValue) {
-        const url = serverAddress + "/property/" + propName
+        const url = naoAddress + "property/" + propName
         MakeRequest(url, { 'value': propValue })
             .then((prop) => robot[propName] = prop['value'])
-            .catch((status, err) => console.log(status, err))
     }
 
-    function DoMethod(methName, param1) {
-        const url = serverAddress + "/method/" + methName
-        MakeRequest(url, { 'param1': param1 })
+    function DoMethod(methName, params) {
+        const url = naoAddress + "method/" + methName
+        MakeRequest(url, { 'params': params })
             .then((resBody) => console.log(resBody))
-            .catch((status, err) => console.log(status + err))
     }
 
-    function GetEvents(eventName) {
-        const url = serverAddress + '/event'
+    function RunAction(actionId) {
+        const url = naoAddress + "action/" + actionId
         MakeRequest(url)
-            .then((body) => console.log(body))
-            .catch((status, err) => console.log(err))
+            .then((resBody) => console.log(resBody))
+    }
+
+    function DrainEvents() {
+        const url = naoAddress + 'events'
+        MakeRequest(url, { 'drain': true })
+            .then((resBody) => console.log(resBody))
     }
 
     return apiInterface

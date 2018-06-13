@@ -5,7 +5,7 @@
             "type": "audio",
             "someInteger": 49,
             "tags": [
-                "speech"
+                "monologue"
             ],
             "path": "/home/nao/recordings/king.wav"
         },
@@ -13,15 +13,16 @@
             "name": "Harry and Meghans Wedding",
             "type": "speech",
             "tags": [
-                "speech"
+                "monologue"
             ],
             "text": "We're just days away"
         },
         {
             "name": "The Man From Snowy River",
             "tags": [
-                "speech"
+                "monologue"
             ],
+            "type": "speech",
             "text": "There was movement at the station"
         }
     ]

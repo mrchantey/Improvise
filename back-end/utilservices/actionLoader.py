@@ -1,7 +1,7 @@
 import utility
 
 
-def LoadActions(behaviorPaths):
+def LoadActionInfo(behaviorPaths):
     idCount = 0
     actions = []
     fileResults = ParseFile(idCount)
@@ -15,15 +15,21 @@ def LoadActions(behaviorPaths):
 
 
 def ParseFile(idCount):
-    actionData = utility.OpenJson('ActionData.json')
+    actionData = utility.OpenJson('utilservices/ActionData.json')
     actions = actionData['actions']
     for action in actions:
         action['id'] = idCount
         idCount += 1
+        try:
+            action['type']
+        except:
+            action['type'] = 'UNKNOWN'
+            print 'unknown action type', action
     return {'idCount': idCount, 'actions': actions}
 
 
 def ParseBehaviors(behaviorPaths, idCount):
+    behaviorPaths = sorted(behaviorPaths, key=str.lower)
     actions = []
     for path in behaviorPaths:
         splitPath = path.split('/')
@@ -35,6 +41,7 @@ def ParseBehaviors(behaviorPaths, idCount):
             'path': path
         })
         idCount += 1
+    # actions = sorted(actions, key=lambda a: str.lower(a['name']))
     return {'idCount': idCount, 'actions': actions}
 
 
@@ -60,6 +67,6 @@ if __name__ == '__main__':
         "grasping/animations/Missed",
         "grasping/animations/ThankYou",
         "grasping/animations/ObserveObject2"]
-    actions = LoadActions(behaviorPaths)
+    actions = LoadActionInfo(behaviorPaths)
     for action in actions:
         print action['name']

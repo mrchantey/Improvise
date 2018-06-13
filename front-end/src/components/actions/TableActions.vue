@@ -12,6 +12,7 @@
   </div>
     <tr>
       <th>Name</th>
+      <th>ID</th>
       <th>Type</th>
       <th>Tags</th>
       <th>Controls</th>
@@ -21,9 +22,10 @@
       v-if="tagFilter(action.tags)"
       >
       <td>{{action.name}}</td>
+      <td>{{action.id}}</td>
       <td>{{action.type}}</td>
       <td>{{action.tags}}</td>
-      <td><button>Run</button></td>
+      <td><button @click="()=>RunAction(action.id)">Run</button></td>
     </tr>
   </module-table>
 </div>
@@ -56,7 +58,11 @@ export default {
         .map(t => t.name);
       // console.log(actionTags[0]);
       // return true;
-      return actionTags.some(at => validTags.some(vt => at === vt));
+      // return actionTags.some(at => validTags.some(vt => at === vt));
+      return actionTags;
+    },
+    RunAction(actionId) {
+      this.robot.RunAction(actionId);
     }
   }
 };

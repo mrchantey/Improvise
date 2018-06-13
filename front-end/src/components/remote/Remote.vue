@@ -1,21 +1,44 @@
 <template>
-<div v-if="robot.isConnected === true">
+<div v-if="robot!= undefined">
   <module 
   v-bind:title="robot.name+ ' Remote Controller'">
   <div class="contents">
-  <input-range 
-  v-bind:title="'Volume'"
-  v-bind:onDown="volumeDown"
-  v-bind:onUp="volumeUp"
+  <input-range
+  v-bind:title="'Master Volume'"
+  v-bind:onDown="()=>propertyDown('volume')"
+  v-bind:onUp="()=>propertyUp('volume')"
   v-bind:value="robot.volume"
   ></input-range>
+  <input-range
+  v-bind:title="'Speech Volume'"
+  v-bind:onDown="()=>propertyDown('speechVolume')"
+  v-bind:onUp="()=>propertyUp('speechVolume')"
+  v-bind:value="robot.speechVolume"
+  ></input-range>
+  <input-range
+  v-bind:title="'Speech Speed'"
+  v-bind:onDown="()=>propertyDown('speechSpeed')"
+  v-bind:onUp="()=>propertyUp('speechSpeed')"
+  v-bind:value="robot.speechSpeed"
+  ></input-range>
+  <input-range
+  v-bind:title="'Speech Pitch'"
+  v-bind:onDown="()=>propertyDown('speechPitch')"
+  v-bind:onUp="()=>propertyUp('speechPitch')"
+  v-bind:value="robot.speechPitch"
+  ></input-range>
   <module-item v-bind:title="'Buttons'">
-    <button @click="wakeUp">Wake Up</button>
-    <button @click="goToSleep">Go To Sleep</button>
+    <button @click="stopAll" tabindex="2">Stop All</button>
+    <button @click="wakeUp" tabindex="3">Wake Up</button>
+    <button @click="goToSleep" tabindex="4">Go To Sleep</button>
   </module-item>
   <module-item v-bind:title="'Say A Phrase'">
-    <input @keypress="sayPhraseKeyPress" v-model="phraseToSay">
+    <input @keypress="sayPhraseKeyPress" v-model="phraseToSay" tabindex="1">
     <button @click="sayPhrase">Say</button>
+      <label>
+      <input type="checkbox" v-model="sayAnimated">
+      Say Animated
+      </label>
   </module-item>
   </div>
   </module>
@@ -37,25 +60,29 @@ export default {
   data() {
     return {
       phraseToSay: "",
+      sayAnimated: false,
       robot: window.$apiInterface.robot
     };
   },
   methods: {
-    volumeDown() {
-      this.robot.SetProperty("volume", this.robot.volume - 10);
+    propertyDown(propName) {
+      this.robot.SetProperty(propName, this.robot[propName] - 10);
     },
-    volumeUp() {
-      this.robot.SetProperty("volume", this.robot.volume + 10);
+    propertyUp(propName) {
+      this.robot.SetProperty(propName, this.robot[propName] + 10);
     },
     wakeUp() {
-      this.robot.DoMethod("SetAutoState", "solitary");
+      this.robot.DoMethod("SetAutoState", ["solitary"]);
+    },
+    stopAll() {
+      this.robot.DoMethod("StopAll");
     },
     goToSleep() {
-      this.robot.DoMethod("SetAutoState", "disabled");
+      this.robot.DoMethod("SetAutoState", ["disabled"]);
     },
     sayPhrase() {
+      this.robot.DoMethod("Say", [this.phraseToSay, this.sayAnimated]);
       this.phraseToSay = "";
-      this.robot.DoMethod("SayPhrase", this.phraseToSay);
     },
     sayPhraseKeyPress(event) {
       if (event.key == "Enter") this.sayPhrase();

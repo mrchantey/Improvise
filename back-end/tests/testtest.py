@@ -8,7 +8,7 @@ from naoqi import ALModule
 
 from optparse import OptionParser
 
-NAO_IP = "10.50.16.55"
+NAO_IP = "10.50.16.54"
 #NAO_IP = "nao.local"
 
 

@@ -35,6 +35,10 @@ def parseUnicode(val):
         return val
     elif isinstance(val, str):
         return val
+    elif isinstance(val, bool):
+        return val
+    elif val == None:
+        return val
     print '\n\n unknown type', type(val)
     return val
 

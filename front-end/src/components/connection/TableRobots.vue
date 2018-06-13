@@ -8,7 +8,7 @@
         <th>Connection Status</th>
         <th>Behavior State</th>
       </tr>
-      <tr v-if="robot.isConnected === true">
+      <tr>
           <td>{{robot.name}}</td>
           <td>{{robot.ipAddress}}</td>
           <td>{{robot.isConnected}}</td>

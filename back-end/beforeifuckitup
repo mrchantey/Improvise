@@ -37,47 +37,95 @@ def handleIndex():
     return respond(render_template('index.html'), 200, 'text/html')
 
 
-@app.route('/nao/<attrType>')
+# @app.route('/cors', methods=['POST', 'GET', 'OPTIONS'])
+# def handleAllow():
+#     if request.method == 'OPTIONS':
+#         return preflightRespond()
+#     return respond({'name': 'peter', 'age': 21})
+
+@app.route('/property')
+def handleAllPropertyRequest():
+    return respond(nao.propertyMod.GetBakedProperties())
+
+
+@app.route('/action')
+def handleAllActionRequest():
+    return respond(nao.actionMod.GetBakedActions())
+
+
 @app.route('/nao/<attrType>/<attrName>', methods=['GET', 'POST', 'OPTIONS'])
-@app.route('/nao/<attrType>/<attrName>/<param1>')
 @app.route('/nao/<attrType>/<attrName>/<param1>/<param2>')
-def handleNaoRequest(attrType, attrName=None, param1=None, param2=None):
-        # parsing may not be nessecary for get requests
+def handleNaoRequest(attrType, attrName=None, param1=None, param2=None)
     if request.method == 'OPTIONS':
         return preflightRespond()
+    # parsing may not be nessecary for get requests
     attrType = utility.parseUnicode(attrType)
-    attrName = utility.parseUnicode(attrName)
-    param1 = utility.parseUnicode(param1)
-    param2 = utility.parseUnicode(param2)
     if attrType == 'method':
-        params = request.json['params'] if request.method == 'POST' else [param1, param2]
-        return handleMethodDo(attrName, params)
+        params = [param1, param2]
+        handleMethodDo(attrName, params)
     elif attrType == 'property':
         if attrName == None:
             return respond(nao.propertyMod.GetBakedProperties())
-        elif request.method == 'POST':
-            value = utility.parseUnicode(request.json['value'])
-            return handlePropertySet(attrName, value)
-        elif param1 != None:
-            return handlePropertySet(attrName, param1)
         else:
-            return handlePropertyGet(attrName)
-    elif attrType == 'action':
-        if attrName == None:
-            return respond(nao.actionMod.GetBakedActions())
-        else:
-            return handleActionRun(attrName)
-    elif attrType == 'events':
-        if request.method == 'POST':
-            return handleEventsGet(utility.parseUnicode(request.json))
-        else:
-            return handleEventsGet(param1)
+            return handleProperty
 
 
-# ----------------GETTING THERE------------------
+@app.route('/property/<propName>', methods=['GET', 'POST', 'OPTIONS'])
+def handlePropertyRequest(propName):
+    propName = utility.parseUnicode(propName)
+    if request.method == 'GET':
+        return handlePropertyGet(propName)
+    elif request.method == 'POST':
+        propValue = utility.parseUnicode(request.json['value'])
+        return handlePropertySet(propName, propValue)
 
-def handlePropertyRequest():
-    pass
+
+@app.route('/method/<methName>', methods=['POST', 'OPTIONS'])
+def handleMethodRequest(methName):
+    if request.method == 'OPTIONS':
+        return preflightRespond()
+    methName = utility.parseUnicode(methName)
+    params = utility.parseUnicode(request.json['params'])
+    return handleMethodDo(methName, params)
+
+
+@app.route('/action/<actionId>')
+def handleActionRunRequest(actionId):
+    actionId = utility.parseUnicode(actionId)
+    return handleActionRun(actionId)
+
+
+@app.route('/events/<drain>')
+def handleEventsRequest(drain):
+    bDrain = True if drain == 'true' else False
+    return handleEventsGet(bDrain)
+
+
+@app.route('/events', methods=['GET', 'POST', 'OPTIONS'])
+def handleDefaultEventsRequest():
+    if request.method == 'OPTIONS':
+        return preflightRespond()
+    elif request.method == 'POST':
+        return handleEventsGet(request.json['drain'])
+    else:
+        return handleEventsGet(False)
+
+# Really for testing and quick commands only--------------------------------------------------------------------------------
+
+
+@app.route('/property/<propName>/<propValue>')
+def handlePropertyGETSetRequest(propName, propValue):
+    propName = utility.parseUnicode(propName)
+    propValue = utility.parseUnicode(propValue)
+    return handlePropertySet(propName, propValue)
+
+
+@app.route('/method/<methName>/<param1>')
+def handleMethodGETDoRequest(methName, param1):
+    methName = utility.parseUnicode(methName)
+    param1 = utility.parseUnicode(param1)
+    return handleMethodDo(methName, [param1])
+# -------------------------------------------------------------------------------------------------------
 
 
 def handlePropertyGet(propName):
@@ -103,7 +151,7 @@ def handleActionRun(actionId):
     return respond({'actionId': actionId})
 
 
-def handleEventsGet(drainEvents=None):
+def handleEventsGet(drainEvents):
     print 'get events request..'
     events = None
     if drainEvents == True:
