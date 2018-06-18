@@ -15,7 +15,6 @@ new Vue({
   components: { App },
   template: '<App/>',
   beforeCreate() {
-    // window.$serverInterface = ServerInterface("http://localhost:5001", true)
     window.$apiInterface = apiInterface("http://localhost:5000", true)
 
     //TEST ADD

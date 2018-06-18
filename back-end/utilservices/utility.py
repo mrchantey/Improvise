@@ -13,14 +13,14 @@ def OpenJson(path):
     file = open(path, 'r')
     txt = file.read()
     uniJsn = json.loads(txt)
-    pyJsn = parseUnicode(uniJsn)
+    pyJsn = parseType(uniJsn)
     # print uniJsn
     # print pyJsn
     file.close()
     return pyJsn
 
 
-def parseUnicode(val):
+def parseType(val):
     if isinstance(val, unicode):
         newVal = val.encode('ascii', 'replace')
         if isInt(newVal):
@@ -46,15 +46,15 @@ def parseUnicode(val):
 def parseUnicodeDict(dict):
     res = {}
     for key, value in dict.iteritems():
-        key = parseUnicode(key)
-        res[key] = parseUnicode(value)
+        key = parseType(key)
+        res[key] = parseType(value)
     return res
 
 
 def parseUnicodeList(lst):
     res = []
     for item in lst:
-        res.append(parseUnicode(item))
+        res.append(parseType(item))
     return res
 
 # 'r' = read, 'w' = write, 'a' = append, 'r+' = read and write

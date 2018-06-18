@@ -9,10 +9,10 @@
         <th>Behavior State</th>
       </tr>
       <tr>
-          <td>{{robot.name}}</td>
-          <td>{{robot.ipAddress}}</td>
-          <td>{{robot.isConnected}}</td>
-          <td>{{robot.autoState}}</td>
+          <td>{{robotProps.name}}</td>
+          <td>{{robotProps.ipAddress}}</td>
+          <td>{{robotProps.isConnected}}</td>
+          <td>{{robotProps.autoState}}</td>
       </tr>
       </module-table>
       
@@ -24,7 +24,7 @@
 <script>
 import ModuleTable from "../items/ModuleTable.vue";
 export default {
-  props: ["robot"],
+  props: ["robotProps"],
   components: {
     ModuleTable
   }

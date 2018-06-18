@@ -1,31 +1,31 @@
 <template>
 <div v-if="robot!= undefined">
   <module 
-  v-bind:title="robot.name+ ' Remote Controller'">
+  v-bind:title="robot.properties.name+ ' Remote Controller'">
   <div class="contents">
   <input-range
   v-bind:title="'Master Volume'"
   v-bind:onDown="()=>propertyDown('volume')"
   v-bind:onUp="()=>propertyUp('volume')"
-  v-bind:value="robot.volume"
+  v-bind:value="robot.properties.volume"
   ></input-range>
   <input-range
   v-bind:title="'Speech Volume'"
   v-bind:onDown="()=>propertyDown('speechVolume')"
   v-bind:onUp="()=>propertyUp('speechVolume')"
-  v-bind:value="robot.speechVolume"
+  v-bind:value="robot.properties.speechVolume"
   ></input-range>
   <input-range
   v-bind:title="'Speech Speed'"
   v-bind:onDown="()=>propertyDown('speechSpeed')"
   v-bind:onUp="()=>propertyUp('speechSpeed')"
-  v-bind:value="robot.speechSpeed"
+  v-bind:value="robot.properties.speechSpeed"
   ></input-range>
   <input-range
   v-bind:title="'Speech Pitch'"
   v-bind:onDown="()=>propertyDown('speechPitch')"
   v-bind:onUp="()=>propertyUp('speechPitch')"
-  v-bind:value="robot.speechPitch"
+  v-bind:value="robot.properties.speechPitch"
   ></input-range>
   <module-item v-bind:title="'Buttons'">
     <button @click="stopAll" tabindex="2">Stop All</button>
@@ -66,10 +66,10 @@ export default {
   },
   methods: {
     propertyDown(propName) {
-      this.robot.SetProperty(propName, this.robot[propName] - 10);
+      this.robot.SetProperty(propName, this.robot.properties[propName] - 10);
     },
     propertyUp(propName) {
-      this.robot.SetProperty(propName, this.robot[propName] + 10);
+      this.robot.SetProperty(propName, this.robot.properties[propName] + 10);
     },
     wakeUp() {
       this.robot.DoMethod("SetAutoState", ["solitary"]);

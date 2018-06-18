@@ -3,7 +3,7 @@
     <module v-bind:title="'Connections'">
       <output-text 
       v-bind:title="'Server Status:'"
-      v-bind:value="apiConnected"
+      v-bind:value="apiInterface.connectionStatus"
       ></output-text>
       
       <!-- <module-item v-bind:title="'Create a new Connection'">
@@ -11,7 +11,7 @@
         <input v-model="serverIp" @keypress="onIpKeypress">
         <button @click="onIpSubmit">Submit</button>
       </module-item> -->
-      <table-robots v-bind:robot="robot"></table-robots>
+      <table-robots v-bind:robotProps="apiInterface.robot.properties"></table-robots>
       </module>
 </div>
 
@@ -33,8 +33,7 @@ export default {
   data() {
     return {
       serverIp: "",
-      apiConnected: window.$apiInterface.connectionStatus,
-      robot: window.$apiInterface.robot
+      apiInterface: window.$apiInterface
     };
   }
   // methods: {

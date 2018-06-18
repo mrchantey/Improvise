@@ -33,6 +33,21 @@ class EventModule():
         self.eventSubscribers.append(sub)
         print 'EVENT SUBSCRIBED', eventKey
 
+    def HandleRequest(self, kwargs):
+        events = []
+        if kwargs['reqName'] == 'fetch':
+            if 'params' in kwargs:
+                if kwargs['params']['drain'] == True:
+                    print 'drain true'
+                    events = self.DrainEvents()
+                else:
+                    print 'drain false'
+                    events = self.eventPool
+            else:
+                print 'no params'
+                events = self.eventPool
+        return {'events': events}
+
     def DrainEvents(self):
         poolContents = self.eventPool
         self.eventPool = []

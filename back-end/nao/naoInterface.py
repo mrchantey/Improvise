@@ -17,21 +17,25 @@ class NaoInterface():
         self.properties = {}
         try:
             self.session.connect('tcp://'+ipAddress+":9559")
-            self.serviceMod = ServiceModule(self.session)
-            self.propertyMod = PropertyModule(ipAddress, self.serviceMod)
-            self.methodMod = MethodModule(self.serviceMod)
-            self.eventMod = EventModule(self.serviceMod.memory)
-            self.actionMod = ActionModule(self.serviceMod, self.propertyMod, self.methodMod)
+            self.services = ServiceModule(self.session)
+            self.properties = PropertyModule(ipAddress, self.services)
+            self.methods = MethodModule(self.services)
+            self.events = EventModule(self.services.memory)
+            self.actions = ActionModule(self.services, self.properties, self.methods)
 
         except RuntimeError:
             print 'Runtime Error, could not connect to robot'
 
+    def HandleRequest(self, reqType, **kwargs):
+        attr = getattr(self, reqType)
+        response = attr.HandleRequest(kwargs)
+        return response
 
-# BELOW FOR TESTING ONLY
+        # BELOW FOR TESTING ONLY
 if __name__ == "__main__":
     ipAddress = sys.argv[1]
     naoInterface = NaoInterface(ipAddress)
-    naoInterface.methodMod.Say(["howdie", False])
+    naoInterface.methods.Say(["howdie", False])
     # naoSession.Connect()
     # naoSession.DoMethod(0, 'setAutoState', 'disabled')
     # naoSession.DoMethod(0, 'setAutoState', 'solitary')

@@ -1,35 +1,27 @@
 import { stat } from "fs";
 import FilterEvents from "./EventFilter";
 
-// window.pollEvents = true
 window.pollEvents = false
+// window.pollEvents = false
 
 
 export default (serverAddress, dev) => {
     const naoAddress = serverAddress + "/nao/"
 
     const robot = {
-        name: 'na',
-        ipAddress: 'na',
-        behaviors: [],
-        actions: [],
-        isConnected: true,
-        volume: -1,
-        speechVolume: -1,
-        speechSpeed: -1,
-        speechPitch: -1,
+        properties: {},
         speechLog: [],
-        autoState: 'na',
         // InitializeRobot,
         SetProperty,
         DoMethod,
-        RunAction
+        RunAction,
+        FetchEvents
         // GetProperty,
     }
 
     setInterval(() => {
         if (pollEvents)
-            DrainEvents().then((events) => FilterEvents(robot, events))
+            FetchEvents(true).then((events) => FilterEvents(robot, events))
     }, 5000)
 
 
@@ -75,17 +67,19 @@ export default (serverAddress, dev) => {
     }
 
     function InitializeRobot() {
-        const urlProp = naoAddress + 'property'
-        MakeRequest(urlProp)
-            .then((props) => {
+        const urlAllProperties = naoAddress + 'properties/all'
+        MakeRequest(urlAllProperties)
+            .then((res) => {
                 console.log('All properties received')
                 //this apparently does not lead to losing references
-                Object.assign(apiInterface.robot, props)
-                apiInterface.connectionStatus = true
+                // Object.assign(apiInterface.robot, props)
+                apiInterface.robot.properties = res.value
+                apiInterface.connectionStatus = 'connected'
             })
-        const urlAction = naoAddress + 'action'
-        MakeRequest(urlAction)
+        const urlAllActions = naoAddress + 'actions/all'
+        MakeRequest(urlAllActions)
             .then((actions) => {
+                console.log('All actions received')
                 apiInterface.robot.actions = actions
             })
     }
@@ -97,27 +91,29 @@ export default (serverAddress, dev) => {
     // }
 
     function SetProperty(propName, propValue) {
-        const url = naoAddress + "property/" + propName
-        MakeRequest(url, { 'value': propValue })
-            .then((prop) => robot[propName] = prop['value'])
+        const url = naoAddress + "properties/" + propName
+        MakeRequest(url, { 'params': { 'value': propValue } })
+            .then((prop) => robot.properties[propName] = prop['value'])
     }
 
     function DoMethod(methName, params) {
-        const url = naoAddress + "method/" + methName
+        const url = naoAddress + "methods/" + methName
         MakeRequest(url, { 'params': params })
             .then((resBody) => console.log(resBody))
     }
 
     function RunAction(actionId) {
-        const url = naoAddress + "action/" + actionId
+        const url = naoAddress + "actions/" + actionId
         MakeRequest(url)
             .then((resBody) => console.log(resBody))
     }
 
-    function DrainEvents() {
-        const url = naoAddress + 'events'
-        MakeRequest(url, { 'drain': true })
-            .then((resBody) => console.log(resBody))
+    function FetchEvents(drain) {
+        return new Promise((resolve, reject) => {
+            const url = naoAddress + 'events/fetch'
+            MakeRequest(url, { 'params': { 'drain': drain } })
+                .then((resBody) => resolve(resBody['events']))
+        })
     }
 
     return apiInterface

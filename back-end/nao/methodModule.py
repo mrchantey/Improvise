@@ -5,15 +5,20 @@ class MethodModule():
     def __init__(self, services):
         self.services = services
 
+    def HandleRequest(self, kwargs):
+        meth = getattr(self, kwargs['reqName'])
+        if 'params' in kwargs:
+            meth(kwargs['params'])
+        else:
+            meth()
+        return {'status': 'all good'}
+
     def DoMethod(self, methName, params):
         meth = getattr(self, methName)
         meth(params)
 
     def SetAutoState(self, params):
         self.services.autonomousLife.setState(params[0], _async=True)
-
-    def say(self, params):
-        self.Say(params)
 
     def Say(self, params):
         if len(params) > 1:
@@ -31,7 +36,7 @@ class MethodModule():
         self.services.audioPlayer.playFile(params[0], _async=True)
         # id = self.services.audioPlayer.loadFile(params[0])
 
-    def StopAll(self, params):
+    def StopAll(self):
         self.services.behaviorManager.stopAllBehaviors(_async=True)
         self.services.textToSpeech.stopAll(_async=True)
         self.services.audioPlayer.stopAll(_async=True)
