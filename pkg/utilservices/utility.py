@@ -25,8 +25,11 @@ def parseType(val):
         newVal = val.encode('ascii', 'replace')
         if isInt(newVal):
             return int(newVal)
-        else:
-            return newVal
+        return newVal
+    elif isinstance(val, str):
+        if isInt(val):
+            return int(val)
+        return val
     elif isinstance(val, dict):
         return parseUnicodeDict(val)
     elif isinstance(val, list):

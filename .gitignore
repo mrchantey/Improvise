@@ -1,11 +1,10 @@
 .DS_Store
 node_modules/
+keys/
 /dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-Improvise_Communicate-key.json
-weatherAPIKey.json
 
 # Editor directories and files
 .idea

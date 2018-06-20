@@ -5,6 +5,7 @@ from google.protobuf.json_format import MessageToJson
 import json
 import sys
 from pkg.utilservices import utility
+import datetime
 
 credentials = service_account.Credentials.from_service_account_file('pkg/keys/Improvise_Communicate-key.json')
 language_code = 'en-US'
@@ -25,7 +26,14 @@ def MakeFormattedRequest(queryText):
         'action': r['action'],
         'parameters': r['parameters']
     }
-
+    if 'date' in response['parameters']:
+        if response['parameters']['date'] == '':
+            return response
+        print 'BANG', response['parameters']
+        resDateTime = response['parameters']['date']
+        resDate = resDateTime.split('T')[0].split('-')
+        resDate = utility.parseType(resDate)
+        response['parameters']['formattedDate'] = datetime.date(resDate[0], resDate[1], resDate[2])
     return response
 
 
@@ -43,7 +51,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         query = sys.argv[1]
         parsedResponse = MakeFormattedRequest(query)
-        print parsedResponse
+        # print parsedResponse
         # print 'response received', response
 
     # try:
