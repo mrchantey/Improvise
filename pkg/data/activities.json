@@ -1,0 +1,83 @@
+{
+    "activities": [
+        {
+            "id": 0,
+            "name": "Conciege Visits",
+            "description": "Join the lifestyle team visiting concierge"
+        },
+        {
+            "id": 1,
+            "name": "Walking Group",
+            "description": "Come along with the phisiotherapy team for a walk in the beautiful Sarah Cooper Garden"
+        },
+        {
+            "id": 2,
+            "name": "Reminiscence Bus Outing",
+            "description": "Come along for a scenic bus ride and reminise about the area"
+        },
+        {
+            "id": 3,
+            "name": "Virtual Reality",
+            "description": "Visit the street where you grew up, or visit a whale underwater! anything is possible in virtual reality."
+        },
+        {
+            "id": 4,
+            "name": "Bowling",
+            "description": "Knock them down in a fun game of six pin bowling."
+        },
+        {
+            "id": 5,
+            "name": "Silent Disco",
+            "description": "Move and Groove in the quietest party around!"
+        },
+        {
+            "id": 6,
+            "name": "Cinema Movie",
+            "description": "Join us in sol cine for a movie classic. Popcorn is included!"
+        }
+    ],
+    "schedule": [
+        {
+            "neighbourhood": "barton",
+            "day": 28,
+            "month": 6,
+            "activities": [
+                {
+                    "hour": 9,
+                    "minute": 0,
+                    "id": 0
+                },
+                {
+                    "hour": 10,
+                    "minute": 45,
+                    "id": 1
+                },
+                {
+                    "hour": 11,
+                    "minute": 30,
+                    "id": 2
+                },
+                {
+                    "hour": 2,
+                    "minute": 30,
+                    "id": 3
+                },
+                {
+                    "hour": 3,
+                    "minute": 0,
+                    "id": 4
+                },
+                {
+                    "hour": 3,
+                    "minute": 30,
+                    "id": 5
+                },
+                {
+                    "hour": 6,
+                    "minute": 0,
+                    "id": 6
+                }
+            ]
+        }
+    ]
+}

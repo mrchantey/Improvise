@@ -1,3 +1,4 @@
+# from __future__ import absolute_import
 from flask import Flask, request, render_template, make_response
 import sys
 from utilservices import utility
@@ -48,8 +49,8 @@ def onRequestDialog(text):  # Dependency injected to this method
 
 @app.route('/dialog/<text>')
 def handleRequestDialog(text):
-    print 'DIALOG REQUEST MADE'
-    print request.method
+    # print 'DIALOG REQUEST MADE'
+    # print request.method
     responseText = onRequestDialog(text)
     return respond({'responseText': responseText})
 

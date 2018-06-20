@@ -31,15 +31,11 @@ def parseType(val):
         return parseUnicodeDict(val)
     elif isinstance(val, list):
         return parseUnicodeList(val)
-    elif isinstance(val, int):
-        return val
-    elif isinstance(val, str):
-        return val
-    elif isinstance(val, bool):
+    elif isinstance(val, int) or isinstance(val, str) or isinstance(val, bool) or isinstance(val, float):
         return val
     elif val == None:
         return val
-    print '\n\n unknown type', type(val)
+    print '\n\n unknown type', '\n', type(val), '\n', val
     return val
 
 
@@ -56,5 +52,6 @@ def parseUnicodeList(lst):
     for item in lst:
         res.append(parseType(item))
     return res
+
 
 # 'r' = read, 'w' = write, 'a' = append, 'r+' = read and write

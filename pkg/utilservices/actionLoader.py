@@ -15,7 +15,7 @@ def LoadActionInfo(behaviorPaths):
 
 
 def ParseFile(idCount):
-    actionData = utility.OpenJson('utilservices/ActionData.json')
+    actionData = utility.OpenJson('pkg/data/actions.json')
     actions = actionData['actions']
     for action in actions:
         action['id'] = idCount
