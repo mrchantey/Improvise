@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import Dialog from '@/components/dialog/Dialog'
 import Connection from '@/components/connection/Connection'
 import Settings from '@/components/Settings'
 import Subtitles from '@/components/Subtitles'
@@ -28,6 +29,10 @@ export default new Router({
       component: Connection
     },
     {
+      path: '/dialog',
+      component: Dialog
+    },
+    {
       path: '/settings',
       component: Settings
     },
@@ -35,7 +40,6 @@ export default new Router({
       path: '/actions',
       name: 'Actions',
       component: Actions,
-
     },
     {
       path: '/subtitles',

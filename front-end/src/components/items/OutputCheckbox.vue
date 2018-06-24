@@ -1,9 +1,8 @@
 <template>
     <module-item v-bind:title="title">
-        <p>{{value}}</p>
+        <div>{{value}}</div>
     </module-item>
 </template>
-
 
 
 <script>

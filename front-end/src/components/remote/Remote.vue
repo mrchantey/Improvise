@@ -97,8 +97,4 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-.contents > * {
-  padding: 1em;
-}
 </style>

@@ -1,6 +1,7 @@
 import datetime
+import dateutil.parser
 # from datetime import date, time
-DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 MONTHS = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 DIGIT0 = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 DIGIT1 = ["", "", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"]
@@ -50,6 +51,7 @@ def GetNumberWord(number):
 
 def GetDayOfWeek(date):
     dow = date.isoweekday()
+    print dow
     return DAYS[dow]
 
 
@@ -75,8 +77,17 @@ def GetDateWords(date, includeYear=True):
     return phrase + ", {0}".format(GetNumberWord(date.year))
 
 
+def ParseDateFromString(stringDate):
+    return dateutil.parser.parse(stringDate)
+
+
 if __name__ == "__main__":
-    for i in range(0, 1000):
-        print GetNumberWord(i)
+    dateTime = ParseDateFromString('2018-06-10T20:33:32Z')
+    date = dateTime.date()
+    print type(date)
+    print GetDateWords(date)
+    # print ParseDateFromString('2018-06-10T20:33:32Z')
+    # for i in range(0, 1000):
+    #     print GetNumberWord(i)
     # now = datetime.datetime.now().date()
     # print GetDateWords(now)

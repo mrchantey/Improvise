@@ -27,6 +27,7 @@ export default {
   background-color: #ffffff;
   grid-column-start: 2;
   grid-column-end: 3;
+  padding: 1em;
 }
 
 .title {

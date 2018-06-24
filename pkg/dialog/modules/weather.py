@@ -1,5 +1,3 @@
-import json
-import requests
 from pkg.utilservices import utility
 
 baseUrl = 'http://api.openweathermap.org/data/2.5/weather'
@@ -10,12 +8,8 @@ KELVIN = 273.15
 
 
 def RequestWeather():
-    req = requests.get(url)
-    uniData = json.loads(req.text)
-    weatherData = utility.parseType(uniData)
+    weatherData = utility.GetJson(url)
     WeatherKelvinToCelsius(weatherData)
-    # for key, value in data.iteritems():
-    #     print key, value
     return weatherData
 
 

@@ -29,7 +29,8 @@ def MakeFormattedRequest(queryText):
     if 'date' in response['parameters']:
         if response['parameters']['date'] == '':
             return response
-        print 'BANG', response['parameters']
+        # THIS SHOULD ALL BE PUT INTO UTILITIES!!!!
+        # print 'BANG', response['parameters']
         resDateTime = response['parameters']['date']
         resDate = resDateTime.split('T')[0].split('-')
         resDate = utility.parseType(resDate)
@@ -51,7 +52,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         query = sys.argv[1]
         parsedResponse = MakeFormattedRequest(query)
-        # print parsedResponse
+        print parsedResponse
         # print 'response received', response
 
     # try:
