@@ -32,14 +32,15 @@
     <button @click="wakeUp" tabindex="3">Wake Up</button>
     <button @click="goToSleep" tabindex="4">Go To Sleep</button>
   </module-item>
-  <module-item v-bind:title="'Say A Phrase'">
-    <input @keypress="sayPhraseKeyPress" v-model="phraseToSay" tabindex="1">
-    <button @click="sayPhrase">Say</button>
-      <label>
+  <input-text
+  v-bind:title="'Say a phrase'"
+  v-bind:onEnterCallback="sayPhrase"
+  >
+  <label>
       <input type="checkbox" v-model="sayAnimated">
       Say Animated
-      </label>
-  </module-item>
+  </label>
+  </input-text>
   </div>
   </module>
 </div>
@@ -50,12 +51,14 @@
 import Module from "../items/Module.vue";
 import ModuleItem from "../items/ModuleItem.vue";
 import InputRange from "../items/InputRange.vue";
+import InputText from "../items/InputText.vue";
 
 export default {
   components: {
     Module,
     ModuleItem,
-    InputRange
+    InputRange,
+    InputText
   },
   data() {
     return {
@@ -80,12 +83,8 @@ export default {
     goToSleep() {
       this.robot.DoMethod("SetAutoState", ["disabled"]);
     },
-    sayPhrase() {
-      this.robot.DoMethod("Say", [this.phraseToSay, this.sayAnimated]);
-      this.phraseToSay = "";
-    },
-    sayPhraseKeyPress(event) {
-      if (event.key == "Enter") this.sayPhrase();
+    sayPhrase(phrase) {
+      this.robot.DoMethod("Say", [phrase, this.sayAnimated]);
     }
   }
 };

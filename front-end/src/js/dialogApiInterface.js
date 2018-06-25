@@ -7,13 +7,16 @@ export default (serverAddress) => {
 
     const dialogUrl = serverAddress + "/dialog/"
     function SendDialog(text) {
-        let parsedText = text.replace(/ /g, '_')
-        if (parsedText.charAt(0) === "_")
-            parsedText = parsedText.substring(1)
-        const url = dialogUrl + parsedText
-        MakeRequest(url).then((response) => {
-            console.log("Response received")
-            console.log(response)
+        return new Promise((resolve, reject) => {
+            let parsedText = text.replace(/ /g, '_')
+            if (parsedText.charAt(0) === "_")
+                parsedText = parsedText.substring(1)
+            const url = dialogUrl + parsedText
+            MakeRequest(url).then((response) => {
+                console.log("Response received")
+                console.log(response)
+                resolve(response['responseText'])
+            })
         })
     }
 

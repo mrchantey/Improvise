@@ -38,20 +38,28 @@ def handleIndex():
     return respond(render_template('index.html'), 200, 'text/html')
 
 
-@app.route('/dialog')  # Perhaps temporary
-def handleWebSpeechRequest():
-    return respond(render_template('dialogIndex.html'), 200, 'text/html')
-
-
 def onRequestDialog(text):  # Dependency injected to this method
     return "dialog request not set\n" + text
 
 
+@app.route('/dialog', methods=['GET', 'POST', 'OPTIONS'])  # Perhaps temporary
+def handleRequestDialog():
+    if request.method == 'GET':
+        return respond(render_template('dialogIndex.html'), 200, 'text/html')
+    elif request.method == 'OPTIONS':
+        return preflightRespond()
+    else:
+        reqBody = utility.parseType(request.json)
+        # print 'TODO HANDLE DIALOG POST REQUEST', reqBody
+        if 'params' in reqBody:
+            responseText = onRequestDialog('params'['text'])
+            return respond({'responseText': responseText})
+
+
 @app.route('/dialog/<text>')
-def handleRequestDialog(text):
-    # print 'DIALOG REQUEST MADE'
-    # print request.method
-    responseText = onRequestDialog(text)
+def handleRequestDialogURL(text):
+    whiteSpaceText = text.replace("_", " ")
+    responseText = onRequestDialog(whiteSpaceText)
     return respond({'responseText': responseText})
 
 

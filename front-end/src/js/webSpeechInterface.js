@@ -7,36 +7,65 @@ export default (devMode = true) => {
 
     const recognition = new webkitSpeechRecognition()
     recognition.continuous = true
-    recognition.interimResults = false
+    recognition.interimResults = true
     recognition.lang = 'en-AU'
 
     const wsInterface = {
+        recognition,
         hasStarted: false,
         hasAudioStarted: false,
         hasSpeechStarted: false,
         hasSoundStarted: false,
         autoRestart: true,
-        setContinuous(val) { recognition.continuous = val },
-        setInterim(val) { recognition.interimResults = val },
         onResult(text) { console.log('recognition proxy __onResult__ not yet set') },
-        speechLog: [],
+        conversationLog: [],
         errorLog: [],
         currentSentence: '',
         lastSentence: '',
         phraseTimeout: 500,
         lastWordTimestamp: new Date()
     }
-    wsInterface.start = () => {
-        if (!wsInterface.hasStarted) {
+
+    wsInterface.setEnabled = (val) => {
+        if (val == true && !wsInterface.hasStarted) {
             console.log('starting')
             recognition.start()
-        }
-    }
-    wsInterface.stop = () => {
-        if (wsInterface.hasStarted) {
+        } else if (val == false && wsInterface.hasStarted) {
             console.log('stopping')
             recognition.stop()
         }
+    }
+
+    wsInterface.restart = () => {
+        wsInterface.setEnabled(false)
+        wsInterface.setEnabled(true)
+    }
+
+    wsInterface.setContinuous = (val) => {
+        recognition.continuous = val
+        wsInterface.restart()
+    }
+    wsInterface.setInterim = (val) => {
+        recognition.interimResults = val
+        wsInterface.restart()
+    }
+
+    wsInterface.incrementPhraseTimeout = () => wsInterface.phraseTimeout += 10
+    wsInterface.decrementPhraseTimeout = () => wsInterface.phraseTimeout -= 10
+    wsInterface.setAutoRestart = (val) => wsInterface.autoRestart = val
+
+    wsInterface.MakeQuery = (text) => {
+        wsInterface.lastSentence = text
+        wsInterface.conversationLog.unshift({ type: 'query', text })
+        wsInterface.currentSentence = ''
+        console.log('phrase concluded')
+        wsInterface.onResult(text).then((response) => {
+            if (Array.isArray(response)) {
+                response.forEach(r => wsInterface.conversationLog.unshift({ type: 'response', text: r }))
+            } else {
+                wsInterface.conversationLog.unshift({ type: 'response', text: response })
+            }
+        })
     }
 
     recognition.start()
@@ -47,7 +76,6 @@ export default (devMode = true) => {
 
     attatchToggleEvent('onstart', 'onend', 'hasStarted', undefined, () => {
         if (wsInterface.autoRestart) {
-            console.log(wsInterface)
             recognition.start()
         }
     }
@@ -80,13 +108,10 @@ export default (devMode = true) => {
         for (let i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
                 const sentence = event.results[i][0].transcript
-                wsInterface.lastSentence = sentence
-                wsInterface.speechLog.push(wsInterface.lastSentence)
-                wsInterface.currentSentence = ''
-                console.log('phrase concluded')
-                wsInterface.onResult(sentence)
+                wsInterface.MakeQuery(sentence)
             }
             else {
+                console.log('interim..')
                 wsInterface.currentSentence += event.results[i][0].transcript
             }
         }

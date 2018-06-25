@@ -6,7 +6,7 @@ class EventModule():
     def __init__(self, memoryService):
         events = [
             "AutonomousLife/State",
-            # "ALTextToSpeech/TextDone",
+            "ALTextToSpeech/TextDone",
             # "ALTextToSpeech/TextInterrupted",
             # "ALTextToSpeech/TextStarted",
             "ALTextToSpeech/CurrentSentence"
@@ -17,6 +17,7 @@ class EventModule():
         ]
         self.eventPool = []
         self.eventSubscribers = []
+        self.eventListeners = []
         for eventKey in events:
             self.SubscribeToEvent(eventKey, memoryService)
 
@@ -28,10 +29,17 @@ class EventModule():
         def OnEvent(eventValue):
             print 'event occured..', eventKey, eventValue
             self.eventPool.append({'key': eventKey, 'value': eventValue})
+            thisEventListeners = filter(lambda l: l['key'] == eventKey, self.eventListeners)
+            for listener in thisEventListeners:
+                listener['callback'](eventValue)
+
         sub.signal.connect(OnEvent)
         # subscribers must be kept alive
         self.eventSubscribers.append(sub)
         print 'EVENT SUBSCRIBED', eventKey
+
+    def AddListener(self, key, callback):
+        self.eventListeners.append({'key': key, 'callback': callback})
 
     def HandleRequest(self, kwargs):
         events = []

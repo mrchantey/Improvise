@@ -1,10 +1,10 @@
 import qi
 import sys
-from serviceModule import ServiceModule
-from propertyModule import PropertyModule
-from methodModule import MethodModule
-from eventModule import EventModule
-from actionModule import ActionModule
+from modules.services import ServiceModule
+from modules.properties import PropertyModule
+from modules.methods import MethodModule
+from modules.events import EventModule
+from modules.actions import ActionModule
 
 # from naoqi import ALBroker
 
@@ -18,9 +18,9 @@ class NaoInterface():
         try:
             self.session.connect('tcp://'+ipAddress+":9559")
             self.services = ServiceModule(self.session)
-            self.properties = PropertyModule(ipAddress, self.services)
-            self.methods = MethodModule(self.services)
             self.events = EventModule(self.services.memory)
+            self.properties = PropertyModule(ipAddress, self.services)
+            self.methods = MethodModule(self.services, self.events)
             self.actions = ActionModule(self.services, self.properties, self.methods)
 
         except RuntimeError:
@@ -31,11 +31,12 @@ class NaoInterface():
         response = attr.HandleRequest(kwargs)
         return response
 
-        # BELOW FOR TESTING ONLY
+
 if __name__ == "__main__":
     ipAddress = sys.argv[1]
     naoInterface = NaoInterface(ipAddress)
-    naoInterface.methods.Say(["howdie", False])
+    naoInterface.methods.Say([["howdie", "lets count to 10", '1', '2', '3', '4'], False])
+    naoInterface.methods.Say(["all done", False])
     # naoSession.Connect()
     # naoSession.DoMethod(0, 'setAutoState', 'disabled')
     # naoSession.DoMethod(0, 'setAutoState', 'solitary')

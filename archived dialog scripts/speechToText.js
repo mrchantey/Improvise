@@ -17,9 +17,10 @@ recogntion.onresult = function (event) {
     log('new result')
     console.log('result!')
     const speech = event.results[event.results.length - 1][0]
-    log(speech.transcript)
-    console.log("\nspeech: " + speech.transcript + "\nconfidence: " + speech.confidence)
-    speechToText.OnResult(speech.transcript)
+    formattedTranscript = removeInitialWhiteSpace(speech.transcript)
+    log(formattedTranscript)
+    console.log("\nspeech:" + formattedTranscript + "\nconfidence: " + speech.confidence)
+    speechToText.OnResult(formattedTranscript)
     // recogntion.start()
 }
 console.log(recogntion)
@@ -31,6 +32,13 @@ function log(msg) {
 }
 
 bodyMessages()
+
+function removeInitialWhiteSpace(s) {
+    while (s.charAt(0) === ' ') {
+        s = s.substr(1)
+    }
+    return s
+}
 
 function bodyMessages() {
     recogntion.onstart = () => log('recognition started')

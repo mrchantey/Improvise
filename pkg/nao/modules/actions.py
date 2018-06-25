@@ -1,7 +1,7 @@
 # from naoInterface import NaoInterface
 import sys
 
-import naoInterface
+# from pkg.nao.naoInterface import NaoInterface
 from pkg.utilservices import actionLoader
 
 
@@ -67,10 +67,10 @@ class ActionModule():
 if __name__ == "__main__":
     # ipAddress = "10.50.16.54"
     ipAddress = sys.argv[1]
-    nao = naoInterface.NaoInterface(ipAddress)
-    # print nao.actionMod
-    print nao.actions
-    nao.actions.RunAction(1)
+    # nao = NaoInterface(ipAddress)
+    # # print nao.actionMod
+    # print nao.actions
+    # nao.actions.RunAction(1)
 
     # nao.actionMod.RunAction(615)
     # nao.actionMod.RunAction(467)
