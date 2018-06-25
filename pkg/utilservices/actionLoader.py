@@ -11,6 +11,7 @@ def LoadActionInfo(behaviorPaths):
     idCount = behaviorResults['idCount']
     actions += behaviorResults['actions']
     # actions.append(result['actions'])
+    BreakoutText(actions)
     return actions
 
 
@@ -45,6 +46,48 @@ def ParseBehaviors(behaviorPaths, idCount):
     return {'idCount': idCount, 'actions': actions}
 
 
+def BreakoutText(actions):
+    speechActions = filter(lambda a: a['type'] == "speech", actions)
+    # for text in filter(lambda a: a['text'], speechActions):
+    for action in speechActions:
+        splitText = SplitAndReplaceMany(action['text'], ['.', '!', '?'])
+        # splitText = SplitAndReplace(action['text'], '.')
+        whiteRemoved = RemoveWhiteSpaceAtBeginning(splitText)
+        action['text'] = whiteRemoved
+
+
+def SplitAndReplaceMany(rawWord, delimeters):
+    newArr = [rawWord]
+    for delimeter in delimeters:
+        nextArr = []
+        for word in newArr:
+            nextArr += SplitAndReplace(word, delimeter)
+        newArr = nextArr
+    return newArr
+
+
+def SplitAndReplace(word, delimeter):
+    splitWord = word.split(delimeter)
+    # if splitWord[len(splitWord-1)] == '':
+    # splitWord = splitWord[:-1]
+    semiCombined = map(lambda w: w + delimeter, splitWord[:-1])
+    semiCombined.append(splitWord[len(splitWord)-1])
+    return semiCombined
+
+
+def RemoveWhiteSpaceAtBeginning(wordArr):
+    newArr = []
+    for word in wordArr:
+        # print "WORD>>" + word + "<<"
+        if len(word) == 0:
+            continue
+        while word[0] == ' ':
+            word = word[1:]
+        newArr.append(word)
+        # print "WORD>>" + word + "<<"
+    return newArr
+
+
 if __name__ == '__main__':
     behaviorPaths = [
         ".lastUploadedChoregrapheBehavior/behavior_1",
@@ -67,6 +110,8 @@ if __name__ == '__main__':
         "grasping/animations/Missed",
         "grasping/animations/ThankYou",
         "grasping/animations/ObserveObject2"]
-    actions = LoadActionInfo(behaviorPaths)
-    for action in actions:
-        print action['name']
+    actions = LoadActionInfo([])
+    # actions = LoadActionInfo(behaviorPaths)
+    # for action in actions:
+    for sentence in actions[3]['text']:
+        print sentence

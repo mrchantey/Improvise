@@ -28,7 +28,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .contents {
   display: grid;
   grid-template-columns: 0.1fr 0.8fr 0.1fr;

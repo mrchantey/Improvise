@@ -9,7 +9,7 @@ export default (url, body = undefined) => {
         body: JSON.stringify(body)
     }
     const reqPrint = body == undefined ? '\nGET\n' : '\nPOST\n'
-    console.log(reqPrint + url)
+    // console.log(reqPrint + url)
     return new Promise((resolve, reject) => {
         fetch(url, request)
             .then((response) => {

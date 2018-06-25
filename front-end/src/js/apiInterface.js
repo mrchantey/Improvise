@@ -2,8 +2,8 @@ import { stat } from "fs";
 import FilterEvents from "./EventFilter";
 import MakeRequest from "./apiRequest";
 
-window.pollEvents = false
 // window.pollEvents = false
+window.pollEvents = true
 
 //TO RENAME AS NAOAPIINTERFACE
 
@@ -12,6 +12,7 @@ export default (serverAddress, dev) => {
 
     const robot = {
         properties: {},
+        actions: [],
         speechLog: [],
         // InitializeRobot,
         SetProperty,

@@ -43,8 +43,6 @@ class MethodModule():
 
     def TextDoneListener(self, value):
         if value == 1 and len(self.phraseQueue) > 0:
-            print "time for next phrase!", value
-            print self.phraseQueue
             nextPhrase = self.phraseQueue.pop(0)
             self.BeginSpeaking(nextPhrase['phrase'], nextPhrase['animated'])
 
@@ -56,6 +54,7 @@ class MethodModule():
         # id = self.services.audioPlayer.loadFile(params[0])
 
     def StopAll(self):
+        self.phraseQueue = []
         self.services.behaviorManager.stopAllBehaviors(_async=True)
         self.services.textToSpeech.stopAll(_async=True)
         self.services.audioPlayer.stopAll(_async=True)

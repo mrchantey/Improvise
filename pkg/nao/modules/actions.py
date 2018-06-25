@@ -8,7 +8,7 @@ from pkg.utilservices import actionLoader
 class ActionModule():
 
     def __init__(self, serviceMod, propertyMod, methodMod):
-        behaviorPaths = propertyMod.properties['behaviors']
+        behaviorPaths = propertyMod.properties['behaviors']['get']()
         # behaviorPaths = [
         #     ".lastUploadedChoregrapheBehavior/behavior_1",
         #     "animationMode",
@@ -61,6 +61,9 @@ class ActionModule():
 
     def GetBakedActions(self):
         bakedActions = map(lambda a: a['info'], self.actions)
+        print 'retrieving baked actions'
+        for action in bakedActions:
+            print action['name']
         return bakedActions
 
 

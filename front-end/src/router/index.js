@@ -4,7 +4,7 @@ import Home from '@/components/Home'
 import Dialog from '@/components/dialog/Dialog'
 import Connection from '@/components/connection/Connection'
 import Settings from '@/components/Settings'
-import Subtitles from '@/components/Subtitles'
+import Subtitles from '@/components/subtitles/Subtitles'
 import Actions from '@/components/actions/Actions'
 import Remote from '@/components/remote/Remote'
 

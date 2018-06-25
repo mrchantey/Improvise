@@ -29,7 +29,7 @@ def OpenJson(path):
 
 def parseType(val):
     if isinstance(val, unicode):
-        newVal = val.encode('ascii', 'replace')
+        newVal = val.encode('ascii', 'ignore')
         if isInt(newVal):
             return int(newVal)
         return newVal
