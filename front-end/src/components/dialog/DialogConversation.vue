@@ -1,6 +1,7 @@
 <template>
        <module-item v-bind:title="'Conversation'">
            <input-text
+           class= "input-text"
            v-bind:title="'Ask a question'"
            v-bind:onEnterCallback="webSpeech.MakeQuery">
            </input-text>
@@ -33,7 +34,9 @@ export default {
   display: grid;
   grid-template-columns: 0.1fr 0.8fr 0.1fr;
 }
-
+.input-text {
+  font-size: 0.7em;
+}
 .sentence {
   padding: 0.5rem;
   margin: 0.5em;

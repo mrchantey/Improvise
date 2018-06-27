@@ -59,6 +59,6 @@ export default {
 }
 
 .contents > div {
-  font-size: 0.5em;
+  font-size: 0.7em;
 }
 </style>

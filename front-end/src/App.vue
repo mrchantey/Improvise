@@ -37,4 +37,9 @@ body {
   /* color: #2c3e50; */
   /* margin-top: 60px; */
 }
+
+button {
+  font-size: 1em;
+  padding: 0.2em;
+}
 </style>

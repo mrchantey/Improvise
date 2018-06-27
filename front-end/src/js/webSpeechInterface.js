@@ -68,7 +68,7 @@ export default (devMode = true) => {
         })
     }
 
-    recognition.start()
+    // recognition.start()
 
     attatchToggleEvent('onspeechstart', 'onspeechend', 'hasSpeechStarted')
     attatchToggleEvent('onaudiostart', 'onaudioend', 'hasAudioStarted')

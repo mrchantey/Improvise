@@ -5,13 +5,13 @@
       <tr>
         <th>Name</th>
         <th>IP Address</th>
-        <th>Connection Status</th>
+        <!-- <th>Connection Status</th> -->
         <th>Behavior State</th>
       </tr>
       <tr>
           <td>{{robotProps.name}}</td>
           <td>{{robotProps.ipAddress}}</td>
-          <td>{{robotProps.isConnected}}</td>
+          <!-- <td>{{robotProps.isConnected}}</td> -->
           <td>{{robotProps.autoState}}</td>
       </tr>
       </module-table>

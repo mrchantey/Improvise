@@ -34,4 +34,10 @@ export default {
 .functional > span {
   text-align: center;
 }
+
+button {
+  padding: 0;
+  max-height: 1.3em;
+  max-width: 5em;
+}
 </style>

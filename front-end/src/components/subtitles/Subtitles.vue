@@ -1,21 +1,19 @@
 <template>
   <module v-bind:title="'Subtitles'">
-<input-checkbox
-v-bind:title="'Autoscroll'"
-v-bind:onChange="onAutoscrollChange"
-v-bind:initialValue="true">
-</input-checkbox>
+    <input-checkbox
+    v-bind:title="'Autoscroll'"
+    v-bind:onChange="onAutoscrollChange"
+    v-bind:initialValue="true">
+    </input-checkbox>
     <div class="contents">
       <div 
       class="phrase"
-      v-for="(phrase,index) in speechLog"
+      v-for="(phrase,index) in robot.speechLog"
       v-bind:key="index">
       {{phrase}}
       </div>
     </div>
   </module>
-
-
 </template>
 
 
@@ -30,7 +28,7 @@ export default {
   },
   data() {
     return {
-      speechLog: window.$apiInterface.robot.speechLog,
+      robot: window.$apiInterface.robot,
       autoScroll: true
     };
   },

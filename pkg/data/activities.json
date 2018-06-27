@@ -154,7 +154,7 @@
     ],
     "activities": [
         {
-            "activity": "Conciege Visits",
+            "activity": "Concierge Visits",
             "description": "Join the lifestyle team for a visit"
         },
         {
@@ -309,11 +309,11 @@
     "plannedDays": [
         {
             "neighbourhood": "cooper",
-            "day": 26,
+            "day": 27,
             "month": 6,
             "events": [
                 {
-                    "activity": "Conciege Visits",
+                    "activity": "Concierge Visits",
                     "location": "Concierge",
                     "hour": 9,
                     "minute": 0
@@ -340,18 +340,18 @@
                 {
                     "activity": "Art Based Cognitive Therapy",
                     "location": "Sol Art",
-                    "hour": 2,
+                    "hour": 14,
                     "minute": 0
                 },
                 {
                     "activity": "Milkshake Cart",
                     "location": "Level Two",
-                    "hour": 2,
+                    "hour": 14,
                     "minute": 30
                 },
                 {
                     "activity": "Individual Music Therapy",
-                    "hour": 3,
+                    "hour": 15,
                     "minute": 30
                 }
             ]

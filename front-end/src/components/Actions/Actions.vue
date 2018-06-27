@@ -1,21 +1,19 @@
 <template>
-    <div>
+    <module v-bind:title="robot.properties.name + ' Actions'"> 
             <table-actions 
             v-bind:robot="robot"
             ></table-actions>
-    </div>
+    </module>
 </template>
 
 
 <script>
-// import Module from "../items/Module.vue";
-// import ModuleItem from "../Items/ModuleItem.vue";
+import Module from "../items/Module.vue";
 import TableActions from "./TableActions.vue";
 
 export default {
   components: {
-    // Module,
-    // ModuleItem,
+    Module,
     TableActions
   },
   data() {

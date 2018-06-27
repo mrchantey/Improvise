@@ -2,7 +2,7 @@
 
 <div>
   <module-table 
-  v-bind:title="robot.properties.name + ' Actions'">
+  v-bind:title="'All actions'">
     <tr>
       <th>Name</th>
       <th>ID</th>

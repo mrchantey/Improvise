@@ -11,11 +11,18 @@
         {
             "name": "I have a dream",
             "type": "audio",
-            "someInteger": 49,
             "tags": [
                 "monologue"
             ],
-            "path": "/home/nao/recordings/king.wav"
+            "path": "/home/nao/recordings/actions/king.wav"
+        },
+        {
+            "name": "The Entertainer",
+            "type": "audio",
+            "tags": [
+                "music"
+            ],
+            "path": "/home/nao/recordings/actions/The_Entertainer.mp3"
         },
         {
             "name": "Harry and Meghans Wedding",

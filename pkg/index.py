@@ -31,4 +31,3 @@ else:
     server.onRequestDialog = ConverseCallback
 
 # server.app.run(debug=True, port=server.PORT)
-server.app.run(port=server.PORT, host="0.0.0.0")

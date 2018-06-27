@@ -3,6 +3,7 @@
 <div class="container">
   <div class="content">
     <div class="title">{{title}}</div>
+    <hr>
     <slot></slot>
   </div>
 </div>
@@ -20,7 +21,8 @@ export default {
 <style scoped>
 .container {
   display: grid;
-  grid-template-columns: 1fr 50em 1fr;
+  grid-template-columns: 1fr minmax(5em, 50em) 1fr;
+  /* grid-template-columns: 1fr minmax() 1fr; */
 }
 
 .content {

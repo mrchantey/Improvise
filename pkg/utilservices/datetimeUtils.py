@@ -7,7 +7,7 @@ DIGIT0 = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight"
 DIGIT1 = ["", "", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"]
 DIGITN = ["", "hundred", "thousand", "hundred thousand", "million"]
 TEENS = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
-ORDINAL = ["", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelvth", "thirteenth", "fourteenth", "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentieth", "twentyfirst", "twentysecond", "twentythird", "twentyfourth", "twentyfifth", "twentysixth", "twentyseventh", "twentyeighth", "twentyninth", "thirtieth", "thirtyfirst"]
+ORDINAL = ["", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelvth", "thirteenth", "fourteenth", "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentieth", "twenty first", "twenty second", "twenty third", "twenty fourth", "twenty fifth", "twenty sixth", "twenty seventh", "twenty eighth", "twenty ninth", "thirtieth", "thirty first"]
 
 
 def GetNumberWord(number):
@@ -51,7 +51,6 @@ def GetNumberWord(number):
 
 def GetDayOfWeek(date):
     dow = date.isoweekday()
-    print dow
     return DAYS[dow]
 
 
@@ -78,7 +77,7 @@ def GetDateWords(date, includeYear=True):
 
 
 def ParseDateFromString(stringDate):
-    return dateutil.parser.parse(stringDate)
+    return dateutil.parser.parse(stringDate).date()
 
 
 if __name__ == "__main__":
