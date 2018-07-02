@@ -1,37 +1,11 @@
 {
-    "actions": [
-        {
-            "name": "Count To Ten",
-            "tags": [
-                "monologue"
-            ],
-            "type": "speech",
-            "text": "Hi Everybody. Lets count to ten! Ok, are you ready? 1.2.3.4.5"
-        },
-        {
-            "name": "I have a dream",
-            "type": "audio",
-            "tags": [
-                "monologue"
-            ],
-            "path": "/home/nao/recordings/actions/king.wav"
-        },
-        {
-            "name": "The Entertainer",
-            "type": "audio",
-            "tags": [
-                "music"
-            ],
-            "path": "/home/nao/recordings/actions/The_Entertainer.mp3"
-        },
-        {
-            "name": "Harry and Meghans Wedding",
-            "type": "speech",
-            "tags": [
-                "monologue"
-            ],
-            "text": "We're just days away"
-        },
+    "name": "Monologues",
+    "type": "collection",
+    "tags": [
+        "speech",
+        "poetry"
+    ],
+    "items": [
         {
             "name": "The Man From Snowy River",
             "tags": [

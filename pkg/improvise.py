@@ -5,7 +5,7 @@ from pkg.modules.weather import Weather
 from pkg.modules.news import News
 from pkg.modules.time import Time
 from pkg.modules.activities import Activities
-from pkg.modules.nao.naoInterface import NaoInterface
+from pkg.modules.nao.nao import Nao
 
 
 class Improvise():
@@ -16,7 +16,7 @@ class Improvise():
         self.activities = Activities()
         self.dialog = Dialog(self.weather, self.news, self.activities)
         if ipAddress != None:
-            self.nao = NaoInterface(ipAddress)
+            self.nao = Nao(ipAddress)
             if self.nao.isConnected == True:
                 self.dialog.naoSayCallback = self.nao.methods.Say
 

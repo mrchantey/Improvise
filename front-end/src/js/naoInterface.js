@@ -1,9 +1,12 @@
 import { stat } from "fs";
 import FilterEvents from "./EventFilter";
-import MakeRequest from "./apiRequest";
+import MakeApiRequest from "./apiRequest";
 
 export default (serverAddress, dev) => {
     const naoAddress = serverAddress + "/modules/nao"
+
+    const MakeRequest = MakeApiRequest
+
 
     const robot = {
         properties: {},
@@ -37,7 +40,7 @@ export default (serverAddress, dev) => {
             clearInterval(robot.eventIntervalId)
         }
     }
-    robot.SetEventListening(true)
+    // robot.SetEventListening(true)
 
     const naoInterface = {
         robot,

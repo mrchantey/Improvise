@@ -1,0 +1,259 @@
+{
+    "name": "Albums",
+    "type": "collection",
+    "tags": [
+        "music",
+        "audio"
+    ],
+    "items": [
+        {
+            "name": "Antique Phonograph Music 2010",
+            "type": "collection",
+            "tags": [
+                "audio"
+            ],
+            "items": [
+                {
+                    "artist": "Arthur Fields",
+                    "name": "Stay Down Here Where You Belong",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Arthur_Fields_-_Stay_Down_Here_Where_You_Belong.mp3"
+                },
+                {
+                    "artist": "Bert Williams",
+                    "name": "Twenty Years",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Bert_Williams_-_Twenty_Years.mp3"
+                },
+                {
+                    "artist": "Billy Murray",
+                    "name": "Ill Do it All Over Again",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Billy_Murray_-_Ill_Do_it_All_Over_Again.mp3"
+                },
+                {
+                    "artist": "Cal Stewart",
+                    "name": "Uncle Josh and the Labor Union",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Cal_Stewart_-_Uncle_Josh_and_the_Labor_Union.mp3"
+                },
+                {
+                    "artist": "Frank Crumit",
+                    "name": "So Long Oo-Long",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Frank_Crumit_-_So_Long_Oo-Long.mp3"
+                },
+                {
+                    "artist": "Monroe Silver",
+                    "name": "The Shiek of Avenue B",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Monroe_Silver_-_The_Shiek_of_Avenue_B.mp3"
+                },
+                {
+                    "artist": "Murry K Hill",
+                    "name": "A Bit of Drama",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Murry_K_Hill_-_A_Bit_of_Drama.mp3"
+                },
+                {
+                    "artist": "Silas Leachman",
+                    "name": "A Negro Hymn and Sermon",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Silas_Leachman_-_A_Negro_Hymn_and_Sermon.mp3"
+                },
+                {
+                    "artist": "Silas Leachman",
+                    "name": "I Must Have Been Dreamin",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Silas_Leachman_-_I_Must_Have_Been_Dreamin.mp3"
+                },
+                {
+                    "artist": "Silas Leachman",
+                    "name": "Whoa Dar Mule",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/Silas_Leachman_-_Whoa_Dar_Mule.mp3"
+                },
+                {
+                    "artist": "S H Dudley",
+                    "name": "You Couldnt Hardly Notice It At All",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Antique_Phonograph_Music_Program_Various_Artists_-_Antique_Phonograph_Music_Program_01052010/S_H_Dudley_-_You_Couldnt_Hardly_Notice_It_At_All.mp3"
+                }
+            ]
+        },
+        {
+            "name": "Ragtime Favorites",
+            "type": "collection",
+            "tags": [
+                "audio"
+            ],
+            "items": [
+                {
+                    "artist": "Gilbert and Friedland",
+                    "name": "Singapore 1918 Rector Novelty Orchestra",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Gilbert_and_Friedland_-_05_-_Singapore_1918_Rector_Novelty_Orchestra.mp3"
+                },
+                {
+                    "artist": "James Scott",
+                    "name": "Frog Legs Rag 1906 piano roll",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/James_Scott_-_01_-_Frog_Legs_Rag_1906_piano_roll.mp3"
+                },
+                {
+                    "artist": "Joe Rosey",
+                    "name": "Out of the East 1918 Rector Novelty Orchestra",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Joe_Rosey_-_07_-_Out_of_the_East_1918_Rector_Novelty_Orchestra.mp3"
+                },
+                {
+                    "artist": "John H Glover-Kind",
+                    "name": "I Do Like To Be Beside The Seaside 1907 piano roll",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/John_H_Glover-Kind_-_10_-_I_Do_Like_To_Be_Beside_The_Seaside_1907_piano_roll.mp3"
+                },
+                {
+                    "artist": "Moore and Gardner",
+                    "name": "Chinese Blues 1916 George Gershwin piano roll",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Moore_and_Gardner_-_06_-_Chinese_Blues_1916_George_Gershwin_piano_roll.mp3"
+                },
+                {
+                    "artist": "Percy Wenrich",
+                    "name": "The Smiler 1907 Zonophone Concert Band",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Percy_Wenrich_-_02_-_The_Smiler_1907_Zonophone_Concert_Band.mp3"
+                },
+                {
+                    "artist": "Scott Joplin",
+                    "name": "Maple Leaf Rag 1899 Z Brewster-Geisz version",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Scott_Joplin_-_03_-_Maple_Leaf_Rag_1899_Z_Brewster-Geisz_version.mp3"
+                },
+                {
+                    "artist": "Scott Joplin",
+                    "name": "The Entertainer 1902 piano roll",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Scott_Joplin_-_04_-_The_Entertainer_1902_piano_roll.mp3"
+                },
+                {
+                    "artist": "Scott Joplin",
+                    "name": "Pine Apple Rag Scott Joplin piano roll",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Scott_Joplin_-_08_-_Pine_Apple_Rag_Scott_Joplin_piano_roll.mp3"
+                },
+                {
+                    "artist": "Scott Joplin",
+                    "name": "Original Rags 1900 piano roll",
+                    "type": "audio",
+                    "tags": [
+                        "old-time",
+                        "classics",
+                        "music"
+                    ],
+                    "path": "/home/nao/recordings/sideload/Various_Artists_Kazoomzoom_-_Frog_Legs_Ragtime_Era_Favorites/Scott_Joplin_-_09_-_Original_Rags_1900_piano_roll.mp3"
+                }
+            ]
+        }
+    ]
+}
