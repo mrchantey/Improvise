@@ -55,16 +55,16 @@ def GetDayOfWeek(date):
 
 
 def GetTimeWords(time):
-    period = "a m" if time.hour < 12 else "p m"
+    period = "AM" if time.hour < 12 else "PM"
     hournum = time.hour if time.hour <= 12 else time.hour-12
     if hournum == 0:
         hournum = 12
     hour = GetNumberWord(hournum)
     minute = GetNumberWord(time.minute)
     if minute == "zero":
-        minute = "o clock"
-    return "{0} {1} {2}".format(hour, minute, period)
-
+        return "{0} {1}".format(hour,period)
+    else:
+        return "{0} {1} {2}".format(hour, minute, period)
 
 def GetDateWords(date, includeYear=True):
     dayWeek = GetDayOfWeek(date)
