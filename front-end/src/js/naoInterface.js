@@ -1,5 +1,6 @@
 import { stat } from "fs";
 import FilterEvents from "./EventFilter";
+import ParseActions from "./ActionParser";
 import MakeApiRequest from "./apiRequest";
 
 export default (serverAddress, dev) => {
@@ -69,6 +70,7 @@ export default (serverAddress, dev) => {
             .then((actions) => {
                 if (actions === "nao request not set")
                     return
+                actions = ParseActions(actions);
                 console.log('All actions received')
                 naoInterface.robot.actions = actions
             })

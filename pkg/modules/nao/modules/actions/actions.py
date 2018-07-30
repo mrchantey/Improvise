@@ -6,14 +6,19 @@ from itemLoader import LoadItems
 class ActionModule():
 
     def __init__(self,  propertyMod, methodMod):
-        # behaviorPaths = propertyMod.properties['behaviors']['get']()
-        behaviorPaths = [
-            ".lastUploadedChoregrapheBehavior/behavior_1",
-            "animationMode",
-            "animations/SitOnPod/Emotions/Neutral/Hello_1",
-            "animations/SitOnPod/Gestures/Yes_1",
-            "animations/SitOnPod/Gestures/Me_7",
-            "animations/SitOnPod/Gestures/Yes_2"]
+        behaviorPaths = propertyMod.properties['behaviors']['get']()
+        behaviorPaths.sort()
+        for p in behaviorPaths:
+            print p
+        # print type(behaviorPaths)
+        # behaviorPaths = behaviorPaths.sort()
+        # behaviorPaths = [
+        #     ".lastUploadedChoregrapheBehavior/behavior_1",
+        #     "animationMode",
+        #     "animations/SitOnPod/Emotions/Neutral/Hello_1",
+        #     "animations/SitOnPod/Gestures/Yes_1",
+        #     "animations/SitOnPod/Gestures/Me_7",
+        #     "animations/SitOnPod/Gestures/Yes_2"]
 
         def ClosureSafeRunAssignment(item):
             def noAction():
@@ -30,7 +35,8 @@ class ActionModule():
         def CreateActions():
             rootItem = LoadItems(behaviorPaths)
             flatItems = itemUtils.RecursiveFlatten(rootItem)
-            actions = map(lambda i: {"info": i, "run": ClosureSafeRunAssignment(i)}, flatItems)
+            actions = map(
+                lambda i: {"info": i, "run": ClosureSafeRunAssignment(i)}, flatItems)
             return actions
 
         self.actions = CreateActions()
@@ -52,6 +58,8 @@ class ActionModule():
         action = self.ActionById(actionId)
         if action != None:
             action['run']()
+        else:
+            print 'No action with id', actionId, 'found'
 
     def GetBakedActions(self):
         bakedActions = map(lambda a: a['info'], self.actions)
