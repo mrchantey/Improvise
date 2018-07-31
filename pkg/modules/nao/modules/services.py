@@ -12,6 +12,7 @@ class ServiceModule():
         self.autonomousLife = self.ConnectService("ALAutonomousLife")
         self.behaviorManager = self.ConnectService("ALBehaviorManager")
         self.memory = self.ConnectService("ALMemory")
+        self.leds = self.ConnectService("ALLeds")
         # self.peoplePerception = self.ConnectService("ALPeoplePerception")
         # self.photoCapture = self.ConnectService("ALPhotoCapture")
         # self.speechRecognition = self.ConnectService("ALSpeechRecognition")

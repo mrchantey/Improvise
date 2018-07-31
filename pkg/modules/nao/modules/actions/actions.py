@@ -8,8 +8,6 @@ class ActionModule():
     def __init__(self,  propertyMod, methodMod):
         behaviorPaths = propertyMod.properties['behaviors']['get']()
         behaviorPaths.sort()
-        for p in behaviorPaths:
-            print p
         # print type(behaviorPaths)
         # behaviorPaths = behaviorPaths.sort()
         # behaviorPaths = [

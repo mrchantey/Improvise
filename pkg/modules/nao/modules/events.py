@@ -5,19 +5,28 @@ class EventModule():
     # Connected memory service is required
     def __init__(self, memoryService):
         events = [
+            "FrontTactilTouched",
+            "MiddleTactilTouched",
+            "RearTactilTouched",
             "AutonomousLife/State",
             "ALTextToSpeech/TextDone",
             # "ALTextToSpeech/TextInterrupted",
             # "ALTextToSpeech/TextStarted",
-            "ALTextToSpeech/CurrentSentence"
+            "ALTextToSpeech/CurrentSentence",
             # "ALVoiceEmotionAnalysis/EmotionRecognized",
             # "ALBasicAwareness/HumanLost",
+            "WordRecognized"
             # "ALBasicAwareness/HumanTracked",
             # "ALBasicAwareness/StimulusDetected"
         ]
+        self.listenerIdIncr = 0
         self.eventPool = []
+        # subscribers must remain alive
         self.eventSubscribers = []
-        self.eventListeners = []
+        # event listeners are often internal, ie listen for text done
+        self.listeners = []
+        # callbacks of format (key,value)
+        # self.callbacks = []
         for eventKey in events:
             self.SubscribeToEvent(eventKey, memoryService)
 
@@ -29,8 +38,10 @@ class EventModule():
         def OnEvent(eventValue):
             print 'event occured..', eventKey, eventValue
             self.eventPool.append({'key': eventKey, 'value': eventValue})
-            thisEventListeners = filter(lambda l: l['key'] == eventKey, self.eventListeners)
-            for listener in thisEventListeners:
+            # for callback in self.callbacks:
+            #     callback(eventKey, eventValue)
+            thislisteners = filter(lambda l: l['key'] == eventKey, self.listeners)
+            for listener in thislisteners:
                 listener['callback'](eventValue)
 
         sub.signal.connect(OnEvent)
@@ -39,7 +50,17 @@ class EventModule():
         print 'EVENT SUBSCRIBED', eventKey
 
     def AddListener(self, key, callback):
-        self.eventListeners.append({'key': key, 'callback': callback})
+        listener = {'key': key, 'callback': callback, 'id': self.listenerIdIncr}
+        self.listeners.append(listener)
+        self.listenerIdIncr += 1
+        return listener
+
+    def RemoveListener(self, listener):
+        self.listeners.remove(listener)
+        # self.listeners = filter(lambda s: s['id'] != id, self.listeners)
+
+    # def AddCallback(self, callback):
+    #     self.callbacks.append(callback)
 
     def HandleRequest(self, params):
         drain = params['drain'] if 'drain' in params else False
