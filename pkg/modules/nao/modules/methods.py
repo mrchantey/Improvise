@@ -24,31 +24,48 @@ class MethodModule():
 
     def Say(self, params):
         isSpeaking = True if len(self.phraseQueue) > 0 else False
+        self.CreatePhraseQueue(params)
+        if params['async'] == True:
+            self.SayNextAsync(isSpeaking)
+        else:
+            self.SayAllSync()
+
+    def CreatePhraseQueue(self, params):
         phrase = params['phrase']
         animated = params['animated'] if 'animated' in params else False
         if type(phrase) == list:
             for i in range(0, len(phrase)):
-                self.phraseQueue.append(
-                    {'phrase': phrase[i], 'animated': animated})
+                self.phraseQueue.append({'phrase': phrase[i], 'animated': animated, 'async': params['async']})
         else:
-            self.phraseQueue.append({'phrase': phrase, 'animated': animated})
+            self.phraseQueue.append({'phrase': phrase, 'animated': animated, 'async': params['async']})
+
+    def SayNextAsync(self, isSpeaking):
         if isSpeaking == False:
             nextPhrase = self.phraseQueue.pop(0)
-            self.BeginSpeaking(nextPhrase['phrase'], nextPhrase['animated'])
+            self.Say(nextPhrase)
 
-    def BeginSpeaking(self, phrase, animated):
-        if animated == True:
-            self.services.animatedSpeech.say(phrase, _async=True)
+    def SayAllSync(self):
+        for phrase in self.phraseQueue:
+            self.Speak(phrase)
+        self.phraseQueue = []
+
+    def Speak(self, phraseParams):
+        if phraseParams['animated'] == True:
+            self.services.animatedSpeech.say(phraseParams['phrase'], _async=phraseParams['async'])
         else:
-            self.services.textToSpeech.say(phrase, _async=True)
+            self.services.textToSpeech.say(phraseParams['phrase'], _async=phraseParams['async'])
 
     def TextDoneListener(self, value):
-        if value == 1 and len(self.phraseQueue) > 0:
-            nextPhrase = self.phraseQueue.pop(0)
-            self.BeginSpeaking(nextPhrase['phrase'], nextPhrase['animated'])
+        # only trigger if next phrase is async and
+        if value == 1 and len(self.phraseQueue) > 0 and self.phraseQueue[0]['async'] == True:
+            self.SayNextAsync(False)
 
     def RunBehavior(self, params):
-        self.services.behaviorManager.runBehavior(params['path'], _async=params['async'])
+        isRunning = self.services.behaviorManager.isBehaviorRunning(params['path'])
+        if isRunning:
+            print 'behavior already running:', params['path']
+        else:
+            self.services.behaviorManager.runBehavior(params['path'], _async=params['async'])
 
     def PlayAudio(self, params):
         self.services.audioPlayer.playFile(params['path'], _async=True)
@@ -78,3 +95,4 @@ class MethodModule():
 # extra-nao-behaviors-93b077/sit_down
 # extra-nao-behaviors-93b077/stand_up
 # extra-nao-behaviors-93b077/wake_up
+# extra-nao-behaviors-93b077/recognize_speech

@@ -1,6 +1,7 @@
 
-class Location:
-    def __init__(self, enterAction, exitAction):
+class Room:
+    def __init__(self, parentRoom, enterAction, exitAction):
+        self.parentRoom = parentRoom
         self.actions = []
         self.eventListeners = []
         self.enterAction = enterAction

@@ -8,6 +8,11 @@ class EventModule():
             "FrontTactilTouched",
             "MiddleTactilTouched",
             "RearTactilTouched",
+            "HandLeftBackTouched",
+            "HandLeftLeftTouched",
+            "HandLeftRightTouched",
+            "LeftBumperPressed",
+            "RightBumperPressed",
             "AutonomousLife/State",
             "ALTextToSpeech/TextDone",
             # "ALTextToSpeech/TextInterrupted",
@@ -19,7 +24,6 @@ class EventModule():
             # "ALBasicAwareness/HumanTracked",
             # "ALBasicAwareness/StimulusDetected"
         ]
-        self.listenerIdIncr = 0
         self.eventPool = []
         # subscribers must remain alive
         self.eventSubscribers = []
@@ -50,17 +54,23 @@ class EventModule():
         print 'EVENT SUBSCRIBED', eventKey
 
     def AddListener(self, key, callback):
-        listener = {'key': key, 'callback': callback, 'id': self.listenerIdIncr}
+        listener = {'key': key, 'callback': callback}
         self.listeners.append(listener)
-        self.listenerIdIncr += 1
         return listener
 
     def RemoveListener(self, listener):
         self.listeners.remove(listener)
-        # self.listeners = filter(lambda s: s['id'] != id, self.listeners)
 
-    # def AddCallback(self, callback):
-    #     self.callbacks.append(callback)
+    def AddListeners(self, keys, callback):
+        listeners = []
+        for key in keys:
+            listener = self.AddListener(key, callback)
+            listeners.append(listener)
+        return listeners
+
+    def RemoveListeners(self, listeners):
+        for listener in listeners:
+            self.RemoveListener(listener)
 
     def HandleRequest(self, params):
         drain = params['drain'] if 'drain' in params else False

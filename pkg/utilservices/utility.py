@@ -27,6 +27,14 @@ def OpenJson(path):
     return pyJsn
 
 
+def OpenTextLines(path):
+    file = open(path, 'r')
+    text = file.read()
+    text.replace('\r', '')  # remove dos line endings
+    lines = text.split('\n')
+    return lines
+
+
 def parseType(val):
     if isinstance(val, unicode):
         newVal = val.encode('ascii', 'ignore')

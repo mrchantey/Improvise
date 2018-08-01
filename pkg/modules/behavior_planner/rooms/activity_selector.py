@@ -1,16 +1,15 @@
-from pkg.modules.behavior_planner.locations.location import Location
-from pkg.modules.behavior_planner.actions.location_action import EnterAction
-from pkg.modules.behavior_planner.actions.location_action import ExitAction
+from pkg.modules.behavior_planner.rooms.room import Room
+from pkg.modules.behavior_planner.actions.room_action import EnterAction, ExitAction
 
-from pkg.modules.behavior_planner.locations.bingo import Bingo
+from pkg.modules.behavior_planner.rooms.bingo.bingo import Bingo
 
 
-class ActivitySelector(Location):
-    def __init__(self):
+class ActivitySelector(Room):
+    def __init__(self, parentRoom):
         enterAction = ActivitySelectorEnter(self)
         exitAction = ExitAction(self)
-        Location.__init__(self, enterAction, exitAction)
-        self.bingo = Bingo()
+        Room.__init__(self, parentRoom, enterAction, exitAction)
+        self.bingo = Bingo(parentRoom)
 
 
 class ActivitySelectorEnter(EnterAction):
@@ -19,6 +18,8 @@ class ActivitySelectorEnter(EnterAction):
         aiMind.Do('StopAll', {'async': False})
         aiMind.Do('SetLeds', {'name': 'FaceLeds', 'colorName': 'yellow'})
         aiMind.Do('RunBasicAction', {'action': 'stand_up', 'async': False})
+        aiMind.Do('RunBasicAction', {'action': 'breathe'})
+        # aiMind.Do('RunBasicAction', {'action': 'recognize_speech'})
         aiMind.Do('SetLeds', {'name': 'FaceLeds', 'colorName': 'green'})
         aiMind.Do('Say', {'phrase': 'what would you like to do today?', 'async': False})
-        aiMind.EnterLocation(self.location.bingo)
+        aiMind.ChangeRooms(self.room.bingo)

@@ -1,7 +1,7 @@
 import sys
-import threading
 from pkg.modules.nao.nao import Nao
 from pkg.modules.behavior_planner.behavior_planner import BehaviorPlanner
+import time
 
 
 class AutoImprovise():
@@ -16,5 +16,11 @@ class AutoImprovise():
 if __name__ == "__main__":
     NAOIP = sys.argv[1]
     autoImprovise = AutoImprovise(NAOIP)
-    xyz = raw_input("waiting for enter key press")
-    print 'exiting..'
+    autoImprovise.behaviorPlanner.Begin()
+    try:
+        while autoImprovise.behaviorPlanner.aiMind.room != None:
+            time.sleep(0.1)
+    except KeyboardInterrupt:
+        print 'exiting..'
+    autoImprovise.behaviorPlanner.End()
+    print 'program terminated'

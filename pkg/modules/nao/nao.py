@@ -35,11 +35,18 @@ class Nao():
 if __name__ == "__main__":
     ipAddress = sys.argv[1]
     nao = Nao(ipAddress)
-    # nao.services.leds.fadeRGB("FaceLeds", 1, 0, 1, 4)
     # nao.services.leds.fadeRGB("FaceLeds", "green", 4)
+    nao.methods.DoMethod("RunBasicAction", {"action": "rest"})
+    # nao.methods.DoMethod("RunBasicAction", {"action": "stand_up"})
+    import time
+    time.sleep(0.5)
+    # nao.methods.DoMethod("RunBasicAction", {"action": "stand_up"})
+    nao.methods.DoMethod("RunBasicAction", {"action": "rest"})
+    print 'bang'
     nao.methods.SetLeds({"name": "FaceLeds", "colorName": "green", "duration": 3})
     # nao.methods.Say({"phrase": "hello"})
     # for action in nao.actions.actions:
+
     #     print action
     # try:
     #     while True:
