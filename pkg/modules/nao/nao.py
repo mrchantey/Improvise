@@ -4,6 +4,7 @@ from modules.services import ServiceModule
 from modules.properties import PropertyModule
 from modules.methods import MethodModule
 from modules.events import EventModule
+from modules.speechRecognition import SpeechRecognition
 from modules.actions.actions import ActionModule
 
 
@@ -18,6 +19,7 @@ class Nao():
             self.session.connect('tcp://'+ipAddress+":9559")
             self.services = ServiceModule(self.session)
             self.events = EventModule(self.services.memory)
+            self.speechRecognition = SpeechRecognition(self.services)
             self.properties = PropertyModule(ipAddress, self.services)
             self.methods = MethodModule(self.services, self.events)
             self.actions = ActionModule(self.properties, self.methods)
@@ -31,25 +33,18 @@ class Nao():
         response = attr.HandleRequest(requestBody)
         return response
 
+    def ExitProgram(self):
+        self.speechRecognition.StopRecognizing()
+
 
 if __name__ == "__main__":
     ipAddress = sys.argv[1]
     nao = Nao(ipAddress)
-    # nao.services.leds.fadeRGB("FaceLeds", "green", 4)
-    nao.methods.DoMethod("RunBasicAction", {"action": "rest"})
-    # nao.methods.DoMethod("RunBasicAction", {"action": "stand_up"})
-    import time
-    time.sleep(0.5)
-    # nao.methods.DoMethod("RunBasicAction", {"action": "stand_up"})
-    nao.methods.DoMethod("RunBasicAction", {"action": "rest"})
-    print 'bang'
-    nao.methods.SetLeds({"name": "FaceLeds", "colorName": "green", "duration": 3})
-    # nao.methods.Say({"phrase": "hello"})
-    # for action in nao.actions.actions:
-
-    #     print action
-    # try:
-    #     while True:
-    #         pass
-    # except KeyboardInterrupt:
-    #     pass
+    nao.speechRecognition.AddWords(["yes", "no", "freeze all motor functions"])
+    nao.speechRecognition.StartRecognizing()
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        nao.ExitProgram()
+        pass

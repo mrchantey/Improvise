@@ -20,6 +20,7 @@ class EventModule():
             "ALTextToSpeech/CurrentSentence",
             # "ALVoiceEmotionAnalysis/EmotionRecognized",
             # "ALBasicAwareness/HumanLost",
+            "SpeechDetected",
             "WordRecognized"
             # "ALBasicAwareness/HumanTracked",
             # "ALBasicAwareness/StimulusDetected"
@@ -42,10 +43,8 @@ class EventModule():
         def OnEvent(eventValue):
             print 'event occured..', eventKey, eventValue
             self.eventPool.append({'key': eventKey, 'value': eventValue})
-            # for callback in self.callbacks:
-            #     callback(eventKey, eventValue)
-            thislisteners = filter(lambda l: l['key'] == eventKey, self.listeners)
-            for listener in thislisteners:
+            eventListeners = filter(lambda l: l['key'] == eventKey, self.listeners)
+            for listener in eventListeners:
                 listener['callback'](eventValue)
 
         sub.signal.connect(OnEvent)
@@ -59,7 +58,8 @@ class EventModule():
         return listener
 
     def RemoveListener(self, listener):
-        self.listeners.remove(listener)
+        if listener in self.listeners:
+            self.listeners.remove(listener)
 
     def AddListeners(self, keys, callback):
         listeners = []

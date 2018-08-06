@@ -18,9 +18,10 @@ if __name__ == "__main__":
     autoImprovise = AutoImprovise(NAOIP)
     autoImprovise.behaviorPlanner.Begin()
     try:
-        while autoImprovise.behaviorPlanner.aiMind.room != None:
-            time.sleep(0.1)
+        while autoImprovise.behaviorPlanner.rootMind.travelMind.room != None:
+            time.sleep(0.01)
     except KeyboardInterrupt:
         print 'exiting..'
     autoImprovise.behaviorPlanner.End()
+    autoImprovise.nao.ExitProgram()
     print 'program terminated'

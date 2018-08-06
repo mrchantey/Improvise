@@ -6,7 +6,7 @@ class RoomAction(Action):
         Action.__init__(self)
         self.room = room
 
-    def Run(self, aiMind):
+    def Run(self, rootMind):
         Action.Run(self)
 
 

@@ -3,7 +3,7 @@ class Room:
     def __init__(self, parentRoom, enterAction, exitAction):
         self.parentRoom = parentRoom
         self.actions = []
-        self.eventListeners = []
+        self.events = []
         self.enterAction = enterAction
         self.exitAction = exitAction
 

@@ -24,13 +24,13 @@ class MethodModule():
 
     def Say(self, params):
         isSpeaking = True if len(self.phraseQueue) > 0 else False
-        self.CreatePhraseQueue(params)
+        self.AppendPhraseQueue(params)
         if params['async'] == True:
             self.SayNextAsync(isSpeaking)
         else:
             self.SayAllSync()
 
-    def CreatePhraseQueue(self, params):
+    def AppendPhraseQueue(self, params):
         phrase = params['phrase']
         animated = params['animated'] if 'animated' in params else False
         if type(phrase) == list:
@@ -45,9 +45,10 @@ class MethodModule():
             self.Say(nextPhrase)
 
     def SayAllSync(self):
-        for phrase in self.phraseQueue:
-            self.Speak(phrase)
+        currentPhraseQueue = self.phraseQueue
         self.phraseQueue = []
+        for phrase in currentPhraseQueue:
+            self.Speak(phrase)
 
     def Speak(self, phraseParams):
         if phraseParams['animated'] == True:

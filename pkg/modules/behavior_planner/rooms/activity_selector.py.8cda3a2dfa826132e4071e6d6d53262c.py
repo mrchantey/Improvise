@@ -27,7 +27,7 @@ class SelectActivityAction(RoomAction):
 
     def Run(self, rootMind):
         print "Bingo Selected"
-        RoomAction.Run(self, rootMind)
+        RoomAction.Run(self,rootMind)
         rootMind.travelMind.ChangeRooms(self.activityRoom)
 
 
