@@ -27,7 +27,8 @@ class ServiceModule():
         print 'SERVICE CONNECTED', serviceName
         return service
 
-    def Invoke(self, service, method, *args):
+    def Invoke(self, service, methodName):
         service = getattr(self, service)
-        result = service[method](args)
+        method = getattr(service, methodName)
+        result = method()
         return result

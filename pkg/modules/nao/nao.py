@@ -40,8 +40,9 @@ class Nao():
 if __name__ == "__main__":
     ipAddress = sys.argv[1]
     nao = Nao(ipAddress)
-    nao.speechRecognition.AddWords(["yes", "no", "freeze all motor functions"])
-    nao.speechRecognition.StartRecognizing()
+    nao.services.Invoke("system", "shutdown")
+    # nao.speechRecognition.AddWords(["yes", "no", "freeze all motor functions"])
+    # nao.speechRecognition.StartRecognizing()
     try:
         while True:
             pass
