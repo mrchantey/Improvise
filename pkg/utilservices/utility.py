@@ -1,5 +1,4 @@
 import json
-import requests
 
 
 def isInt(s):
@@ -8,12 +7,6 @@ def isInt(s):
         return True
     except ValueError:
         return False
-
-
-def GetJson(url):
-    req = requests.get(url)
-    uniData = json.loads(req.text)
-    return parseType(uniData)
 
 
 def OpenJson(path):

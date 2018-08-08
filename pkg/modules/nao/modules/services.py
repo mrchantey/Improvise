@@ -12,6 +12,7 @@ class ServiceModule():
         self.autonomousLife = self.ConnectService("ALAutonomousLife")
         self.autonomousMoves = self.ConnectService("ALAutonomousMoves")
         self.behaviorManager = self.ConnectService("ALBehaviorManager")
+        self.connectionManager = self.ConnectService("ALConnectionManager")
         self.memory = self.ConnectService("ALMemory")
         self.leds = self.ConnectService("ALLeds")
         # self.peoplePerception = self.ConnectService("ALPeoplePerception")
@@ -25,3 +26,8 @@ class ServiceModule():
         service = self.session.service(serviceName)
         print 'SERVICE CONNECTED', serviceName
         return service
+
+    def Invoke(self, service, method, *args):
+        service = getattr(self, service)
+        result = service[method](args)
+        return result

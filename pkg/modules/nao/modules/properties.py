@@ -10,12 +10,17 @@ class PropertyModule():
                 'get': lambda: serviceMod.textToSpeech.getParameter(paramName),
                 'set': lambda val: serviceMod.textToSpeech.setParameter(paramName, val),
             }
+
+        networkServices = self.serviceMod.connectionManager.services()
+        connectedService = filter(lambda s: s['state'] == 'connected', networkServices)
+
         self.properties = {
             'all': {
                 'get': self.GetBakedProperties
             },
             'ipAddress': {
-                'get': lambda: ipAddress
+                'get': connectedService['IPv4']['Address']
+                # 'get': lambda: ipAddress
             },
             'name': {
                 'get': serviceMod.system.robotName,
