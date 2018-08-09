@@ -11,7 +11,7 @@ cd /
 
 cd home/nao/custom/improvise
 
-python -m pkg.auto_improvise na01.local
+python -m pkg.auto_improvise na02.local -d
 
 echo "startup python script terminated..."
 

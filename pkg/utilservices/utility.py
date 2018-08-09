@@ -65,4 +65,19 @@ def parseUnicodeList(lst):
     return res
 
 
+def GetMimeType(path):
+    splitPath = path.split('.')
+    lastIndex = len(splitPath)-1
+    extension = splitPath[lastIndex]
+    if extension == 'html':
+        return 'text/html'
+    elif extension == 'js':
+        return 'text/javascript'
+    elif extension == 'css':
+        return 'text/css'
+    elif extension == 'ico':
+        return 'image/x-icon'
+    else:
+        print 'unknown extension', extension
+        return 'text'
 # 'r' = read, 'w' = write, 'a' = append, 'r+' = read and write

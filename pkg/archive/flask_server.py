@@ -31,23 +31,23 @@ def handleIndex():
 
 
 # @app.route('/modules/<moduleName>', methods=["GET"])
-@app.route('/modules/<moduleName>/<key1>/<val1>')
-@app.route('/modules/<moduleName>/<key1>/<val1>/<key2>/<val2>')
-@app.route('/modules/<moduleName>/<key1>/<val1>/<key2>/<val2>/<key3>/<val3>')
-def handleModuleGetRequest(moduleName, key1='key1', val1=None, key2='key2', val2=None, key3='key3', val3=None):
-    moduleName = utility.parseType(moduleName)
-    key1 = utility.parseType(key1)
-    val1 = utility.parseType(val1)
-    key2 = utility.parseType(key2)
-    val2 = utility.parseType(val2)
-    key3 = utility.parseType(key3)
-    val3 = utility.parseType(val3)
-    requestBody = {}
-    requestBody[key1] = val1
-    requestBody[key2] = val2
-    requestBody[key3] = val3
-    response = OnModuleRequest(moduleName, requestBody)
-    return respond(response)
+# @app.route('/modules/<moduleName>/<key1>/<val1>')
+# @app.route('/modules/<moduleName>/<key1>/<val1>/<key2>/<val2>')
+# @app.route('/modules/<moduleName>/<key1>/<val1>/<key2>/<val2>/<key3>/<val3>')
+# def handleModuleGetRequest(moduleName, key1='key1', val1=None, key2='key2', val2=None, key3='key3', val3=None):
+#     moduleName = utility.parseType(moduleName)
+#     key1 = utility.parseType(key1)
+#     val1 = utility.parseType(val1)
+#     key2 = utility.parseType(key2)
+#     val2 = utility.parseType(val2)
+#     key3 = utility.parseType(key3)
+#     val3 = utility.parseType(val3)
+#     requestBody = {}
+#     requestBody[key1] = val1
+#     requestBody[key2] = val2
+#     requestBody[key3] = val3
+#     response = OnModuleRequest(moduleName, requestBody)
+#     return respond(response)
 
 
 @app.route('/modules/<moduleName>', methods=['OPTIONS', 'POST'])

@@ -20,7 +20,8 @@ class RootMind(Mind):
 
     # just a shortcut
     def Do(self, methodName, params):
-        self.nao.methods.DoMethod(methodName, params)
+        params['methodName'] = methodName
+        self.nao.methods.DoMethod(params)
 
     def __str__(self):
         return self.__class__.__name__

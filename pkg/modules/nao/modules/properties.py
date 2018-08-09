@@ -11,16 +11,18 @@ class PropertyModule():
                 'set': lambda val: serviceMod.textToSpeech.setParameter(paramName, val),
             }
 
-        networks = self.serviceMod.connectionManager.services()
-        connectedNetworks = filter(lambda n: n[3][1] == 'online', networks)
-        ipInfo = connectedNetworks[0][9]
+        def GetIpAddress():
+            networks = self.serviceMod.connectionManager.services()
+            connectedNetworks = filter(lambda n: n[3][1] == 'online', networks)
+            ipInfo = connectedNetworks[0][9]
+            return ipInfo[1][1][1]
 
         self.properties = {
             'all': {
                 'get': self.GetBakedProperties
             },
             'ipAddress': {
-                'get': ipInfo[1][1][1]
+                'get': GetIpAddress
                 # 'get': lambda: ipAddress
             },
             'name': {

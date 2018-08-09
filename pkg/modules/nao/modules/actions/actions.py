@@ -22,11 +22,11 @@ class ActionModule():
             def noAction():
                 print 'no matching action for type', item['type']
             if item['type'] == 'speech':
-                return lambda: methodMod.DoMethod('Say', {"phrase": item['text'], "animated": True})
+                return lambda: methodMod.DoMethod({"methodName": "Say",   "phrase": item['text'], "animated": True})
             elif item['type'] == 'behavior':
-                return lambda: methodMod.DoMethod('RunBehavior', {"path": item['path']})
+                return lambda: methodMod.DoMethod({"methodName": 'RunBehavior',  "path": item['path']})
             elif item['type'] == 'audio':
-                return lambda: methodMod.DoMethod('PlayAudio', {"path": item['path']})
+                return lambda: methodMod.DoMethod({"methodName": 'PlayAudio', "path": item['path']})
             else:
                 return noAction
 

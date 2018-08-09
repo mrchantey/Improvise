@@ -17,8 +17,15 @@ new Vue({
   template: '<App/>',
   beforeCreate() {
     //needs to change to naoInterface
-    window.$apiInterface = naoInterface("http://localhost:5000", true)
-    window.$webSpeechInterface = DialogInterface("http://localhost:5000")
+    const serverAddress = sessionStorage['serverAddress']
+    if (serverAddress) {
+      window.$apiInterface = naoInterface(serverAddress, true)
+      window.$webSpeechInterface = DialogInterface(serverAddress)
+    } else {
+      console.log('server address not yet set')
+    }
+
+
 
     //TEST ADD
 

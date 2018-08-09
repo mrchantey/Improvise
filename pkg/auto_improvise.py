@@ -7,10 +7,18 @@ import time
 
 
 class AutoImprovise():
-    def __init__(self, ipAddress):
+    def __init__(self, ipAddress, deployed):
         self.nao = Nao(ipAddress)
-        self.server = Server(5000)
+        serverIP = '127.0.0.1' if not deployed else self.nao.properties.properties['ipAddress']['get']()
+        print 'spinning up server with ip address', serverIP
+        self.server = Server(5000, serverIP)
+        self.server.RequestCallback = self.OnModuleRequest
         self.behaviorPlanner = BehaviorPlanner(self.nao)
+
+    def OnModuleRequest(self, moduleName, reqBody):
+        attr = getattr(self, moduleName)
+        resBody = attr.OnRequest(reqBody)
+        return resBody
 
 # NAOIP = "10.50.16.53"
 # NAOIP = "NA01.local"
@@ -18,8 +26,10 @@ class AutoImprovise():
 
 if __name__ == "__main__":
     NAOIP = sys.argv[1]
-    autoImprovise = AutoImprovise(NAOIP)
-    # print autoImprovise.nao.properties.properties['ipAddress']
+    deployed = True if '-d' in sys.argv else False
+    print 'starting up...'
+    print 'deployed:', deployed
+    autoImprovise = AutoImprovise(NAOIP, deployed)
     autoImprovise.server.Run()
     autoImprovise.behaviorPlanner.Begin()
     try:
