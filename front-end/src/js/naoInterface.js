@@ -6,6 +6,9 @@ import MakeApiRequest from "./apiRequest";
 export default (serverAddress, dev) => {
     const naoAddress = serverAddress + "/modules/nao"
 
+    robot.SetEventListening(true)
+
+
     const MakeRequest = MakeApiRequest
 
 
@@ -41,7 +44,7 @@ export default (serverAddress, dev) => {
             clearInterval(robot.eventIntervalId)
         }
     }
-    // robot.SetEventListening(true)
+
 
     const naoInterface = {
         robot,

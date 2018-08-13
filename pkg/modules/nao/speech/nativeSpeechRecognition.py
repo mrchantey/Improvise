@@ -1,15 +1,16 @@
 
 
-class SpeechRecognition():
-    def __init__(self, services, expressions=True):
+class NativeSpeechRecognition():
+    def __init__(self, services, visualExpressions=True, audioExpressions=True):
         services.autonomousMoves.setExpressiveListeningEnabled(False)
 
         self.speechRecognition = services.speechRecognition
-        self.speechRecognition.setAudioExpression(expressions)
-        self.speechRecognition.setVisualExpression(expressions)
+        self.speechRecognition.setAudioExpression(audioExpressions)
+        self.speechRecognition.setVisualExpression(visualExpressions)
         self.vocabulary = []
         self.ForceStop()
         self.isRunning = False
+        # self.UpdateVocabulary()
         # self.StartRecognizing()
 
     def StartRecognizing(self):

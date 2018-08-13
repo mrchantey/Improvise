@@ -18,10 +18,12 @@ class EventModule():
             # "ALTextToSpeech/TextInterrupted",
             # "ALTextToSpeech/TextStarted",
             "ALTextToSpeech/CurrentSentence",
+            "SpeechDetected",
+            # "WordRecognized",
+            # "ALSpeechRecognition/Status"
+            # "NAOqiReady"
             # "ALVoiceEmotionAnalysis/EmotionRecognized",
             # "ALBasicAwareness/HumanLost",
-            "SpeechDetected",
-            "WordRecognized"
             # "ALBasicAwareness/HumanTracked",
             # "ALBasicAwareness/StimulusDetected"
         ]
@@ -34,6 +36,8 @@ class EventModule():
         # self.callbacks = []
         for eventKey in events:
             self.SubscribeToEvent(eventKey, memoryService)
+
+        print 'EVENTS SUBSCRIBED'
 
     # --------------------------------BE VERY CAREFUL WITH BELOW CODE, WE'RE DEFAULTING TO LAST ELEMENT OF ARRAY IN OTHER CASES----------------
 
@@ -50,7 +54,7 @@ class EventModule():
         sub.signal.connect(OnEvent)
         # subscribers must be kept alive
         self.eventSubscribers.append(sub)
-        print 'EVENT SUBSCRIBED', eventKey
+        # print 'EVENT SUBSCRIBED', eventKey
 
     def AddListener(self, key, callback):
         listener = {'key': key, 'callback': callback}

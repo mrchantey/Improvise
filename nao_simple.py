@@ -1,5 +1,10 @@
 import qi
 import sys
+import time
+# import os
+# from pkg.modules.nao.modules.speechRecognition import SpeechRecognition
+# from pkg.modules.nao.modules.services import ServiceModule
+from pkg.modules.nao.modules.events import EventModule
 
 
 class Nao():
@@ -9,7 +14,8 @@ class Nao():
         self.session = qi.Session()
         self.session.connect('tcp://'+ipAddress+":9559")
         self.textToSpeech = self.session.service("ALTextToSpeech")
-        self.system = self.session.service("ALSystem")
+        # self.services = ServiceModule(self.session)
+        # self.speechRecognition = SpeechRecognition(self.services)
 
 
 if __name__ == "__main__":

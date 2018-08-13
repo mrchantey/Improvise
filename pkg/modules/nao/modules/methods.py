@@ -36,7 +36,7 @@ class MethodModule():
         # id = self.services.audioPlayer.loadFile(params[0])
 
     def StopAll(self, params):
-        self.phraseQueue = []
+        self.Speech.asyncPhraseQueue = []
         self.services.behaviorManager.stopAllBehaviors(_async=params['async'])
         self.services.textToSpeech.stopAll(_async=params['async'])
         self.services.audioPlayer.stopAll(_async=params['async'])

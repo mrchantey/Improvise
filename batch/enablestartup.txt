@@ -1,0 +1,7 @@
+
+
+cd /
+
+cd /home/nao/custom/improvise
+
+chmod +x startup.sh

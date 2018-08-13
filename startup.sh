@@ -2,7 +2,6 @@
 
 echo "starting in 10 seconds"
 
-sleep 10s
 
 echo "startup python script running..."
 

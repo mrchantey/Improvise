@@ -1,0 +1,9 @@
+cd /
+
+cd /home/nao/custom
+
+pwd
+
+rm -r improvise
+
+mkdir improvise

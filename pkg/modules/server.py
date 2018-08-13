@@ -15,8 +15,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         pathParams = self.GetPathParams()
-        if pathParams[1] == 'address':
-            self.RespondIPSetter()
+        if self.path == '/':
+            print 'home request'
+            self.RespondHome()
         else:
             self.RespondFile(self.path)
         # else:
@@ -53,6 +54,9 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(statusCode)
         self.end_headers()
 
+    def RespondHome(self):
+        self.RespondIPSetter()
+
     def RespondIPSetter(self):
         file = open('html/ipsetter.html')
         fileTxt = file.read()
@@ -64,7 +68,7 @@ class Handler(BaseHTTPRequestHandler):
         self.RespondString(bodyStr, 'application/json')
 
     def RespondFile(self, path):
-        file = open('html' + path)
+        file = open('html' + path, 'r')
         resBody = file.read()
         mimeType = utility.GetMimeType(path)
         self.RespondString(resBody, mimeType)

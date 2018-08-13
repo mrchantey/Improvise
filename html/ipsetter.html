@@ -10,9 +10,13 @@
 
 <body>
     <script>
-        console.log(`saving new serverAddress in session storage from ${sessionStorage['serverAddress']}`)
-        sessionStorage['serverAddress'] = 'INSERT IP ADDRESS'
-        console.log(`new serverAddress is ${sessionStorage['serverAddress']}`)
+        const serverAddress = 'INSERT IP ADDRESS'
+        console.log(`sessionStorage serverAddress
+                        \nold: ${sessionStorage['serverAddress']}
+                        \nnew: ${serverAddress}`)
+        sessionStorage['serverAddress'] = serverAddress
+        console.log('navigating to index.html...')
+        window.location = serverAddress + "/index.html"
     </script>
 </body>
 
