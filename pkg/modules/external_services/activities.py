@@ -1,5 +1,5 @@
-from pkg.utilservices import utility
-from pkg.utilservices import datetimeUtils
+from pkg.utilities import utility
+from pkg.utilities import datetimeUtils
 from datetime import date, time
 
 

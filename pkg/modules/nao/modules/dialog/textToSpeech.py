@@ -1,6 +1,6 @@
 
 
-class Speech():
+class TextToSpeech():
     def __init__(self, services, events):
         self.services = services
         self.asyncPhraseQueue = []

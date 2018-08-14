@@ -1,7 +1,7 @@
 import dialogflow
 from google.protobuf.json_format import MessageToJson
 import json
-from pkg.utilservices import utility
+from pkg.utilities import utility
 
 
 language_code = 'en-US'

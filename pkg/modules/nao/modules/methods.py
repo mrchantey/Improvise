@@ -1,11 +1,9 @@
-from pkg.modules.nao.modules.speech import Speech
-
 
 class MethodModule():
 
-    def __init__(self, services, events):
+    def __init__(self, services, events, textToSpeech):
         self.services = services
-        self.Speech = Speech(services, events)
+        self.TextToSpeech = textToSpeech
 
     def HandleRequest(self, params):
         self.DoMethod(params)
@@ -19,7 +17,7 @@ class MethodModule():
         meth(params)
 
     def Say(self, params):
-        self.Speech.Say(params)
+        self.TextToSpeech.Say(params)
 
     def SetAutoState(self, params):
         self.services.autonomousLife.setState(params['state'], _async=True)
@@ -36,7 +34,7 @@ class MethodModule():
         # id = self.services.audioPlayer.loadFile(params[0])
 
     def StopAll(self, params):
-        self.Speech.asyncPhraseQueue = []
+        self.TextToSpeech.asyncPhraseQueue = []
         self.services.behaviorManager.stopAllBehaviors(_async=params['async'])
         self.services.textToSpeech.stopAll(_async=params['async'])
         self.services.audioPlayer.stopAll(_async=params['async'])

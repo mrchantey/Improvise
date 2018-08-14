@@ -1,6 +1,6 @@
 import random
 import math
-from pkg.utilservices import utility
+from pkg.utilities import utility
 
 
 class BingoNumbers():

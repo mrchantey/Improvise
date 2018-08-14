@@ -1,4 +1,4 @@
-from pkg.utilservices import utility, itemUtils
+from pkg.utilities import utility, itemUtils
 from monologLoader import LoadMonologs
 from behaviorLoader import LoadBehaviors
 

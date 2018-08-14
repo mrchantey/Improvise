@@ -1,7 +1,7 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import json
 import time
-from pkg.utilservices import utility
+from pkg.utilities import utility
 from threading import Thread
 
 PORT = 5000
@@ -14,7 +14,7 @@ class Handler(BaseHTTPRequestHandler):
     #     self.end_headers()
 
     def do_GET(self):
-        pathParams = self.GetPathParams()
+        # pathParams = self.GetPathParams()
         if self.path == '/':
             print 'home request'
             self.RespondHome()

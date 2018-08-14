@@ -1,5 +1,5 @@
 import sys
-from pkg.utilservices import itemUtils
+from pkg.utilities import itemUtils
 from itemLoader import LoadItems
 
 

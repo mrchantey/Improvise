@@ -1,6 +1,6 @@
 
 
-class NativeSpeechRecognition():
+class SpeechToText():
     def __init__(self, services, visualExpressions=True, audioExpressions=True):
         services.autonomousMoves.setExpressiveListeningEnabled(False)
 
@@ -26,7 +26,10 @@ class NativeSpeechRecognition():
 
     def StopRecognizing(self):
         if self.isRunning:
-            self.speechRecognition.unsubscribe("NaoSpeechRecognition")
+            try:
+                self.speechRecognition.unsubscribe("NaoSpeechRecognition")
+            except:
+                pass
             self.isRunning = False
 
     def AddWord(self, word, updateVocab=True):

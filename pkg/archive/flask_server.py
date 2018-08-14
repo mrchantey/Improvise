@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, make_response
-from pkg.utilservices import utility
+from pkg.utilities import utility
 import json
 
 PORT = 5000

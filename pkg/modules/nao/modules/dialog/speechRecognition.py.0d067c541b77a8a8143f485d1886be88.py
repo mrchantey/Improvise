@@ -1,20 +1,16 @@
 
-
-from nativeSpeechRecognition import NativeSpeechRecognition
-from pkg.modules.external_services.googleSpeechRecognition import GoogleSpeechRecognition
-
-
-class SpeechRecognition():
-    def __init__(self, services, events):
-        self.nativeSpeechRecognition = NativeSpeechRecognition(services, True, False)
-        self.googleSpeechRecognition = GoogleSpeechRecognition()
+class SpeechDetection():
+    def __init__(self, services, events, speechToText, speechCompletedCallback):
+        self.speechCompletedCallback = speechCompletedCallback
+        self.speechToText = speechToText
+        # self.googleSpeechRecognition = GoogleSpeechRecognition()
         self.audioRecorder = services.audioRecorder
         events.AddListener("SpeechDetected", self.OnNativeSpeechDetected)
-        self.nativeSpeechRecognition.AddWords(["fdsjkfds"])
+        self.speechToText.AddWords(["fdsjkfds"])
         self.StopRecording()
 
-    def StartRecognizing(self):
-        self.nativeSpeechRecognition.StartRecognizing()
+    def StartDetecting(self):
+        self.speechToText.StartRecognizing()
         self.StartRecording()
 
     def StartRecording(self):
@@ -26,8 +22,8 @@ class SpeechRecognition():
     def StopRecording(self):
         self.audioRecorder.stopMicrophonesRecording()
 
-    def StopRecognizing(self):
-        self.nativeSpeechRecognition.StopRecognizing()
+    def StopDetecting(self):
+        self.speechToText.StopRecognizing()
         self.StopRecording()
 
     # will be a dummy placeholder word
@@ -38,5 +34,6 @@ class SpeechRecognition():
         if value == 0:
             print 'SPEECH OFF'
             self.StopRecording()
-            responseText = self.googleSpeechRecognition.MakeRequest()
-            print "Response", responseText
+            self.speechCompletedCallback()
+            # responseText = self.googleSpeechRecognition.MakeRequest()
+            # print "Response", responseText
