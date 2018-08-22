@@ -1,0 +1,1 @@
+TypeError: .google.cloud.vision.v1.AnnotateImageRequest.image: object expected

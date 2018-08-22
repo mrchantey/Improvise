@@ -1,0 +1,1 @@
+gcloud beta functions deploy languagesentiment --runtime nodejs8 --trigger-http

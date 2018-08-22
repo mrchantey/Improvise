@@ -29,7 +29,6 @@ function OnRequest(requestBody) {
 
 if (require.main === module) {
     server.Run(OnRequest)
-
 }
 
 

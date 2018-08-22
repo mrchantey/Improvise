@@ -1,6 +1,6 @@
 cd /
 
-cd /home/nao/custom
+cd /home/nao
 
 pwd
 

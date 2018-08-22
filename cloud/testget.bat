@@ -1,0 +1,1 @@
+gcloud beta functions deploy testget --runtime nodejs8 --trigger-http

@@ -1,0 +1,1 @@
+gcloud beta functions deploy visionfaces --runtime nodejs8 --trigger-http

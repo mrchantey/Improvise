@@ -1,9 +1,9 @@
 
 const fs = require('fs')
-const speech = require('@google-cloud/speech')
+const speechToText = require('@google-cloud/speech')
 const gcp = require('./gcp');
 
-const client = new speech.SpeechClient({ keyFilename: gcp.keyFilename })
+const client = new speechToText.SpeechClient({ keyFilename: gcp.keyFilename })
 
 
 
@@ -46,6 +46,6 @@ if (require.main === module) {
     const file = fs.readFileSync(fileName)
     const audioBytes = file.toString('base64')
     // fs.writeFileSync('audioBytes.txt', audioBytes)
-    // exports.Recognize(audioBytes)
-    //     .then(response => console.log(response))
+    exports.Recognize(audioBytes)
+        .then(response => console.log(response))
 }

@@ -4,7 +4,7 @@ import time
 from pkg.utilities import utility
 from threading import Thread
 
-PORT = 5000
+# PORT = 5001
 
 
 class Handler(BaseHTTPRequestHandler):

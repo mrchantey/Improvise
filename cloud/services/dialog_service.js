@@ -1,5 +1,5 @@
 const gcpDialogflow = require('./gcp_dialogflow');
-const gcpSpeech = require('./gcp_speech');
+const gcpSpeech = require('./gcp_speech-to-text');
 
 
 
@@ -11,15 +11,15 @@ function DetectIntent(queryText) {
     return new Promise((resolve, reject) => {
         gcpDialogflow.DetectIntent(queryText)
             .then(result => {
-                if (result.action === 'weather.get') {
+                // if (result.action === 'weather.get') {
 
-                } else {
-                    const responseBody = {
-                        type: 'phrase',
-                        text: result.fulfillmentText
-                    }
-                    resolve(responseBody)
+                // } else {
+                const responseBody = {
+                    type: 'phrase',
+                    text: result.fulfillmentText
                 }
+                resolve(responseBody)
+                // }
             })
     });
 }
@@ -54,4 +54,14 @@ exports.ConverseAudioBytes = function (audioBytes) {
                 }
             })
     });
+}
+
+
+
+if (require.main === module) {
+    const prom = exports.ConverseText("Hi how are you")
+    prom.then(res => {
+        console.log('response received');
+        console.log(res);
+    })
 }

@@ -1,0 +1,19 @@
+{
+  "name": "cloud_functions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/language": "^1.2.0",
+    "@google-cloud/vision": "^0.21.0",
+    "axios": "^0.18.0",
+    "firebase-admin": "^6.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

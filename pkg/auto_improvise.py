@@ -9,11 +9,11 @@ import time
 
 
 class AutoImprovise():
-    def __init__(self, ipAddress, deployed):
+    def __init__(self, ipAddress, port, deployed):
         self.backEndClient = BackEndClient("localhost:3000")
         self.nao = Nao(ipAddress, self.backEndClient)
         serverIP = '127.0.0.1' if not deployed else self.nao.properties.properties['ipAddress']['get']()
-        self.server = Server(5000, serverIP)
+        self.server = Server(port, serverIP)
         self.server.RequestCallback = self.OnModuleRequest
         self.behaviorPlanner = BehaviorPlanner(self.nao)
 
@@ -25,10 +25,11 @@ class AutoImprovise():
 
 if __name__ == "__main__":
     NAOIP = sys.argv[1]
+    PORT = int(sys.argv[2])
     deployed = True if '-d' in sys.argv else False
     print 'starting up...'
     print 'deployed:', deployed
-    autoImprovise = AutoImprovise(NAOIP, deployed)
+    autoImprovise = AutoImprovise(NAOIP, PORT, deployed)
     autoImprovise.behaviorPlanner.Begin()
     autoImprovise.server.Run()
     try:

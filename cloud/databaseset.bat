@@ -1,0 +1,1 @@
+gcloud beta functions deploy databaseset --runtime nodejs8 --trigger-http

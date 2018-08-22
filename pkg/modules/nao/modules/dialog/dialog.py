@@ -32,9 +32,9 @@ class DialogModule():
         response = self.backEndClient.MakeRequest(requestBody)
         print 'RESPONSE RECEIVED:'
         print response
-        
+
         if type(response) == dict and 'text' in response:
             responseText = response['text']
             print responseText
-            self.textToSpeech.Say({'phrase':responseText,'async',False)
+            self.textToSpeech.Say({'phrase': responseText, 'async': False})
         self.Begin()
