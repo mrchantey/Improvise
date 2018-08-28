@@ -3,15 +3,13 @@ from pkg.modules.nao.nao import Nao
 # from pkg.modules.message_client.client import MessageClient
 from pkg.modules.behavior_planner.behavior_planner import BehaviorPlanner
 from pkg.modules.server import Server
-from pkg.backEndClient import BackEndClient
 import time
 # pow
 
 
 class AutoImprovise():
     def __init__(self, ipAddress, port, deployed):
-        self.backEndClient = BackEndClient("localhost:3000")
-        self.nao = Nao(ipAddress, self.backEndClient)
+        self.nao = Nao(ipAddress)
         serverIP = '127.0.0.1' if not deployed else self.nao.properties.properties['ipAddress']['get']()
         self.server = Server(port, serverIP)
         self.server.RequestCallback = self.OnModuleRequest
@@ -25,7 +23,7 @@ class AutoImprovise():
 
 if __name__ == "__main__":
     NAOIP = sys.argv[1]
-    PORT = int(sys.argv[2])
+    PORT = 5000
     deployed = True if '-d' in sys.argv else False
     print 'starting up...'
     print 'deployed:', deployed

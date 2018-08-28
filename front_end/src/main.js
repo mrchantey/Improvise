@@ -17,14 +17,15 @@ new Vue({
   template: '<App/>',
   beforeCreate() {
     //needs to change to naoInterface
-    const serverAddress = sessionStorage['serverAddress']
-    if (serverAddress) {
-      window.$apiInterface = naoInterface(serverAddress, true)
-      window.$webSpeechInterface = DialogInterface(serverAddress)
-    } else {
-      console.log('server address not yet set')
-    }
+    const storedAddress = sessionStorage['serverAddress']
 
+    const serverAddress = storedAddress ? storedAddress :
+      prompt("Please enter NAO's IP Address", "http://10.50.16.122") + ":5000"
+
+    console.log('server address is ' + serverAddress)
+
+    window.$apiInterface = naoInterface(serverAddress, true)
+    // window.$webSpeechInterface = DialogInterface(serverAddress)
 
 
     //TEST ADD

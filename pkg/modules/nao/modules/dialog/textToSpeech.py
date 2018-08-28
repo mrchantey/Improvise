@@ -1,5 +1,7 @@
 
 
+# By default phrases are synchronous
+
 class TextToSpeech():
     def __init__(self, services, events):
         self.services = services
@@ -20,6 +22,7 @@ class TextToSpeech():
     def ParsePhraseParams(self, params):
         phrase = params['phrase']
         animated = params['animated'] if 'animated' in params else False
+        params['async'] = params['async'] if 'async' in params else True
         if type(phrase) == list:
             return map(lambda p: {'phrase': p, 'animated': animated, 'async': params['async']}, phrase)
         else:

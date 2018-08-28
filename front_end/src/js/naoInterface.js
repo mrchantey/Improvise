@@ -1,12 +1,11 @@
 import { stat } from "fs";
 import FilterEvents from "./EventFilter";
-import ParseActions from "./ActionParser";
+import ParseActions from "../../ActionParser";
 import MakeApiRequest from "./apiRequest";
 
-export default (serverAddress, dev) => {
+export default (serverAddress) => {
     const naoAddress = serverAddress + "/modules/nao"
 
-    robot.SetEventListening(true)
 
 
     const MakeRequest = MakeApiRequest
@@ -27,6 +26,7 @@ export default (serverAddress, dev) => {
     }
 
 
+
     robot.SetEventListening = (val) => {
         function FetchEvents(drain) {
             return new Promise((resolve, reject) => {
@@ -45,7 +45,7 @@ export default (serverAddress, dev) => {
         }
     }
 
-
+    robot.SetEventListening(true)
     const naoInterface = {
         robot,
         connectionStatus: "not connected",

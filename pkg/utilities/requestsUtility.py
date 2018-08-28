@@ -13,10 +13,15 @@ def GetJson(url):
 def PostJson(url, body):
     # strBody = json.dumps(body)
     # print 'making request'
-    res = requests.post(url, json=body)
+    headers = {'Content-Type': 'application/json'}
+    bodyStr = json.dumps(body)
+    res = requests.post(url, data=bodyStr, headers=headers)
+    try:
+        uniData = json.loads(res.text)
+        return parseType(uniData)
+    except:
+        return parseType(res.text)
     # res = requests.post(url, data=strBody)
-    # print 'request sent'
-    return parseType(res.text)
 
 
 # def TryPost(url, body):

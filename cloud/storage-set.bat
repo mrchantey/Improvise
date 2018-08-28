@@ -1,0 +1,1 @@
+gcloud beta functions deploy storageSet --runtime nodejs8 --trigger-http

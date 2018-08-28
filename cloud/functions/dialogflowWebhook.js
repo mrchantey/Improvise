@@ -2,13 +2,35 @@ const openWeather = require('../services/openWeather')
 const news = require('../services/newsAPI')
 const time = require('../services/time')
 const cors = require('./cors')
+const database = require('./database')
+const storeTextAudio = require('./store-text-audio')
 
-function sendResponsePhrase(res, phrase) {
-    const body = {
+
+function FulfillQuery(res, phrase) {
+    // const databasePhraseQueue = [{
+    //     type: 'text',
+    //     async: false,
+    //     phrase
+    // }]
+    const firebaseStoragePath = 'robot/next-phrase.wav'
+    const databasePhraseQueue = [{
+        type: 'audio',
+        firebaseStoragePath
+    }]
+    storeTextAudio.StoreTextAudioInternal(phrase, firebaseStoragePath)
+        .then(val => {
+            console.log("audio stored: " + val)
+            database.SetInternal("robot/phraseQueue", databasePhraseQueue)
+        })
+        .catch(err => console.error(err))
+
+    const responseBody = {
         "fulfillmentText": phrase
     }
-    res.json(body)
+    res.json(responseBody)
 }
+
+
 
 exports.DialogflowWebhook = function (req, res) {
     cors.PreflightResponse(req, res)
@@ -18,19 +40,19 @@ exports.DialogflowWebhook = function (req, res) {
     } else {
         if (queryResult.action === 'log') {
             console.log(req.body);
-            sendResponsePhrase(res, 'The request has been logged')
+            FulfillQuery(res, 'The request has been logged')
         }
         else if (queryResult.action === 'weather.get') {
             openWeather.RequestConversationalWeather()
-                .then(phrase => sendResponsePhrase(res, phrase))
+                .then(phrase => FulfillQuery(res, phrase))
         }
         else if (queryResult.action === 'news.get') {
             news.requestNewsConversational()
-                .then(phrase => sendResponsePhrase(res, phrase))
+                .then(phrase => FulfillQuery(res, phrase))
         }
         else if (queryResult.action === 'time.get') {
             time.RequestTimeConversational()
-                .then(phrase => sendResponsePhrase(res, phrase))
+                .then(phrase => FulfillQuery(res, phrase))
         }
         else {
             res.status(400).send("Unknown query action: " + queryResult.action)
