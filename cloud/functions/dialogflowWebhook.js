@@ -4,14 +4,35 @@ const time = require('../services/time')
 const cors = require('./cors')
 const database = require('./database')
 const storeTextAudio = require('./store-text-audio')
-
+const textToSpeech = require('../services/text-to-speech')
 
 function FulfillQuery(res, phrase) {
-    // const databasePhraseQueue = [{
-    //     type: 'text',
-    //     async: false,
-    //     phrase
-    // }]
+    database.GetInternal("robot/fulfillmentMethod")
+        .then(val => {
+            console.log(`fullfillment Method: ${val}`);
+            if (val === 'audio') {
+                FulfillQueryAudioStorage(phrase)
+            } else {
+                FulfillQueryText(phrase)
+            }
+        })
+    res.json({
+        "fulfillmentText": phrase
+    })
+}
+
+
+function FulfillQueryText(phrase) {
+    const databasePhraseQueue = [{
+        type: 'text',
+        async: false,
+        phrase
+    }]
+    database.SetInternal("robot/phraseQueue", databasePhraseQueue)
+}
+
+
+function FulfillQueryAudioStorage(phrase) {
     const firebaseStoragePath = 'robot/next-phrase.wav'
     const databasePhraseQueue = [{
         type: 'audio',
@@ -23,14 +44,21 @@ function FulfillQuery(res, phrase) {
             database.SetInternal("robot/phraseQueue", databasePhraseQueue)
         })
         .catch(err => console.error(err))
-
-    const responseBody = {
-        "fulfillmentText": phrase
-    }
-    res.json(responseBody)
 }
 
+// function FulfillQueryAudioDatabase(phrase) {
+//     textToSpeech.Synthesize(phrase)
+//         .then(audioData => {
+//             const data64 = audioData.toString('base64')
 
+//             const databasePhraseQueue = [{
+//                 type: 'audio-database',
+//                 data: data64
+//             }]
+
+//         })
+
+// }
 
 exports.DialogflowWebhook = function (req, res) {
     cors.PreflightResponse(req, res)

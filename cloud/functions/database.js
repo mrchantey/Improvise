@@ -29,7 +29,14 @@ exports.SetInternal = function (key, value) {
 //returns promise
 exports.GetInternal = function (key) {
     const ref = ReferenceFromRequest(key)
-    return ref.once('value')
+    return new Promise((resolve, reject) => {
+        ref.once('value')
+            .then(snapshot => resolve(snapshot.val()))
+            .catch((err) => {
+                console.error(err);
+                reject(err)
+            })
+    })
 }
 
 exports.Set = function (req, res) {
@@ -50,12 +57,9 @@ exports.Get = function (req, res) {
     cors.PreflightResponse(req, res)
     // console.log('getting..');
     const ref = ReferenceFromRequest(req.body.key)
-    ref.once('value')
-        .then(snapshot => res.send(snapshot.val()))
-        .catch((err) => {
-            res.status(500).send(err)
-            console.error(err);
-        });
+    exports.GetInternal(req.body.key)
+        .then(val => res.send(val))
+        .catch(res.status(500).send(err))
 }
 
 
