@@ -4,6 +4,7 @@ from modules.services import ServiceModule
 from modules.properties import PropertyModule
 from modules.methods import MethodModule
 from modules.events import EventModule
+from modules.memory import MemoryModule
 from modules.dialog.dialog import DialogModule
 from modules.actions.actions import ActionModule
 # from modules.ftp import FTPModule
@@ -25,6 +26,7 @@ class Nao():
         self.session.connect('tcp://'+ipAddress+":9559")
         self.services = ServiceModule(self.session)
         self.events = EventModule(self.services.memory)
+        self.memory = MemoryModule(self.services.memory)
         self.dialog = DialogModule(self.services, self.events)
         self.properties = PropertyModule(ipAddress, self.services)
         self.methods = MethodModule(self.services, self.events, self.dialog.textToSpeech)
