@@ -2,38 +2,37 @@ import qi
 import sys
 import time
 
-# from pkg.modules.nao.modules.speechRecognition import SpeechRecognition
-from pkg.modules.nao.modules.services import ServiceModule
-from pkg.modules.nao.modules.events import EventModule
-from pkg.modules.nao.modules.memory import MemoryModule
-from pkg.testWaveNet import DownloadTestFile
-from pkg.modules.nao.modules.dialog.dialog import DialogModule
-
-
-class Nao():
-
-    def __init__(self, ipAddress):
-        self.app = qi.Application()
-        self.session = qi.Session()
-        self.session.connect('tcp://'+ipAddress+":9559")
-        self.services = ServiceModule(self.session)
-        # self.events = EventModule(self.services.memory)
-        self.memory = MemoryModule(self.services.memory)
-        # self.dialog = DialogModule(self.services, self.events)
-        # self.textToSpeech = self.session.service("ALTextToSpeech")
-        # self.audioPlayer = self.session.service("ALAudioPlayer")
-        # self.speechRecognition = SpeechRecognition(self.services)
-
+# from pkg.nao.modules.speechRecognition import SpeechRecognition
+from pkg.nao.modules.services import ServiceModule
+from pkg.nao.modules.events import EventModule
+from pkg.nao.modules.speechRecognition import SpeechRecognitionModule
+# from pkg.nao.modules.textToSpeech import TextToSpeechModule
+# from pkg.nao.modules.memory import MemoryModule
+from pkg.nao.nao import Nao
+# from pkg.testWaveNet import DownloadTestFile
+# from pkg.nao.modules.dialog.dialog import DialogModule
 
 if __name__ == "__main__":
     ipAddress = sys.argv[1]
     nao = Nao(ipAddress)
-    # nao.textToSpeech.say("hi there")
-    # nao.memory.InsertData("physioDefaultRepetitions",1)
-    print nao.memory.GetData("physioDefaultRepetitions")
-    # print    nao.services.memory.getData("physioDefaultRepetitions")
-    # try:
-    #     while True:
-    #         pass
-    # except KeyboardInterrupt:
-    #     pass
+    nao.commandModule.StartAllListeners()
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        nao.ExitProgram()
+        pass
+
+    # nao.commandModule.Run({"commandName": "say", "phrase": "im a cowboy"})
+    # nao.commandModule.Run({
+    #     "commandName": "naoqi",
+    #     "serviceName": "ALTextToSpeech",
+    #     "methodName": "say",
+    #     "param1": "im going to jump over the moon"
+    # })
+    # vol = nao.commandModule.Run({
+    #     "commandName": "property",
+    #     "propertyName": "volume",
+    #     "propertyValue": 40
+    # })
+    # print "volume:", vol

@@ -1,0 +1,117 @@
+[
+    {
+        "commandName": "action",
+        "actionName": "stopAll",
+        "triggerPhrase": "Freeze all motor functions",
+        "responsePhrase": "freezing all motor functions",
+        "subCommands": [
+            {
+                "commandName": "say",
+                "clearPhraseQueue": true
+            },
+            {
+                "commandName": "naoqi",
+                "serviceName": "ALBehaviorManager",
+                "methodName": "stopAllBehaviors",
+                "async": "true"
+            },
+            {
+                "commandName": "naoqi",
+                "serviceName": "ALTextToSpeech",
+                "methodName": "stopAll",
+                "async": "true"
+            },
+            {
+                "commandName": "naoqi",
+                "serviceName": "ALAudioPlayer",
+                "methodName": "stopAll",
+                "async": "true"
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "wakeUp",
+        "triggerPhrase": "wake up",
+        "subCommands": [
+            {
+                "commandName": "say",
+                "phrase": "waking up"
+            },
+            {
+                "commandName": "naoqi",
+                "serviceName": "ALAutonomousLife",
+                "methodName": "setState",
+                "param1": "solitary"
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "goToSleep",
+        "triggerPhrase": "go to sleep",
+        "subCommands": [
+            {
+                "commandName": "say",
+                "phrase": "going to sleep"
+            },
+            {
+                "commandName": "naoqi",
+                "serviceName": "ALAutonomousLife",
+                "methodName": "setState",
+                "param1": "disabled"
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "getVolume",
+        "triggerPhrase": "get volume",
+        "subCommands": [
+            {
+                "commandName": "property",
+                "propertyName": "volume",
+                "sayResponsePhrase": true
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "setVolumeLow",
+        "triggerPhrase": "set volume low",
+        "responsePhrase": "volume set to low",
+        "subCommands": [
+            {
+                "commandName": "property",
+                "propertyName": "volume",
+                "propertyValue": 30
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "setVolumeMedium",
+        "triggerPhrase": "set volume medium",
+        "responsePhrase": "volume set to medium",
+        "subCommands": [
+            {
+                "commandName": "property",
+                "propertyName": "volume",
+                "propertyValue": 60
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "setVolumeHigh",
+        "triggerPhrase": "set volume high",
+        "responsePhrase": "volume set to high",
+        "subCommands": [
+            {
+                "commandName": "property",
+                "propertyName": "volume",
+                "propertyValue": 100
+            }
+        ]
+    }
+]
