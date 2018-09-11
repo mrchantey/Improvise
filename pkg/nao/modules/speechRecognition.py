@@ -15,19 +15,20 @@ class SpeechRecognitionModule():
 
     def StartRecognizing(self):
         if not self.isRunning:
-            self.speechRecognition.subscribe("NaoSpeechRecognition")
             self.isRunning = True
+            self.speechRecognition.subscribe("NaoSpeechRecognition")
 
     def StopRecognizing(self, forceStop=False):
-        if self.isRunning or forceStop == True:
-            try:
-                self.speechRecognition.unsubscribe("NaoSpeechRecognition")
-            except:
-                pass
-            self.isRunning = False
+        # if self.isRunning or forceStop == True:
+        self.isRunning = False
+        try:
+            self.speechRecognition.unsubscribe("NaoSpeechRecognition")
+        except:
+            pass
 
     def AddWord(self, word, updateVocab=True):
-        self.vocabulary.append(word)
+        if not word in self.vocabulary:
+            self.vocabulary.append(word)
         if updateVocab:
             self.UpdateVocabulary()
 

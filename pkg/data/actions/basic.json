@@ -3,12 +3,7 @@
         "commandName": "action",
         "actionName": "stopAll",
         "triggerPhrase": "Freeze all motor functions",
-        "responsePhrase": "freezing all motor functions",
         "subCommands": [
-            {
-                "commandName": "say",
-                "clearPhraseQueue": true
-            },
             {
                 "commandName": "naoqi",
                 "serviceName": "ALBehaviorManager",
@@ -26,6 +21,17 @@
                 "serviceName": "ALAudioPlayer",
                 "methodName": "stopAll",
                 "async": "true"
+            },
+            {
+                "commandName": "naoqi",
+                "serviceName": "ALMotion",
+                "methodName": "killAll",
+                "async": "true"
+            },
+            {
+                "commandName": "say",
+                "clearPhraseQueue": true,
+                "phrase": "freezing all motor functions"
             }
         ]
     },
@@ -70,8 +76,7 @@
         "subCommands": [
             {
                 "commandName": "property",
-                "propertyName": "volume",
-                "sayResponsePhrase": true
+                "propertyName": "volume"
             }
         ]
     },
@@ -79,12 +84,16 @@
         "commandName": "action",
         "actionName": "setVolumeLow",
         "triggerPhrase": "set volume low",
-        "responsePhrase": "volume set to low",
         "subCommands": [
             {
                 "commandName": "property",
                 "propertyName": "volume",
-                "propertyValue": 30
+                "propertyValue": 30,
+                "sayValue": false
+            },
+            {
+                "commandName": "say",
+                "phrase": "volume set to low"
             }
         ]
     },
@@ -92,12 +101,16 @@
         "commandName": "action",
         "actionName": "setVolumeMedium",
         "triggerPhrase": "set volume medium",
-        "responsePhrase": "volume set to medium",
         "subCommands": [
             {
                 "commandName": "property",
                 "propertyName": "volume",
-                "propertyValue": 60
+                "propertyValue": 60,
+                "sayValue": false
+            },
+            {
+                "commandName": "say",
+                "phrase": "volume set to medium"
             }
         ]
     },
@@ -105,12 +118,38 @@
         "commandName": "action",
         "actionName": "setVolumeHigh",
         "triggerPhrase": "set volume high",
-        "responsePhrase": "volume set to high",
         "subCommands": [
             {
                 "commandName": "property",
                 "propertyName": "volume",
-                "propertyValue": 100
+                "propertyValue": 100,
+                "sayValue": false
+            },
+            {
+                "commandName": "say",
+                "phrase": "volume set to high"
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "internal",
+        "triggerPhrase": "exit program",
+        "subCommands": [
+            {
+                "commandName": "internal",
+                "instruction": "exitProgram"
+            }
+        ]
+    },
+    {
+        "commandName": "action",
+        "actionName": "Test Behavior",
+        "triggerPhrase": "test behavior",
+        "subCommands": [
+            {
+                "commandName": "runBehavior",
+                "path": "physio/animations/head/look_left_60"
             }
         ]
     }

@@ -46,23 +46,28 @@ class PropertyCommand():
         }
 
     def Run(self, command):
-
         if 'propertyName' in command:
             prop = self.properties[command['propertyName']]
             # passing paramameters implicitly declares a 'set'
             if 'propertyValue' in command:
                 prop['set'](command['propertyValue'])
             val = prop['get']()
-            return {
+            response = {
                 'propertyName': command['propertyName'],
-                'propertyValue': val,
-                'responsePhrase': "the value of " + command['propertyName'] + " is " + str(val)
+                'propertyValue': val
             }
+            if not command['sayValue'] == False:
+                response['followupCommands'] = [
+                    {
+                        "commandName": 'say',
+                        'phrase': 'the value of ' + command['propertyName'] + 'is' + str(val)
+                    }
+                ]
+            return response
         else:
             return {
                 "propertyName": "all",
-                "propertyValue": self.GetBakedProperties(),
-                'responsePhrase': "all properties retrieved"
+                "propertyValue": self.GetBakedProperties()
             }
 
     def GetBakedProperties(self):

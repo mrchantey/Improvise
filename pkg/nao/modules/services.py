@@ -15,6 +15,7 @@ class ServiceModule():
         self.autonomousMoves = self.ConnectService("ALAutonomousMoves")
         self.behaviorManager = self.ConnectService("ALBehaviorManager")
         self.connectionManager = self.ConnectService("ALConnectionManager")
+        self.ConnectService("ALMotion")
         self.memory = self.ConnectService("ALMemory")
         self.leds = self.ConnectService("ALLeds")
         # self.peoplePerception = self.ConnectService("ALPeoplePerception")

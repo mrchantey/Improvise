@@ -1,348 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ChoregraphePositionLibrary xmlns="http://www.aldebaran-robotics.com/schema/choregraphe/position.xsd">
     <folder>
-        <folded>yes</folded>
-        <title>full_body</title>
-        <position>
-            <Motors>
-                <Motor>
-                    <name>HeadPitch</name>
-                    <value>0.0934254</value>
-                </Motor>
-                <Motor>
-                    <name>HeadYaw</name>
-                    <value>-0.00036203</value>
-                </Motor>
-                <Motor>
-                    <name>LAnklePitch</name>
-                    <value>-1.17859</value>
-                </Motor>
-                <Motor>
-                    <name>LAnkleRoll</name>
-                    <value>0.0719595</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowRoll</name>
-                    <value>-1.06591</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowYaw</name>
-                    <value>-0.792421</value>
-                </Motor>
-                <Motor>
-                    <name>LHand</name>
-                    <value>0.000847448</value>
-                </Motor>
-                <Motor>
-                    <name>LHipPitch</name>
-                    <value>-0.699077</value>
-                </Motor>
-                <Motor>
-                    <name>LHipRoll</name>
-                    <value>-0.0719187</value>
-                </Motor>
-                <Motor>
-                    <name>LHipYawPitch</name>
-                    <value>-0.243277</value>
-                </Motor>
-                <Motor>
-                    <name>LKneePitch</name>
-                    <value>2.10755</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderPitch</name>
-                    <value>1.40411</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderRoll</name>
-                    <value>0.166576</value>
-                </Motor>
-                <Motor>
-                    <name>LWristYaw</name>
-                    <value>0.149983</value>
-                </Motor>
-                <Motor>
-                    <name>RAnklePitch</name>
-                    <value>-1.17859</value>
-                </Motor>
-                <Motor>
-                    <name>RAnkleRoll</name>
-                    <value>-0.0719595</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowRoll</name>
-                    <value>1.06591</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowYaw</name>
-                    <value>0.792421</value>
-                </Motor>
-                <Motor>
-                    <name>RHand</name>
-                    <value>0.000847448</value>
-                </Motor>
-                <Motor>
-                    <name>RHipPitch</name>
-                    <value>-0.699077</value>
-                </Motor>
-                <Motor>
-                    <name>RHipRoll</name>
-                    <value>0.0719187</value>
-                </Motor>
-                <Motor>
-                    <name>RHipYawPitch</name>
-                    <value>-0.243277</value>
-                </Motor>
-                <Motor>
-                    <name>RKneePitch</name>
-                    <value>2.10755</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderPitch</name>
-                    <value>1.40411</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderRoll</name>
-                    <value>-0.166576</value>
-                </Motor>
-                <Motor>
-                    <name>RWristYaw</name>
-                    <value>-0.140435</value>
-                </Motor>
-            </Motors>
-            <version>2</version>
-            <name>rest</name>
-            <description></description>
-            <bitmap></bitmap>
-        </position>
-        <position>
-            <Motors>
-                <Motor>
-                    <name>HeadPitch</name>
-                    <value>-0.173786</value>
-                </Motor>
-                <Motor>
-                    <name>HeadYaw</name>
-                    <value>-0.00036203</value>
-                </Motor>
-                <Motor>
-                    <name>LAnklePitch</name>
-                    <value>0.09</value>
-                </Motor>
-                <Motor>
-                    <name>LAnkleRoll</name>
-                    <value>-0.13</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowRoll</name>
-                    <value>-0.416067</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowYaw</name>
-                    <value>-1.19935</value>
-                </Motor>
-                <Motor>
-                    <name>LHand</name>
-                    <value>0.3</value>
-                </Motor>
-                <Motor>
-                    <name>LHipPitch</name>
-                    <value>0.13</value>
-                </Motor>
-                <Motor>
-                    <name>LHipRoll</name>
-                    <value>0.1</value>
-                </Motor>
-                <Motor>
-                    <name>LHipYawPitch</name>
-                    <value>-0.17</value>
-                </Motor>
-                <Motor>
-                    <name>LKneePitch</name>
-                    <value>-0.09</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderPitch</name>
-                    <value>1.46411</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderRoll</name>
-                    <value>0.178923</value>
-                </Motor>
-                <Motor>
-                    <name>LWristYaw</name>
-                    <value>0.0975684</value>
-                </Motor>
-                <Motor>
-                    <name>RAnklePitch</name>
-                    <value>0.0896553</value>
-                </Motor>
-                <Motor>
-                    <name>RAnkleRoll</name>
-                    <value>0.13</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowRoll</name>
-                    <value>0.410576</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowYaw</name>
-                    <value>1.18614</value>
-                </Motor>
-                <Motor>
-                    <name>RHand</name>
-                    <value>0.298877</value>
-                </Motor>
-                <Motor>
-                    <name>RHipPitch</name>
-                    <value>0.13</value>
-                </Motor>
-                <Motor>
-                    <name>RHipRoll</name>
-                    <value>-0.090312</value>
-                </Motor>
-                <Motor>
-                    <name>RHipYawPitch</name>
-                    <value>-0.17</value>
-                </Motor>
-                <Motor>
-                    <name>RKneePitch</name>
-                    <value>-0.09</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderPitch</name>
-                    <value>1.46721</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderRoll</name>
-                    <value>-0.1893</value>
-                </Motor>
-                <Motor>
-                    <name>RWristYaw</name>
-                    <value>0.0905004</value>
-                </Motor>
-            </Motors>
-            <version>2</version>
-            <name>stand</name>
-            <description></description>
-            <bitmap></bitmap>
-        </position>
-    </folder>
-    <folder>
-        <folded>yes</folded>
-        <title>left_arm</title>
-        <position>
-            <Motors>
-                <Motor>
-                    <name>HeadPitch</name>
-                    <value>-0.172159</value>
-                </Motor>
-                <Motor>
-                    <name>HeadYaw</name>
-                    <value>-0.00329437</value>
-                </Motor>
-                <Motor>
-                    <name>LAnklePitch</name>
-                    <value>0.0885822</value>
-                </Motor>
-                <Motor>
-                    <name>LAnkleRoll</name>
-                    <value>-0.125535</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowRoll</name>
-                    <value>-1.53977</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowYaw</name>
-                    <value>-1.57116</value>
-                </Motor>
-                <Motor>
-                    <name>LHand</name>
-                    <value>0.293529</value>
-                </Motor>
-                <Motor>
-                    <name>LHipPitch</name>
-                    <value>0.129073</value>
-                </Motor>
-                <Motor>
-                    <name>LHipRoll</name>
-                    <value>0.0961173</value>
-                </Motor>
-                <Motor>
-                    <name>LHipYawPitch</name>
-                    <value>-0.174596</value>
-                </Motor>
-                <Motor>
-                    <name>LKneePitch</name>
-                    <value>-0.0875437</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderPitch</name>
-                    <value>1.4596</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderRoll</name>
-                    <value>0.197834</value>
-                </Motor>
-                <Motor>
-                    <name>LWristYaw</name>
-                    <value>0.10667</value>
-                </Motor>
-                <Motor>
-                    <name>RAnklePitch</name>
-                    <value>0.0882379</value>
-                </Motor>
-                <Motor>
-                    <name>RAnkleRoll</name>
-                    <value>0.125535</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowRoll</name>
-                    <value>0.424241</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowYaw</name>
-                    <value>1.19347</value>
-                </Motor>
-                <Motor>
-                    <name>RHand</name>
-                    <value>0.29243</value>
-                </Motor>
-                <Motor>
-                    <name>RHipPitch</name>
-                    <value>0.129073</value>
-                </Motor>
-                <Motor>
-                    <name>RHipRoll</name>
-                    <value>-0.0805279</value>
-                </Motor>
-                <Motor>
-                    <name>RHipYawPitch</name>
-                    <value>-0.174596</value>
-                </Motor>
-                <Motor>
-                    <name>RKneePitch</name>
-                    <value>-0.0875437</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderPitch</name>
-                    <value>1.44714</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderRoll</name>
-                    <value>-0.223671</value>
-                </Motor>
-                <Motor>
-                    <name>RWristYaw</name>
-                    <value>0.087981</value>
-                </Motor>
-            </Motors>
-            <version>2</version>
-            <name>elbow_fwd_90</name>
-            <description></description>
-            <bitmap></bitmap>
-        </position>
+        <folded>no</folded>
+        <title>LWrist</title>
         <position>
             <Motors>
                 <Motor>
@@ -563,14 +223,474 @@
                 </Motor>
             </Motors>
             <version>2</version>
-            <name>forearm_supernation</name>
+            <name>forearm_supination</name>
             <description></description>
             <bitmap></bitmap>
         </position>
     </folder>
     <folder>
         <folded>no</folded>
-        <title>head</title>
+        <title>RArm</title>
+        <position>
+            <Motors>
+                <Motor>
+                    <name>HeadPitch</name>
+                    <value>-0.172159</value>
+                </Motor>
+                <Motor>
+                    <name>HeadYaw</name>
+                    <value>-0.00329437</value>
+                </Motor>
+                <Motor>
+                    <name>LAnklePitch</name>
+                    <value>0.0885822</value>
+                </Motor>
+                <Motor>
+                    <name>LAnkleRoll</name>
+                    <value>-0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowRoll</name>
+                    <value>-0.424927</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowYaw</name>
+                    <value>-1.21158</value>
+                </Motor>
+                <Motor>
+                    <name>LHand</name>
+                    <value>0.293529</value>
+                </Motor>
+                <Motor>
+                    <name>LHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>LHipRoll</name>
+                    <value>0.0961173</value>
+                </Motor>
+                <Motor>
+                    <name>LHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>LKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderPitch</name>
+                    <value>1.42937</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderRoll</name>
+                    <value>0.210612</value>
+                </Motor>
+                <Motor>
+                    <name>LWristYaw</name>
+                    <value>0.0950066</value>
+                </Motor>
+                <Motor>
+                    <name>RAnklePitch</name>
+                    <value>0.0882379</value>
+                </Motor>
+                <Motor>
+                    <name>RAnkleRoll</name>
+                    <value>0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowRoll</name>
+                    <value>1.54105</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowYaw</name>
+                    <value>1.56914</value>
+                </Motor>
+                <Motor>
+                    <name>RHand</name>
+                    <value>0.29243</value>
+                </Motor>
+                <Motor>
+                    <name>RHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>RHipRoll</name>
+                    <value>-0.0805279</value>
+                </Motor>
+                <Motor>
+                    <name>RHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>RKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderPitch</name>
+                    <value>1.46336</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderRoll</name>
+                    <value>-0.201702</value>
+                </Motor>
+                <Motor>
+                    <name>RWristYaw</name>
+                    <value>0.087981</value>
+                </Motor>
+            </Motors>
+            <version>2</version>
+            <name>elbow_fwd_90</name>
+            <description></description>
+            <bitmap></bitmap>
+        </position>
+    </folder>
+    <folder>
+        <folded>no</folded>
+        <title>RWrist</title>
+        <position>
+            <Motors>
+                <Motor>
+                    <name>HeadPitch</name>
+                    <value>-0.172159</value>
+                </Motor>
+                <Motor>
+                    <name>HeadYaw</name>
+                    <value>-0.00329437</value>
+                </Motor>
+                <Motor>
+                    <name>LAnklePitch</name>
+                    <value>0.0885822</value>
+                </Motor>
+                <Motor>
+                    <name>LAnkleRoll</name>
+                    <value>-0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowRoll</name>
+                    <value>-0.424927</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowYaw</name>
+                    <value>-1.21158</value>
+                </Motor>
+                <Motor>
+                    <name>LHand</name>
+                    <value>0.293529</value>
+                </Motor>
+                <Motor>
+                    <name>LHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>LHipRoll</name>
+                    <value>0.0961173</value>
+                </Motor>
+                <Motor>
+                    <name>LHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>LKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderPitch</name>
+                    <value>1.42937</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderRoll</name>
+                    <value>0.210612</value>
+                </Motor>
+                <Motor>
+                    <name>LWristYaw</name>
+                    <value>0.0950066</value>
+                </Motor>
+                <Motor>
+                    <name>RAnklePitch</name>
+                    <value>0.0882379</value>
+                </Motor>
+                <Motor>
+                    <name>RAnkleRoll</name>
+                    <value>0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowRoll</name>
+                    <value>0.418802</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowYaw</name>
+                    <value>1.19849</value>
+                </Motor>
+                <Motor>
+                    <name>RHand</name>
+                    <value>0.29243</value>
+                </Motor>
+                <Motor>
+                    <name>RHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>RHipRoll</name>
+                    <value>-0.0805279</value>
+                </Motor>
+                <Motor>
+                    <name>RHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>RKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderPitch</name>
+                    <value>1.43243</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderRoll</name>
+                    <value>-0.224272</value>
+                </Motor>
+                <Motor>
+                    <name>RWristYaw</name>
+                    <value>1.82097</value>
+                </Motor>
+            </Motors>
+            <version>2</version>
+            <name>forearm_supination</name>
+            <description></description>
+            <bitmap></bitmap>
+        </position>
+        <position>
+            <Motors>
+                <Motor>
+                    <name>HeadPitch</name>
+                    <value>-0.172159</value>
+                </Motor>
+                <Motor>
+                    <name>HeadYaw</name>
+                    <value>-0.00329437</value>
+                </Motor>
+                <Motor>
+                    <name>LAnklePitch</name>
+                    <value>0.0885822</value>
+                </Motor>
+                <Motor>
+                    <name>LAnkleRoll</name>
+                    <value>-0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowRoll</name>
+                    <value>-0.424927</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowYaw</name>
+                    <value>-1.21158</value>
+                </Motor>
+                <Motor>
+                    <name>LHand</name>
+                    <value>0.293529</value>
+                </Motor>
+                <Motor>
+                    <name>LHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>LHipRoll</name>
+                    <value>0.0961173</value>
+                </Motor>
+                <Motor>
+                    <name>LHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>LKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderPitch</name>
+                    <value>1.42937</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderRoll</name>
+                    <value>0.210612</value>
+                </Motor>
+                <Motor>
+                    <name>LWristYaw</name>
+                    <value>0.0950066</value>
+                </Motor>
+                <Motor>
+                    <name>RAnklePitch</name>
+                    <value>0.0882379</value>
+                </Motor>
+                <Motor>
+                    <name>RAnkleRoll</name>
+                    <value>0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowRoll</name>
+                    <value>0.418802</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowYaw</name>
+                    <value>1.19849</value>
+                </Motor>
+                <Motor>
+                    <name>RHand</name>
+                    <value>0.29243</value>
+                </Motor>
+                <Motor>
+                    <name>RHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>RHipRoll</name>
+                    <value>-0.0805279</value>
+                </Motor>
+                <Motor>
+                    <name>RHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>RKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderPitch</name>
+                    <value>1.43243</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderRoll</name>
+                    <value>-0.224272</value>
+                </Motor>
+                <Motor>
+                    <name>RWristYaw</name>
+                    <value>-1.82134</value>
+                </Motor>
+            </Motors>
+            <version>2</version>
+            <name>forearm_pronation</name>
+            <description></description>
+            <bitmap></bitmap>
+        </position>
+    </folder>
+    <folder>
+        <folded>no</folded>
+        <title>LArm</title>
+        <position>
+            <Motors>
+                <Motor>
+                    <name>HeadPitch</name>
+                    <value>-0.172159</value>
+                </Motor>
+                <Motor>
+                    <name>HeadYaw</name>
+                    <value>-0.00329437</value>
+                </Motor>
+                <Motor>
+                    <name>LAnklePitch</name>
+                    <value>0.0885822</value>
+                </Motor>
+                <Motor>
+                    <name>LAnkleRoll</name>
+                    <value>-0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowRoll</name>
+                    <value>-1.53977</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowYaw</name>
+                    <value>-1.57116</value>
+                </Motor>
+                <Motor>
+                    <name>LHand</name>
+                    <value>0.293529</value>
+                </Motor>
+                <Motor>
+                    <name>LHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>LHipRoll</name>
+                    <value>0.0961173</value>
+                </Motor>
+                <Motor>
+                    <name>LHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>LKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderPitch</name>
+                    <value>1.4596</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderRoll</name>
+                    <value>0.197834</value>
+                </Motor>
+                <Motor>
+                    <name>LWristYaw</name>
+                    <value>0.10667</value>
+                </Motor>
+                <Motor>
+                    <name>RAnklePitch</name>
+                    <value>0.0882379</value>
+                </Motor>
+                <Motor>
+                    <name>RAnkleRoll</name>
+                    <value>0.125535</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowRoll</name>
+                    <value>0.424241</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowYaw</name>
+                    <value>1.19347</value>
+                </Motor>
+                <Motor>
+                    <name>RHand</name>
+                    <value>0.29243</value>
+                </Motor>
+                <Motor>
+                    <name>RHipPitch</name>
+                    <value>0.129073</value>
+                </Motor>
+                <Motor>
+                    <name>RHipRoll</name>
+                    <value>-0.0805279</value>
+                </Motor>
+                <Motor>
+                    <name>RHipYawPitch</name>
+                    <value>-0.174596</value>
+                </Motor>
+                <Motor>
+                    <name>RKneePitch</name>
+                    <value>-0.0875437</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderPitch</name>
+                    <value>1.44714</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderRoll</name>
+                    <value>-0.223671</value>
+                </Motor>
+                <Motor>
+                    <name>RWristYaw</name>
+                    <value>0.087981</value>
+                </Motor>
+            </Motors>
+            <version>2</version>
+            <name>elbow_fwd_90</name>
+            <description></description>
+            <bitmap></bitmap>
+        </position>
+    </folder>
+    <folder>
+        <folded>no</folded>
+        <title>Head</title>
         <position>
             <Motors>
                 <Motor>
@@ -1246,116 +1366,116 @@
     </folder>
     <folder>
         <folded>no</folded>
-        <title>right_arm</title>
+        <title>Full</title>
         <position>
             <Motors>
                 <Motor>
                     <name>HeadPitch</name>
-                    <value>-0.172159</value>
+                    <value>0.0934254</value>
                 </Motor>
                 <Motor>
                     <name>HeadYaw</name>
-                    <value>-0.00329437</value>
+                    <value>-0.00036203</value>
                 </Motor>
                 <Motor>
                     <name>LAnklePitch</name>
-                    <value>0.0885822</value>
+                    <value>-1.17859</value>
                 </Motor>
                 <Motor>
                     <name>LAnkleRoll</name>
-                    <value>-0.125535</value>
+                    <value>0.0719595</value>
                 </Motor>
                 <Motor>
                     <name>LElbowRoll</name>
-                    <value>-0.424927</value>
+                    <value>-1.06591</value>
                 </Motor>
                 <Motor>
                     <name>LElbowYaw</name>
-                    <value>-1.21158</value>
+                    <value>-0.792421</value>
                 </Motor>
                 <Motor>
                     <name>LHand</name>
-                    <value>0.293529</value>
+                    <value>0.000847448</value>
                 </Motor>
                 <Motor>
                     <name>LHipPitch</name>
-                    <value>0.129073</value>
+                    <value>-0.699077</value>
                 </Motor>
                 <Motor>
                     <name>LHipRoll</name>
-                    <value>0.0961173</value>
+                    <value>-0.0719187</value>
                 </Motor>
                 <Motor>
                     <name>LHipYawPitch</name>
-                    <value>-0.174596</value>
+                    <value>-0.243277</value>
                 </Motor>
                 <Motor>
                     <name>LKneePitch</name>
-                    <value>-0.0875437</value>
+                    <value>2.10755</value>
                 </Motor>
                 <Motor>
                     <name>LShoulderPitch</name>
-                    <value>1.42937</value>
+                    <value>1.40411</value>
                 </Motor>
                 <Motor>
                     <name>LShoulderRoll</name>
-                    <value>0.210612</value>
+                    <value>0.166576</value>
                 </Motor>
                 <Motor>
                     <name>LWristYaw</name>
-                    <value>0.0950066</value>
+                    <value>0.149983</value>
                 </Motor>
                 <Motor>
                     <name>RAnklePitch</name>
-                    <value>0.0882379</value>
+                    <value>-1.17859</value>
                 </Motor>
                 <Motor>
                     <name>RAnkleRoll</name>
-                    <value>0.125535</value>
+                    <value>-0.0719595</value>
                 </Motor>
                 <Motor>
                     <name>RElbowRoll</name>
-                    <value>1.54105</value>
+                    <value>1.06591</value>
                 </Motor>
                 <Motor>
                     <name>RElbowYaw</name>
-                    <value>1.56914</value>
+                    <value>0.792421</value>
                 </Motor>
                 <Motor>
                     <name>RHand</name>
-                    <value>0.29243</value>
+                    <value>0.000847448</value>
                 </Motor>
                 <Motor>
                     <name>RHipPitch</name>
-                    <value>0.129073</value>
+                    <value>-0.699077</value>
                 </Motor>
                 <Motor>
                     <name>RHipRoll</name>
-                    <value>-0.0805279</value>
+                    <value>0.0719187</value>
                 </Motor>
                 <Motor>
                     <name>RHipYawPitch</name>
-                    <value>-0.174596</value>
+                    <value>-0.243277</value>
                 </Motor>
                 <Motor>
                     <name>RKneePitch</name>
-                    <value>-0.0875437</value>
+                    <value>2.10755</value>
                 </Motor>
                 <Motor>
                     <name>RShoulderPitch</name>
-                    <value>1.46336</value>
+                    <value>1.40411</value>
                 </Motor>
                 <Motor>
                     <name>RShoulderRoll</name>
-                    <value>-0.201702</value>
+                    <value>-0.166576</value>
                 </Motor>
                 <Motor>
                     <name>RWristYaw</name>
-                    <value>0.087981</value>
+                    <value>-0.140435</value>
                 </Motor>
             </Motors>
             <version>2</version>
-            <name>elbow_fwd_90</name>
+            <name>rest</name>
             <description></description>
             <bitmap></bitmap>
         </position>
@@ -1363,223 +1483,111 @@
             <Motors>
                 <Motor>
                     <name>HeadPitch</name>
-                    <value>-0.172159</value>
+                    <value>-0.173786</value>
                 </Motor>
                 <Motor>
                     <name>HeadYaw</name>
-                    <value>-0.00329437</value>
+                    <value>-0.00036203</value>
                 </Motor>
                 <Motor>
                     <name>LAnklePitch</name>
-                    <value>0.0885822</value>
+                    <value>0.09</value>
                 </Motor>
                 <Motor>
                     <name>LAnkleRoll</name>
-                    <value>-0.125535</value>
+                    <value>-0.13</value>
                 </Motor>
                 <Motor>
                     <name>LElbowRoll</name>
-                    <value>-0.424927</value>
+                    <value>-0.416067</value>
                 </Motor>
                 <Motor>
                     <name>LElbowYaw</name>
-                    <value>-1.21158</value>
+                    <value>-1.19935</value>
                 </Motor>
                 <Motor>
                     <name>LHand</name>
-                    <value>0.293529</value>
+                    <value>0.3</value>
                 </Motor>
                 <Motor>
                     <name>LHipPitch</name>
-                    <value>0.129073</value>
+                    <value>0.13</value>
                 </Motor>
                 <Motor>
                     <name>LHipRoll</name>
-                    <value>0.0961173</value>
+                    <value>0.1</value>
                 </Motor>
                 <Motor>
                     <name>LHipYawPitch</name>
-                    <value>-0.174596</value>
+                    <value>-0.17</value>
                 </Motor>
                 <Motor>
                     <name>LKneePitch</name>
-                    <value>-0.0875437</value>
+                    <value>-0.09</value>
                 </Motor>
                 <Motor>
                     <name>LShoulderPitch</name>
-                    <value>1.42937</value>
+                    <value>1.46411</value>
                 </Motor>
                 <Motor>
                     <name>LShoulderRoll</name>
-                    <value>0.210612</value>
+                    <value>0.178923</value>
                 </Motor>
                 <Motor>
                     <name>LWristYaw</name>
-                    <value>0.0950066</value>
+                    <value>0.0975684</value>
                 </Motor>
                 <Motor>
                     <name>RAnklePitch</name>
-                    <value>0.0882379</value>
+                    <value>0.0896553</value>
                 </Motor>
                 <Motor>
                     <name>RAnkleRoll</name>
-                    <value>0.125535</value>
+                    <value>0.13</value>
                 </Motor>
                 <Motor>
                     <name>RElbowRoll</name>
-                    <value>0.418802</value>
+                    <value>0.410576</value>
                 </Motor>
                 <Motor>
                     <name>RElbowYaw</name>
-                    <value>1.19849</value>
+                    <value>1.18614</value>
                 </Motor>
                 <Motor>
                     <name>RHand</name>
-                    <value>0.29243</value>
+                    <value>0.298877</value>
                 </Motor>
                 <Motor>
                     <name>RHipPitch</name>
-                    <value>0.129073</value>
+                    <value>0.13</value>
                 </Motor>
                 <Motor>
                     <name>RHipRoll</name>
-                    <value>-0.0805279</value>
+                    <value>-0.090312</value>
                 </Motor>
                 <Motor>
                     <name>RHipYawPitch</name>
-                    <value>-0.174596</value>
+                    <value>-0.17</value>
                 </Motor>
                 <Motor>
                     <name>RKneePitch</name>
-                    <value>-0.0875437</value>
+                    <value>-0.09</value>
                 </Motor>
                 <Motor>
                     <name>RShoulderPitch</name>
-                    <value>1.43243</value>
+                    <value>1.46721</value>
                 </Motor>
                 <Motor>
                     <name>RShoulderRoll</name>
-                    <value>-0.224272</value>
+                    <value>-0.1893</value>
                 </Motor>
                 <Motor>
                     <name>RWristYaw</name>
-                    <value>1.82097</value>
+                    <value>0.0905004</value>
                 </Motor>
             </Motors>
             <version>2</version>
-            <name>forearm_supernation</name>
-            <description></description>
-            <bitmap></bitmap>
-        </position>
-        <position>
-            <Motors>
-                <Motor>
-                    <name>HeadPitch</name>
-                    <value>-0.172159</value>
-                </Motor>
-                <Motor>
-                    <name>HeadYaw</name>
-                    <value>-0.00329437</value>
-                </Motor>
-                <Motor>
-                    <name>LAnklePitch</name>
-                    <value>0.0885822</value>
-                </Motor>
-                <Motor>
-                    <name>LAnkleRoll</name>
-                    <value>-0.125535</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowRoll</name>
-                    <value>-0.424927</value>
-                </Motor>
-                <Motor>
-                    <name>LElbowYaw</name>
-                    <value>-1.21158</value>
-                </Motor>
-                <Motor>
-                    <name>LHand</name>
-                    <value>0.293529</value>
-                </Motor>
-                <Motor>
-                    <name>LHipPitch</name>
-                    <value>0.129073</value>
-                </Motor>
-                <Motor>
-                    <name>LHipRoll</name>
-                    <value>0.0961173</value>
-                </Motor>
-                <Motor>
-                    <name>LHipYawPitch</name>
-                    <value>-0.174596</value>
-                </Motor>
-                <Motor>
-                    <name>LKneePitch</name>
-                    <value>-0.0875437</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderPitch</name>
-                    <value>1.42937</value>
-                </Motor>
-                <Motor>
-                    <name>LShoulderRoll</name>
-                    <value>0.210612</value>
-                </Motor>
-                <Motor>
-                    <name>LWristYaw</name>
-                    <value>0.0950066</value>
-                </Motor>
-                <Motor>
-                    <name>RAnklePitch</name>
-                    <value>0.0882379</value>
-                </Motor>
-                <Motor>
-                    <name>RAnkleRoll</name>
-                    <value>0.125535</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowRoll</name>
-                    <value>0.418802</value>
-                </Motor>
-                <Motor>
-                    <name>RElbowYaw</name>
-                    <value>1.19849</value>
-                </Motor>
-                <Motor>
-                    <name>RHand</name>
-                    <value>0.29243</value>
-                </Motor>
-                <Motor>
-                    <name>RHipPitch</name>
-                    <value>0.129073</value>
-                </Motor>
-                <Motor>
-                    <name>RHipRoll</name>
-                    <value>-0.0805279</value>
-                </Motor>
-                <Motor>
-                    <name>RHipYawPitch</name>
-                    <value>-0.174596</value>
-                </Motor>
-                <Motor>
-                    <name>RKneePitch</name>
-                    <value>-0.0875437</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderPitch</name>
-                    <value>1.43243</value>
-                </Motor>
-                <Motor>
-                    <name>RShoulderRoll</name>
-                    <value>-0.224272</value>
-                </Motor>
-                <Motor>
-                    <name>RWristYaw</name>
-                    <value>-1.82134</value>
-                </Motor>
-            </Motors>
-            <version>2</version>
-            <name>forearm_pronation</name>
+            <name>stand</name>
             <description></description>
             <bitmap></bitmap>
         </position>

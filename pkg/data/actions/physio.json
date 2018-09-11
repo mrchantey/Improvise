@@ -1,0 +1,57 @@
+[
+    {
+        "commandName": "action",
+        "actionName": "Left Forearm Pronation / Supination",
+        "triggerPhrase": "Left Forearm Pronation and Supination",
+        "subCommands": [
+            {
+                "commandName": "loopAction",
+                "loopCount": 3,
+                "startCommands": [
+                    {
+                        "commandName": "runBehavior",
+                        "path": "custom_animations/body/stand"
+                    },
+                    {
+                        "commandName": "say",
+                        "phrase": "Lets do forearm pronation and supination. Start by raising your left elbow."
+                    },
+                    {
+                        "commandName": "pose",
+                        "poseName": "LArm/elbow_fwd_90"
+                    }
+                ],
+                "loopCommands": [
+                    {
+                        "commandName": "pose",
+                        "poseName": "LWrist/forearm_pronation"
+                    },
+                    {
+                        "commandName": "internal",
+                        "instruction": "pause",
+                        "duration": 1
+                    },
+                    {
+                        "commandName": "pose",
+                        "poseName": "LWrist/forearm_supination"
+                    },
+                    {
+                        "commandName": "internal",
+                        "instruction": "pause",
+                        "duration": 1
+                    }
+                ],
+                "endCommands": [
+                    {
+                        "commandName": "say",
+                        "phrase": "Good job!"
+                    },
+                    {
+                        "commandName": "pose",
+                        "poseName": "Full/stand"
+                    }
+                ]
+            }
+        ]
+    }
+]

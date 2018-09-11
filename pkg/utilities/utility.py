@@ -1,14 +1,6 @@
 import json
 
 
-def isInt(s):
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
-
 def OpenJson(path):
     file = open(path, 'r')
     txt = file.read()
@@ -31,20 +23,17 @@ def OpenTextLines(path):
 def parseType(val):
     if isinstance(val, unicode):
         newVal = val.encode('ascii', 'ignore')
-        if isInt(newVal):
-            return int(newVal)
-        return newVal
+        return parseString(newVal)
     elif isinstance(val, str):
-        if isInt(val):
-            return int(val)
-        return val
+        return parseString(newVal)
     elif isinstance(val, dict):
         return parseUnicodeDict(val)
     elif isinstance(val, list):
         return parseUnicodeList(val)
-    elif isinstance(val, int) or isinstance(val, str) or isinstance(val, bool) or isinstance(val, float):
-        return val
-    elif val == None:
+    elif (val == None
+            or isinstance(val, int)
+            or isinstance(val, bool)
+            or isinstance(val, float)):
         return val
     print '\n\n unknown type', '\n', type(val), '\n', val
     return val
@@ -63,6 +52,25 @@ def parseUnicodeList(lst):
     for item in lst:
         res.append(parseType(item))
     return res
+
+
+def parseString(val):
+    try:
+        iVal = int(val)
+        return iVal
+    except ValueError:
+        pass
+    try:
+        fVal = float(val)
+        return fVal
+    except ValueError:
+        pass
+    if val == 'true'or val == 'True':
+        return True
+    elif val == 'false' or val == 'False':
+        return False
+    else:
+        return val
 
 
 def GetMimeType(path):

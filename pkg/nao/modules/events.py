@@ -48,6 +48,8 @@ class EventModule():
             print 'event occured..', eventKey, eventValue
             self.eventPool.append({'key': eventKey, 'value': eventValue})
             eventListeners = filter(lambda l: l['key'] == eventKey, self.listeners)
+            # for listener in eventListeners:
+            #     print 'LISTENER CALLBACK:', listener['callback']
             for listener in eventListeners:
                 listener['callback'](eventValue)
 

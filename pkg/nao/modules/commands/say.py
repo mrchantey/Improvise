@@ -9,7 +9,6 @@ class SayCommand():
         events.AddListener("ALTextToSpeech/TextDone", self.TextDoneListener)
 
     def Run(self, command):
-        responsePhrase = "running say command"
         if not 'clearPhraseQueue' in command:
             command['clearPhraseQueue'] = False
         if command['clearPhraseQueue'] == True:
@@ -17,10 +16,6 @@ class SayCommand():
         if 'phrase' in command:
             phrases = self.ParsePhraseParams(command)
             self.Say(phrases, command['async'])
-            responsePhrase = "saying " + phrases[0]['phrase']
-        return {
-            "responsePhrase": responsePhrase
-        }
 
     def Say(self, phrases, _async):
         if _async == True:

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.1" uuid="custom_animations">
+ <names>
+  <name lang="en_US">custom_animations</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="body/stand">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="body/crouch">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

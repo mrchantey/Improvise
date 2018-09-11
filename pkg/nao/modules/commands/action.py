@@ -5,16 +5,14 @@ from pkg.utilities.utility import OpenJson
 class ActionCommand():
     def __init__(self, RunCommandCallback):
         self.RunCommandCallback = RunCommandCallback
-        self.actions = OpenJson('pkg/data/actions.json')
+        basicActions = OpenJson('pkg/data/actions/basic.json')
+        physioActions = OpenJson('pkg/data/actions/physio.json')
+        self.actions = basicActions + physioActions
 
     def Run(self, command):
-        subResponse = ''
         for subCommand in command['subCommands']:
-            subResponse = self.RunCommandCallback(subCommand)
-        if 'responsePhrase' in command:
-            return{"responsePhrase": command['responsePhrase']}
-        else:
-            return {"responsePhrase": subResponse}
+            self.RunCommandCallback(subCommand)
+        # return command['response']
 
     def GetSpeechTriggeredActions(self):
         return filter(lambda a: "triggerPhrase" in a, self.actions)
