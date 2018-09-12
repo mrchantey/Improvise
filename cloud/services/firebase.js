@@ -1,5 +1,6 @@
 const admin = require('firebase-admin')
-const serviceAccount = require('./keys/improvise-project-owner.json')
+// const serviceAccount = require('./keys/improvise-project-owner.json')
+const serviceAccount = require('./keys/improvise-firebase-admin.json')
 
 // const uniqueDate = new Date()
 if (admin.apps.length == 0) {

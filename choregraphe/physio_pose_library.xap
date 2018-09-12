@@ -1365,7 +1365,7 @@
         </position>
     </folder>
     <folder>
-        <folded>no</folded>
+        <folded>yes</folded>
         <title>Full</title>
         <position>
             <Motors>
@@ -1476,6 +1476,118 @@
             </Motors>
             <version>2</version>
             <name>rest</name>
+            <description></description>
+            <bitmap></bitmap>
+        </position>
+        <position>
+            <Motors>
+                <Motor>
+                    <name>HeadPitch</name>
+                    <value>-0.18719</value>
+                </Motor>
+                <Motor>
+                    <name>HeadYaw</name>
+                    <value>0.00455999</value>
+                </Motor>
+                <Motor>
+                    <name>LAnklePitch</name>
+                    <value>0.0919981</value>
+                </Motor>
+                <Motor>
+                    <name>LAnkleRoll</name>
+                    <value>-0.128814</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowRoll</name>
+                    <value>-0.0459781</value>
+                </Motor>
+                <Motor>
+                    <name>LElbowYaw</name>
+                    <value>-1.20577</value>
+                </Motor>
+                <Motor>
+                    <name>LHand</name>
+                    <value>0.2884</value>
+                </Motor>
+                <Motor>
+                    <name>LHipPitch</name>
+                    <value>0.124296</value>
+                </Motor>
+                <Motor>
+                    <name>LHipRoll</name>
+                    <value>0.104354</value>
+                </Motor>
+                <Motor>
+                    <name>LHipYawPitch</name>
+                    <value>-0.170232</value>
+                </Motor>
+                <Motor>
+                    <name>LKneePitch</name>
+                    <value>-0.090548</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderPitch</name>
+                    <value>1.43425</value>
+                </Motor>
+                <Motor>
+                    <name>LShoulderRoll</name>
+                    <value>1.23943</value>
+                </Motor>
+                <Motor>
+                    <name>LWristYaw</name>
+                    <value>0.0889301</value>
+                </Motor>
+                <Motor>
+                    <name>RAnklePitch</name>
+                    <value>0.0859461</value>
+                </Motor>
+                <Motor>
+                    <name>RAnkleRoll</name>
+                    <value>0.128898</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowRoll</name>
+                    <value>0.044528</value>
+                </Motor>
+                <Motor>
+                    <name>RElbowYaw</name>
+                    <value>1.18574</value>
+                </Motor>
+                <Motor>
+                    <name>RHand</name>
+                    <value>0.2876</value>
+                </Motor>
+                <Motor>
+                    <name>RHipPitch</name>
+                    <value>0.128814</value>
+                </Motor>
+                <Motor>
+                    <name>RHipRoll</name>
+                    <value>-0.0843279</value>
+                </Motor>
+                <Motor>
+                    <name>RHipYawPitch</name>
+                    <value>-0.170232</value>
+                </Motor>
+                <Motor>
+                    <name>RKneePitch</name>
+                    <value>-0.082794</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderPitch</name>
+                    <value>1.49723</value>
+                </Motor>
+                <Motor>
+                    <name>RShoulderRoll</name>
+                    <value>-1.23338</value>
+                </Motor>
+                <Motor>
+                    <name>RWristYaw</name>
+                    <value>0.078192</value>
+                </Motor>
+            </Motors>
+            <version>2</version>
+            <name>arms_out</name>
             <description></description>
             <bitmap></bitmap>
         </position>

@@ -59,37 +59,37 @@ exports.Get = function (req, res) {
     const ref = ReferenceFromRequest(req.body.key)
     exports.GetInternal(req.body.key)
         .then(val => res.send(val))
-        .catch(res.status(500).send(err))
+        .catch(err => res.status(500).send(err))
 }
 
 
 if (require.main === module) {
 
-    exports.Set(
-        {
-            body: {
-                key: "users/t-rex/banana",
-                value: {
-                    moreInfo: 39
-                }
-            }
-        },
-        {
-            set: (val) => console.log(val),
-            send: (val) => {
-                console.log(val)
-            }
-        }
-    )
+    // exports.Set(
+    //     {
+    //         body: {
+    //             key: "users/t-rex/banana",
+    //             value: {
+    //                 moreInfo: 39
+    //             }
+    //         }
+    //     },
+    //     {
+    //         set: (val) => console.log(val),
+    //         send: (val) => {
+    //             console.log(val)
+    //         }
+    //     }
+    // )
     exports.Get(
         {
             body: {
-                key: "users/t-rex"
+                key: "robot/commandQueue"
             }
         }
         , {
-            set: (val) => console.log(val),
-            send: (val) => console.log(val)
+            set: console.log,
+            send: (val) => console.log(val.constructor === Array)
         }
     )
 }

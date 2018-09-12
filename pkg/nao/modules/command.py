@@ -11,6 +11,7 @@ from commands.loopAction import LoopActionCommand
 
 from commandListeners.internalSpeech import InternalSpeechCommandListener
 from commandListeners.tactile import TactileCommandListener
+from commandListeners.firebase import FirebaseCommandListener
 
 
 class CommandModule:
@@ -26,7 +27,8 @@ class CommandModule:
 
         self.commandListeners = {
             'internalSpeech': internalSpeechCommandListener,
-            'tactile': TactileCommandListener(eventModule, self.Run)
+            'tactile': TactileCommandListener(eventModule, self.Run),
+            'firebase': FirebaseCommandListener(self.Run)
         }
 
         self.commands = {
@@ -39,11 +41,12 @@ class CommandModule:
             'internal': InternalCommand(ExitProgramCallback, self.commandListeners['internalSpeech']),
             'loopAction': LoopActionCommand(self.Run)
         }
-        pass
 
     def StartAllListeners(self):
-        for listener in self.commandListeners:
-            self.commandListeners[listener].StartListening()
+        self.commandListeners['tactile'].StartListening()
+        # self.commandListeners['firebase'].StartListening()
+        # for listener in self.commandListeners:
+        # self.commandListeners[listener].StartListening()
 
     def StopAllListeners(self):
         for listener in self.commandListeners:
@@ -59,10 +62,11 @@ class CommandModule:
         # print 'command has run:'
         # print response
         self.RunFollowupCommands(response)
-        return {
+        returnData = {
             "command": command,
             "response": response
         }
+        return returnData
 
     def RunFollowupCommands(self, response):
         if response == None:

@@ -3,62 +3,10 @@ const news = require('../services/newsAPI')
 const time = require('../services/time')
 const cors = require('./cors')
 const database = require('./database')
-const storeTextAudio = require('./store-text-audio')
-const textToSpeech = require('../services/text-to-speech')
+// const storeTextAudio = require('./store-text-audio')
+// const textToSpeech = require('../services/text-to-speech')
 
-function FulfillQuery(res, phrase) {
-    database.GetInternal("robot/fulfillmentMethod")
-        .then(val => {
-            console.log(`fullfillment Method: ${val}`);
-            if (val === 'audio') {
-                FulfillQueryAudioStorage(phrase)
-            } else {
-                FulfillQueryText(phrase)
-            }
-        })
-    res.json({
-        "fulfillmentText": phrase
-    })
-}
-
-
-function FulfillQueryText(phrase) {
-    const databasePhraseQueue = [{
-        type: 'text',
-        async: false,
-        phrase
-    }]
-    database.SetInternal("robot/phraseQueue", databasePhraseQueue)
-}
-
-
-function FulfillQueryAudioStorage(phrase) {
-    const firebaseStoragePath = 'robot/next-phrase.wav'
-    const databasePhraseQueue = [{
-        type: 'audio',
-        firebaseStoragePath
-    }]
-    storeTextAudio.StoreTextAudioInternal(phrase, firebaseStoragePath)
-        .then(val => {
-            console.log("audio stored: " + val)
-            database.SetInternal("robot/phraseQueue", databasePhraseQueue)
-        })
-        .catch(err => console.error(err))
-}
-
-// function FulfillQueryAudioDatabase(phrase) {
-//     textToSpeech.Synthesize(phrase)
-//         .then(audioData => {
-//             const data64 = audioData.toString('base64')
-
-//             const databasePhraseQueue = [{
-//                 type: 'audio-database',
-//                 data: data64
-//             }]
-
-//         })
-
-// }
+const commandQueueKey = "robot/commandQueue"
 
 exports.DialogflowWebhook = function (req, res) {
     cors.PreflightResponse(req, res)
@@ -87,3 +35,79 @@ exports.DialogflowWebhook = function (req, res) {
         }
     }
 }
+
+
+function FulfillQuery(res, phrase) {
+    AppendFirebaseCommands(phrase)
+    //SEND RESPONSE
+    res.json({
+        "fulfillmentText": phrase
+    })
+}
+
+function AppendFirebaseCommands(phrase) {
+
+    database.GetInternal(commandQueueKey)
+        .then((commandQueue) => {
+            if (commandQueue.constructor !== Array)
+                commandQueue = []
+            const command = {
+                "commandName": 'say',
+                phrase
+            }
+            commandQueue.push(command)
+            database.SetInternal(commandQueueKey, commandQueue)
+        })
+    // console.log(`command queue type: ${typeof (commandQueue)}. Is Array: ${commandQueue.constructor === Array}`)
+    // console.log(commandQueue)
+}
+
+if (require.main === module) {
+    req = {
+        body: {
+            queryResult: {
+                action: "weather.get"
+            }
+        }
+    }
+    res = {
+        set: console.log,
+        send: console.log,
+        json: console.log
+    }
+
+    exports.DialogflowWebhook(req, res);
+
+}
+
+
+
+
+
+// function FulfillQueryAudioStorage(phrase) {
+//     const firebaseStoragePath = 'robot/next-phrase.wav'
+//     const databasePhraseQueue = [{
+//         type: 'audio',
+//         firebaseStoragePath
+//     }]
+//     storeTextAudio.StoreTextAudioInternal(phrase, firebaseStoragePath)
+//         .then(val => {
+//             console.log("audio stored: " + val)
+//             database.SetInternal("robot/phraseQueue", databasePhraseQueue)
+//         })
+//         .catch(err => console.error(err))
+// }
+
+// function FulfillQueryAudioDatabase(phrase) {
+//     textToSpeech.Synthesize(phrase)
+//         .then(audioData => {
+//             const data64 = audioData.toString('base64')
+
+//             const databasePhraseQueue = [{
+//                 type: 'audio-database',
+//                 data: data64
+//             }]
+
+//         })
+
+// }

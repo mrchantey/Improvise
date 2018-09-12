@@ -2,20 +2,24 @@ import qi
 import sys
 import time
 
-# from pkg.nao.modules.speechRecognition import SpeechRecognition
-from pkg.nao.modules.services import ServiceModule
-from pkg.nao.modules.events import EventModule
-from pkg.nao.modules.speechRecognition import SpeechRecognitionModule
-# from pkg.nao.modules.textToSpeech import TextToSpeechModule
-# from pkg.nao.modules.memory import MemoryModule
 from pkg.nao.nao import Nao
-# from pkg.testWaveNet import DownloadTestFile
-# from pkg.nao.modules.dialog.dialog import DialogModule
 
 if __name__ == "__main__":
+    nao = None
+
+    def ExitProgram():
+        nao.ExitProgram()
     ipAddress = sys.argv[1]
-    nao = Nao(ipAddress)
-    nao.commandModule.StartAllListeners()
+    nao = Nao(ipAddress, ExitProgram, 'stand')
+
+    nao.StartProgram()
+    alMotion = nao.serviceModule.services['ALMotion']
+    # alMotion.wbEnable(True)
+
+    print 'fall manager enabled:', alMotion.getFallManagerEnabled()
+    alMotion.setFallManagerEnabled(False)
+    print 'fall manager enabled:', alMotion.getFallManagerEnabled()
+
     try:
         while True:
             pass

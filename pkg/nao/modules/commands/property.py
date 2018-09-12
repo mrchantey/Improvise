@@ -56,13 +56,15 @@ class PropertyCommand():
                 'propertyName': command['propertyName'],
                 'propertyValue': val
             }
-            if not command['sayValue'] == False:
-                response['followupCommands'] = [
-                    {
-                        "commandName": 'say',
-                        'phrase': 'the value of ' + command['propertyName'] + 'is' + str(val)
-                    }
-                ]
+            if 'sayValue' in command:
+                if command['sayValue'] == False:
+                    return response
+            response['followupCommands'] = [
+                {
+                    "commandName": 'say',
+                    'phrase': 'the value of ' + response['propertyName'] + ' is ' + str(response['propertyValue'])
+                }
+            ]
             return response
         else:
             return {

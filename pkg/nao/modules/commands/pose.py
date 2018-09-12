@@ -8,8 +8,7 @@ class PoseCommand():
         poses_raw = OpenJson("pkg/data/poses/poses.json")
         folders = poses_raw['ChoregraphePositionLibrary']['folder']
         self.poses = self.FilterPoseMotors(folders)
-        # print map(lambda p: p['name'], self.poses)
-        self.alMotion.setStiffnesses('Body', 1)
+
         # self.alMotion.stiffnessInterpolation('Body', 1, 0.01)
         # self.alMotion.angleInterpolation('HeadYaw', [-1, 1], [1, 2], True, _async=False)
         # self.alMotion.angleInterpolation(['LWristYaw'], [1.82134], 1, True)
@@ -24,7 +23,7 @@ class PoseCommand():
             print 'pose not found:', command['poseName']
         motorNames = map(lambda m: m['name'], pose['motors'])
         motorValues = map(lambda m: m['value'], pose['motors'])
-        self.alMotion.angleInterpolation(motorNames, motorValues, speed, True)
+        self.alMotion.angleInterpolation(motorNames, motorValues, speed, True, _async=command['async'])
 
     def FilterPoseMotors(self, folders):
         poseFilters = OpenJson("pkg/data/poses/poseFilters.json")

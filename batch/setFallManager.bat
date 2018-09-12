@@ -1,0 +1,1 @@
+pscp -pw nao c:\users\jaspercat\github\improvise\batch\ALMotion.xml nao@192.168.0.121:/home/nao/.config/naoqi

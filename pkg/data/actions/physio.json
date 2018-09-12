@@ -18,6 +18,11 @@
                     },
                     {
                         "commandName": "pose",
+                        "async": true,
+                        "poseName": "Head/look_down_left"
+                    },
+                    {
+                        "commandName": "pose",
                         "poseName": "LArm/elbow_fwd_90"
                     }
                 ],
@@ -43,12 +48,12 @@
                 ],
                 "endCommands": [
                     {
-                        "commandName": "say",
-                        "phrase": "Good job!"
-                    },
-                    {
                         "commandName": "pose",
                         "poseName": "Full/stand"
+                    },
+                    {
+                        "commandName": "say",
+                        "phrase": "Good job!"
                     }
                 ]
             }

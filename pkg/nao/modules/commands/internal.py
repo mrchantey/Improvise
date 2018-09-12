@@ -13,3 +13,5 @@ class InternalCommand():
             self.internalSpeechCommandListener.StartListening()
         elif command['instruction'] == 'pause':
             time.sleep(command['duration'])
+        else:
+            print 'unknown command', command

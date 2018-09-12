@@ -4,6 +4,10 @@ class TactileCommandListener():
     def __init__(self, eventModule, RunCommandCallback):
         self.eventModule = eventModule
         self.RunCommandCallback = RunCommandCallback
+        self.headTouchedListeners = []
+        self.leftHandTouchedListeners = []
+
+    def StartListening(self):
         self.headTouchedListeners = (
             self.eventModule.AddListeners([
                 "FrontTactilTouched",
@@ -18,6 +22,10 @@ class TactileCommandListener():
                 self.OnLeftHandTouched
             ))
 
+    def StopListening(self):
+        self.eventModule.RemoveListeners(self.headTouchedListeners)
+        self.eventModule.RemoveListeners(self.leftHandTouchedListeners)
+
     def SubscribeToHeadTouch(self):
         return
 
@@ -28,10 +36,6 @@ class TactileCommandListener():
             'commandName': 'internal',
             'instruction': 'internalSpeechStartListening'
         })
-
-    def StopListening(self):
-        self.eventModule.RemoveListeners(self.headTouchedListeners)
-        self.eventModule.RemoveListeners(self.leftHandTouchedListeners)
 
     def OnLeftHandTouched(self, val):
         if not val == 1:

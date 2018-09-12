@@ -10,11 +10,12 @@ import time
 
 class Nao():
     # exit program callback calls nao exit program
-    def __init__(self, ipAddress, ExitProgramCallback):
+    def __init__(self, ipAddress, ExitProgramCallback, defaultPose):
         self.app = qi.Application()
         self.session = qi.Session()
         self.properties = {}
         self.isConnected = False
+        self.defaultPose = defaultPose
         self.session.connect('tcp://'+ipAddress+":9559")
         self.serviceModule = ServiceModule(self.session)
         self.eventModule = EventModule(self.serviceModule.memory)
@@ -29,22 +30,47 @@ class Nao():
         response = attr.HandleRequest(requestBody)
         return response
 
+    def StartProgram(self):
+        self.SetDefaultPose()
+        self.commandModule.StartAllListeners()
+
     def ExitProgram(self):
         self.commandModule.StopAllListeners()
-        # self.commandModule.Run(
-        #     {
-        #         "commandName": "say",
-        #         "phrase": "exiting program"
-        #     }
-        # )
-        # self.commandModule.Run({
-        #     "commandName": "naoqi",
-        #     "serviceName": "ALAutonomousLife",
-        #     "methodName": "setState",
-        #     "param1": "disabled"
-        # })
+        self.SetDefaultPose()
         # self.dialog.End()
-        # self.ftpClient.Logout()
+
+    def SetDefaultPose(self):
+        if self.defaultPose == 'stand':
+            self.commandModule.Run({
+                "commandName": "naoqi",
+                "serviceName": "ALMotion",
+                "methodName": "setStiffnesses",
+                "param1": 'Body',
+                "param2": 1
+            })
+            self.commandModule.Run({
+                "commandName": "runBehavior",
+                "path": "custom_animations/body/stand"
+            })
+        elif self.defaultPose == 'rest':
+            self.commandModule.Run({
+                "commandName": "naoqi",
+                "serviceName": "ALMotion",
+                "methodName": "setStiffnesses",
+                "param1": 'Body',
+                "param2": 1
+            })
+            self.commandModule.Run({
+                "commandName": "runBehavior",
+                "path": "custom_animations/body/crouch"
+            })
+            self.commandModule.Run({
+                "commandName": "naoqi",
+                "serviceName": "ALMotion",
+                "methodName": "setStiffnesses",
+                "param1": 'Body',
+                "param2": 0
+            })
 
 
 # if __name__ == "__main__":

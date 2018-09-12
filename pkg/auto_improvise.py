@@ -8,8 +8,8 @@ import time
 
 
 class AutoImprovise():
-    def __init__(self, ipAddress, port, deployed):
-        self.nao = Nao(ipAddress, self.ExitProgram)
+    def __init__(self, ipAddress, port, deployed, defaultPose):
+        self.nao = Nao(ipAddress, self.ExitProgram, defaultPose)
         serverIP = self.GetServerIPAddress(deployed)
         self.server = Server(port, serverIP, self.nao.commandModule.Run)
         self.server.Run()
@@ -18,13 +18,17 @@ class AutoImprovise():
 
     def GetServerIPAddress(self, deployed):
         if deployed:
-            response = self.nao.commandModule.Run({
+            returnData = self.nao.commandModule.Run({
                 "commandName": "property",
-                "propertyName": "ipAddress"
+                "propertyName": "ipAddress",
+                "sayValue": False
             })
-            return response['propertyValue']
+            return returnData['response']['propertyValue']
         else:
             return '127.0.0.1'
+
+    def StartProgram(self):
+        self.nao.StartProgram()
 
     def ExitProgram(self):
         print 'exiting..'
@@ -37,9 +41,12 @@ if __name__ == "__main__":
     NAOIP = sys.argv[1]
     PORT = 5000
     deployed = True if '-d' in sys.argv else False
+    defaultPose = 'rest' if '-rest' in sys.argv else 'stand'
     print 'starting up...'
-    print 'deployed:', deployed
-    autoImprovise = AutoImprovise(NAOIP, PORT, deployed)
+
+    autoImprovise = AutoImprovise(NAOIP, PORT, deployed, defaultPose)
+    autoImprovise.StartProgram()
+
     try:
         while autoImprovise.exitFlag == False:
             pass
