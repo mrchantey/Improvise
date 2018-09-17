@@ -1,5 +1,4 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-import json
 import time
 from pkg.utilities import utility
 from threading import Thread
@@ -24,24 +23,29 @@ class Handler(BaseHTTPRequestHandler):
         #     self.RespondError()
 
     def do_OPTIONS(self):
+        print "OPTIONS REQUEST RECEIVED"
         self.send_response(200)
         self.end_headers()
 
     def do_POST(self):
+        print "POST REQUEST RECEIVED"
         reqBody = self.GetRequestBody()
+        print "body type", type(reqBody)
+        print reqBody
         pathParams = self.GetPathParams()
         if pathParams[1] == 'command':
             resBody = self.OnCommand(reqBody)
             self.RespondJson(resBody)
+        elif pathParams[1] == 'ping':
+            self.RespondJson({"ping reply": True})
         else:
             self.RespondError()
 
     def GetRequestBody(self):
         contentLength = int(self.headers.getheader('content-length', 0))
         bodyStr = self.rfile.read(contentLength)
-        bodyObj = json.loads(bodyStr)
-        bodyObjClean = utility.parseType(bodyObj)
-        return bodyObjClean
+        bodyDictClean = utility.parseStringAsDict(bodyStr)
+        return bodyDictClean
 
     def GetPathParams(self):
         paramsRaw = self.path.split('/')
@@ -62,7 +66,7 @@ class Handler(BaseHTTPRequestHandler):
         self.RespondString(fileTxt, 'text/html')
 
     def RespondJson(self, resBody):
-        bodyStr = json.dumps(resBody)
+        bodyStr = utility.parseDictAsString(resBody)
         self.RespondString(bodyStr, 'application/json')
 
     def RespondFile(self, path):
@@ -81,6 +85,7 @@ class Handler(BaseHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        # self.send_header('Access-Control-Allow-Credentials', 'true')
         self.send_header('Access-Control-Allow-Headers', 'X-Requested-With')
         self.send_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
         self.send_header('Access-Control-Max-Age', 86400)  # 24hr validation of preflight

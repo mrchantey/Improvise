@@ -44,6 +44,7 @@ class CommandModule:
 
     def StartAllListeners(self):
         self.commandListeners['tactile'].StartListening()
+        print "only tactile listening"
         # self.commandListeners['firebase'].StartListening()
         # for listener in self.commandListeners:
         # self.commandListeners[listener].StartListening()

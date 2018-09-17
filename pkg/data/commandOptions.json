@@ -1,0 +1,200 @@
+{
+    "name": "Command",
+    "predicates": {},
+    "fields": [
+        {
+            "name": "commandName",
+            "value": "say",
+            "options": [
+                "say",
+                "naoqi",
+                "property",
+                "action",
+                "runBehavior",
+                "pose",
+                "internal",
+                "loopAction"
+            ]
+        },
+        {
+            "name": "async",
+            "value": true
+        }
+    ],
+    "subOptions": [
+        {
+            "name": "Say Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "say"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "phrase",
+                    "value": "hello world"
+                }
+            ]
+        },
+        {
+            "name": "NaoQi Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "naoqi"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "serviceName",
+                    "value": "ALAutonomousLife"
+                },
+                {
+                    "name": "methodName",
+                    "value": "setState"
+                },
+                {
+                    "name": "param1",
+                    "value": "solitary"
+                }
+            ]
+        },
+        {
+            "name": "Property Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "property"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "propertyName",
+                    "value": "volume"
+                },
+                {
+                    "name": "propertyValue",
+                    "value": 50
+                },
+                {
+                    "name": "sayValue",
+                    "value": true
+                }
+            ]
+        },
+        {
+            "name": "Action Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "action"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "actionName",
+                    "value": "goToSleep"
+                },
+                {
+                    "name": "triggerPhrase",
+                    "value": "go to sleep"
+                },
+                {
+                    "name": "subCommands",
+                    "value": []
+                }
+            ]
+        },
+        {
+            "name": "Run Behavior Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "runBehavior"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "path",
+                    "value": "custom_animations/body/stand"
+                }
+            ]
+        },
+        {
+            "name": "Loop Action Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "loopAction"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "startCommands",
+                    "value": []
+                },
+                {
+                    "name": "loopCommands",
+                    "value": []
+                },
+                {
+                    "name": "endCommands",
+                    "value": []
+                }
+            ]
+        },
+        {
+            "name": "Run Behavior Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "internal"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "instruction",
+                    "value": "exitProgram",
+                    "options": [
+                        "exitProgram",
+                        "internalSpeechStartListening",
+                        "pause"
+                    ]
+                }
+            ],
+            "subOptions": [
+                {
+                    "name": "Pause Instruction",
+                    "predicates": [
+                        {
+                            "name": "instruction",
+                            "value": "pause"
+                        }
+                    ],
+                    "fields": [
+                        {
+                            "name": "duration",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Pose Command",
+            "predicates": [
+                {
+                    "name": "commandName",
+                    "value": "pose"
+                }
+            ],
+            "fields": [
+                {
+                    "name": "poseName",
+                    "value": "Full/stand"
+                }
+            ]
+        }
+    ]
+}

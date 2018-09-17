@@ -20,6 +20,21 @@ def OpenTextLines(path):
     return lines
 
 
+def parseStringAsDict(valStr):
+    # print "STRING VERSION", valStr
+    valStrClean = valStr.decode('string-escape').strip('"')
+    # print "UESCAPED STRING VERSION", valStrClean
+    valDict = json.loads(valStrClean)
+    # print "JSON VERSION", valDict
+    valDictClean = parseType(valDict)
+    # print "CLEAN JSON VERSION", valDictClean
+    return valDictClean
+
+
+def parseDictAsString(valDict):
+    return json.dumps(valDict)
+
+
 def parseType(val):
     if isinstance(val, unicode):
         newVal = val.encode('ascii', 'ignore')
@@ -89,3 +104,8 @@ def GetMimeType(path):
         print 'unknown extension', extension
         return 'text'
 # 'r' = read, 'w' = write, 'a' = append, 'r+' = read and write
+
+
+if __name__ == "__main__":
+    myStr = '"{"commandName":"say","phrase":"hi there"}"'
+    parseStringAsDict(myStr)
