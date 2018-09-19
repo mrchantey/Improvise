@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import Command from './views/command/Command.vue'
+import RawCommand from './views/command/RawCommand.vue';
+import DynamicCommand from './views/command/DynamicCommand.vue';
 
 Vue.use(Router)
 
@@ -12,24 +12,20 @@ export default new Router({
     {
       path: '/index.html',
       name: 'home2',
-      component: Home
+      component: DynamicCommand
     },
     {
       path: '/',
       name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: DynamicCommand
     }, {
-      path: '/command',
-      name: 'command',
-      component: Command
+      path: '/rawcommand',
+      name: 'raw command',
+      component: RawCommand
+    }, {
+      path: '/dynamiccommand',
+      name: 'dynamic command',
+      component: DynamicCommand
     }
   ]
 })

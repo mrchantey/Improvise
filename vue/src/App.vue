@@ -21,7 +21,7 @@ export default {
 
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700"); */
 
 body {
   background-color: #f7f7f7;
@@ -35,6 +35,7 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
 /* #nav {
   padding: 30px;
 }

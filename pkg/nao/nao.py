@@ -55,22 +55,28 @@ class Nao():
         elif self.defaultPose == 'rest':
             self.commandModule.Run({
                 "commandName": "naoqi",
-                "serviceName": "ALMotion",
-                "methodName": "setStiffnesses",
-                "param1": 'Body',
-                "param2": 1
+                "serviceName": "ALAutonomousLife",
+                "methodName": "setState",
+                "param1": "disabled"
             })
-            self.commandModule.Run({
-                "commandName": "runBehavior",
-                "path": "custom_animations/body/crouch"
-            })
-            self.commandModule.Run({
-                "commandName": "naoqi",
-                "serviceName": "ALMotion",
-                "methodName": "setStiffnesses",
-                "param1": 'Body',
-                "param2": 0
-            })
+            # self.commandModule.Run({
+            #     "commandName": "naoqi",
+            #     "serviceName": "ALMotion",
+            #     "methodName": "setStiffnesses",
+            #     "param1": 'Body',
+            #     "param2": 1
+            # })
+            # self.commandModule.Run({
+            #     "commandName": "runBehavior",
+            #     "path": "custom_animations/body/crouch"
+            # })
+            # self.commandModule.Run({
+            #     "commandName": "naoqi",
+            #     "serviceName": "ALMotion",
+            #     "methodName": "setStiffnesses",
+            #     "param1": 'Body',
+            #     "param2": 0
+            # })
 
 
 # if __name__ == "__main__":

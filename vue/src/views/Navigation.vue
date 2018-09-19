@@ -3,8 +3,9 @@
         hr
         div(class="container")
             div(class="links")
-                router-link(to="/") Home
-                router-link(to="/command") Command
+                //- router-link(to="/") Home
+                router-link(to="/dynamiccommand") Dynamic Command
+                router-link(to="/rawcommand") Raw Command
         hr
 </template>
 

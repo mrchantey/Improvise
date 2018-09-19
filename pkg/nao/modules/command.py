@@ -8,6 +8,8 @@ from commands.runBehavior import RunBehaviorCommand
 from commands.pose import PoseCommand
 from commands.internal import InternalCommand
 from commands.loopAction import LoopActionCommand
+from commands.sequence import CommandSequence
+from commands.loop import CommandLoop
 
 from commandListeners.internalSpeech import InternalSpeechCommandListener
 from commandListeners.tactile import TactileCommandListener
@@ -38,6 +40,8 @@ class CommandModule:
             'action': actionCommand,
             'runBehavior': RunBehaviorCommand(serviceModule.services['ALBehaviorManager']),
             'pose': PoseCommand(serviceModule.services['ALMotion']),
+            'commandSequence': CommandSequence(self.Run),
+            'commandLoop': CommandLoop(self.Run),
             'internal': InternalCommand(ExitProgramCallback, self.commandListeners['internalSpeech']),
             'loopAction': LoopActionCommand(self.Run)
         }
@@ -54,14 +58,12 @@ class CommandModule:
             self.commandListeners[listener].StopListening()
 
     def Run(self, command):
-        # print 'RUNNING COMMAND', command['commandName']
+        print 'RUNNING COMMAND', command['commandName']
         if not 'async' in command:
             command['async'] = False
-        # command = self.SetDefaultParameterts(command)
         response = self.commands[command['commandName']].Run(command)
-        # self.ResponseAction(command, response)
-        # print 'command has run:'
-        # print response
+        print 'COMMAND HAS RUN`:'
+        print response
         self.RunFollowupCommands(response)
         returnData = {
             "command": command,

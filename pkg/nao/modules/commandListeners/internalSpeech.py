@@ -17,7 +17,8 @@ class InternalSpeechCommandListener():
         self.StopListening()
         matchingCommand = filter(lambda cmd: cmd['triggerPhrase'] == word[0], self.speechCommands)
         if len(matchingCommand) > 0:
-            print 'WORD RECOGNIZED MATCH:', word
+            # print 'WORD RECOGNIZED MATCH:', word
+            # print matchingCommand[0]
             self.RunCommandCallback(matchingCommand[0])
         # if self.alwaysListen:
         #     self.StartListening()

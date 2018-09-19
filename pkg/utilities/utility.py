@@ -22,7 +22,15 @@ def OpenTextLines(path):
 
 def parseStringAsDict(valStr):
     # print "STRING VERSION", valStr
-    valStrClean = valStr.decode('string-escape').strip('"')
+    valStrClean = (valStr
+                   .decode('string-escape')
+                   .strip('"')
+                   # seems to cope with new line and escape characters just fine
+                   #    .replace("\\n", "")
+                   #    .replace("\\", "")
+                   #    .replace("\\", "")
+                   #    .replace("\n", "")
+                   )
     # print "UESCAPED STRING VERSION", valStrClean
     valDict = json.loads(valStrClean)
     # print "JSON VERSION", valDict
@@ -107,5 +115,5 @@ def GetMimeType(path):
 
 
 if __name__ == "__main__":
-    myStr = '"{"commandName":"say","phrase":"hi there"}"'
+    myStr = '"\"[\\n    {\\n        \\\"commandName\\\": \\\"action\\\",\\n        \\\"actionName\\\": \\\"Left Forearm Pronation / Supination\\\",\\n        \\\"triggerPhrase\\\": \\\"Left Forearm Pronation and Supination\\\",\\n        \\\"subCommands\\\": [\\n            {\\n                \\\"commandName\\\": \\\"loopAction\\\",\\n                \\\"loopCount\\\": 3,\\n                \\\"startCommands\\\": [\\n                    {\\n                        \\\"commandName\\\": \\\"runBehavior\\\",\\n                        \\\"path\\\": \\\"custom_animations/body/stand\\\"\\n                    },\\n                    {\\n                        \\\"commandName\\\": \\\"say\\\",\\n                        \\\"phrase\\\": \\\"Lets do forearm pronation and supination. Start by raising your left elbow.\\\"\\n                    },\\n                    {\\n                        \\\"commandName\\\": \\\"pose\\\",\\n                        \\\"async\\\": true,\\n                        \\\"poseName\\\": \\\"Head/look_down_left\\\"\\n                    },\\n                    {\\n                        \\\"commandName\\\": \\\"pose\\\",\\n                        \\\"poseName\\\": \\\"LArm/elbow_fwd_90\\\"\\n                    }\\n                ],\\n                \\\"loopCommands\\\": [\\n                    {\\n                        \\\"commandName\\\": \\\"pose\\\",\\n                        \\\"poseName\\\": \\\"LWrist/forearm_pronation\\\"\\n                    },\\n                    {\\n                        \\\"commandName\\\": \\\"internal\\\",\\n                        \\\"instruction\\\": \\\"pause\\\",\\n                        \\\"duration\\\": 1\\n                    },\\n                    {\\n                        \\\"commandName\\\": \\\"pose\\\",\\n                        \\\"poseName\\\": \\\"LWrist/forearm_supination\\\"\\n                    },\\n                    {\\n                        \\\"commandName\\\": \\\"internal\\\",\\n                        \\\"instruction\\\": \\\"pause\\\",\\n                        \\\"duration\\\": 1\\n                    }\\n                ],\\n                \\\"endCommands\\\": [\\n                    {\\n                        \\\"commandName\\\": \\\"pose\\\",\\n                        \\\"poseName\\\": \\\"Full/stand\\\"\\n                    },\\n                    {\\n                        \\\"commandName\\\": \\\"say\\\",\\n                        \\\"phrase\\\": \\\"Good job!\\\"\\n                    }\\n                ]\\n            }\\n        ]\\n    }\\n]\""'
     parseStringAsDict(myStr)

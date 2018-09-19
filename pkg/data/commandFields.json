@@ -1,0 +1,276 @@
+[
+    {
+        "name": "commandName",
+        "value": "commandSequence",
+        "options": [
+            "null",
+            "say",
+            "naoqi",
+            "property",
+            "action",
+            "loopAction",
+            "runBehavior",
+            "pose",
+            "internal",
+            "commandSequence",
+            "commandLoop"
+        ]
+    },
+    {
+        "name": "async",
+        "value": false
+    },
+    {
+        "name": "commands",
+        "value": [
+            {
+                "fields": [
+                    {
+                        "name": "commandName",
+                        "value": "say"
+                    }
+                ]
+            }
+        ],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "commandSequence"
+            }
+        ]
+    },
+    {
+        "name": "commands",
+        "value": [
+            {
+                "fields": [
+                    {
+                        "name": "commandName",
+                        "value": "say"
+                    }
+                ]
+            }
+        ],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "commandLoop"
+            }
+        ]
+    },
+    {
+        "name": "loopCount",
+        "value": "3",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "commandLoop"
+            }
+        ]
+    },
+    {
+        "name": "phrase",
+        "value": "hello world",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "say"
+            }
+        ]
+    },
+    {
+        "name": "serviceName",
+        "value": "ALAutonomousLife",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "naoqi"
+            }
+        ]
+    },
+    {
+        "name": "methodName",
+        "value": "setState",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "naoqi"
+            }
+        ]
+    },
+    {
+        "name": "param1",
+        "value": "solitary",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "naoqi"
+            }
+        ]
+    },
+    {
+        "name": "param2",
+        "value": "dsd",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "naoqi"
+            }
+        ]
+    },
+    {
+        "name": "propertyName",
+        "value": "volume",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "property"
+            }
+        ]
+    },
+    {
+        "name": "propertyValue",
+        "value": "50",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "property"
+            }
+        ]
+    },
+    {
+        "name": "sayValue",
+        "value": true,
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "property"
+            }
+        ]
+    },
+    {
+        "name": "actionName",
+        "value": "goToSleep",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "action"
+            }
+        ]
+    },
+    {
+        "name": "triggerPhrase",
+        "value": "go to sleep",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "action"
+            }
+        ]
+    },
+    {
+        "name": "subCommands",
+        "value": [],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "action"
+            }
+        ]
+    },
+    {
+        "name": "path",
+        "value": "custom_animations/body/stand",
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "runBehavior"
+            }
+        ]
+    },
+    {
+        "name": "startCommands",
+        "value": [],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "loopAction"
+            }
+        ]
+    },
+    {
+        "name": "loopCommands",
+        "value": [],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "loopAction"
+            }
+        ]
+    },
+    {
+        "name": "endCommands",
+        "value": [],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "loopAction"
+            }
+        ]
+    },
+    {
+        "name": "instruction",
+        "value": "exitProgram",
+        "options": [
+            "exitProgram",
+            "internalSpeechStartListening",
+            "pause"
+        ],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "internal"
+            }
+        ]
+    },
+    {
+        "name": "duration",
+        "value": 1,
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "internal"
+            },
+            {
+                "name": "instruction",
+                "value": "pause"
+            }
+        ]
+    },
+    {
+        "name": "poseName",
+        "value": "Full/stand",
+        "options": [
+            "LWrist/forearm_pronation",
+            "LWrist/forearm_supination",
+            "RArm/elbow_fwd_90",
+            "RWrist/forearm_supination",
+            "RWrist/forearm_pronation",
+            "LArm/elbow_fwd_90",
+            "Head/look_left_60",
+            "Head/look_right_60",
+            "Head/look_up_25",
+            "Head/look_down_25",
+            "Head/look_down_left",
+            "Head/look_down_right",
+            "Full/rest",
+            "Full/stand"
+        ],
+        "predicates": [
+            {
+                "name": "commandName",
+                "value": "pose"
+            }
+        ]
+    }
+]

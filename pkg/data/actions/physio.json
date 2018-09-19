@@ -9,6 +9,13 @@
                 "loopCount": 3,
                 "startCommands": [
                     {
+                        "commandName": "naoqi",
+                        "serviceName": "ALMotion",
+                        "methodName": "setStiffnesses",
+                        "param1": "Body",
+                        "param2": 1
+                    },
+                    {
                         "commandName": "runBehavior",
                         "path": "custom_animations/body/stand"
                     },

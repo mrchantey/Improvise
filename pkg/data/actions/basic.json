@@ -71,17 +71,6 @@
     },
     {
         "commandName": "action",
-        "actionName": "getVolume",
-        "triggerPhrase": "get volume",
-        "subCommands": [
-            {
-                "commandName": "property",
-                "propertyName": "volume"
-            }
-        ]
-    },
-    {
-        "commandName": "action",
         "actionName": "setVolumeLow",
         "triggerPhrase": "set volume low",
         "subCommands": [
@@ -133,59 +122,12 @@
     },
     {
         "commandName": "action",
-        "actionName": "Stiffen Limbs",
-        "triggerPhrase": "hard as a rock",
-        "subCommands": [
-            {
-                "commandName": "naoqi",
-                "serviceName": "ALMotion",
-                "methodName": "setStiffnesses",
-                "param1": "Body",
-                "param2": 1
-            },
-            {
-                "commandName": "say",
-                "phrase": "hardening"
-            }
-        ]
-    },
-    {
-        "commandName": "action",
-        "actionName": "Unstiffen Limbs",
-        "triggerPhrase": "soft like a rainblw",
-        "subCommands": [
-            {
-                "commandName": "naoqi",
-                "serviceName": "ALMotion",
-                "methodName": "setStiffnesses",
-                "param1": "Body",
-                "param2": 0
-            },
-            {
-                "commandName": "say",
-                "phrase": "softening"
-            }
-        ]
-    },
-    {
-        "commandName": "action",
         "actionName": "Exit Program",
         "triggerPhrase": "exit program",
         "subCommands": [
             {
                 "commandName": "internal",
                 "instruction": "exitProgram"
-            }
-        ]
-    },
-    {
-        "commandName": "action",
-        "actionName": "Test Behavior",
-        "triggerPhrase": "test behavior",
-        "subCommands": [
-            {
-                "commandName": "runBehavior",
-                "path": "physio/animations/head/look_left_60"
             }
         ]
     }

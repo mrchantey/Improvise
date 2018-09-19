@@ -1,25 +1,27 @@
 <template lang="pug">
-    PageItem(title="Raw Command")
-      InputText(v-bind:submitCallback="submitCommandCallback")
-
+  PageContent(title="Raw Command")
+    p.sectionTitle Raw Command
+    InputTextArea(v-bind:submitCallback="submitCommandCallback")
 </template>
 
 
 
 <script>
-import PageItem from "../../components/PageItem.vue";
-import InputText from "../../components/InputText.vue";
+import InputTextArea from "../../components/InputTextArea.vue";
+import PageContent from "../../components/PageContent.vue";
+import NaoServer from "../../js/NaoServer";
 import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
+      submitCommandCallback: NaoServer.ServerRequest
       // submitCommandCallback: Function
-      submitCommandCallback: window.$ServerRequest
+      // submitCommandCallback: window.$ServerRequest
     };
   },
   components: {
-    PageItem,
-    InputText
+    PageContent,
+    InputTextArea
   }
 });
 </script>

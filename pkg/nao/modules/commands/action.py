@@ -2,6 +2,8 @@
 from pkg.utilities.utility import OpenJson
 
 
+# TO BE DEPRECATED
+
 class ActionCommand():
     def __init__(self, RunCommandCallback):
         self.RunCommandCallback = RunCommandCallback

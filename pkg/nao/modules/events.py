@@ -59,9 +59,13 @@ class EventModule():
         # print 'EVENT SUBSCRIBED', eventKey
 
     def AddListener(self, key, callback):
-        listener = {'key': key, 'callback': callback}
-        self.listeners.append(listener)
-        return listener
+        matchingListeners = filter(lambda l: l['key'] == key and l['callback'] == callback, self.listeners)
+        if len(matchingListeners) > 0:
+            return matchingListeners[0]
+        else:
+            listener = {'key': key, 'callback': callback}
+            self.listeners.append(listener)
+            return listener
 
     def RemoveListener(self, listener):
         if listener in self.listeners:
