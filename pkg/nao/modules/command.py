@@ -8,8 +8,9 @@ from commands.runBehavior import RunBehaviorCommand
 from commands.pose import PoseCommand
 from commands.internal import InternalCommand
 from commands.loopAction import LoopActionCommand
-from commands.sequence import CommandSequence
 from commands.loop import CommandLoop
+from commands.sequence import CommandSequence
+from commands.event import EventCommand
 
 from commandListeners.internalSpeech import InternalSpeechCommandListener
 from commandListeners.tactile import TactileCommandListener
@@ -38,6 +39,7 @@ class CommandModule:
             'naoqi': NaoQiCommand(serviceModule),
             'property': PropertyCommand(serviceModule),
             'action': actionCommand,
+            'event': EventCommand(eventModule),
             'runBehavior': RunBehaviorCommand(serviceModule.services['ALBehaviorManager']),
             'pose': PoseCommand(serviceModule.services['ALMotion']),
             'commandSequence': CommandSequence(self.Run),
@@ -58,12 +60,12 @@ class CommandModule:
             self.commandListeners[listener].StopListening()
 
     def Run(self, command):
-        print 'RUNNING COMMAND', command['commandName']
+        # print 'RUNNING COMMAND', c`ommand['commandName']
         if not 'async' in command:
             command['async'] = False
         response = self.commands[command['commandName']].Run(command)
-        print 'COMMAND HAS RUN`:'
-        print response
+        # print 'COMMAND HAS RUN`:
+        # print response
         self.RunFollowupCommands(response)
         returnData = {
             "command": command,

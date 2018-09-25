@@ -6,6 +6,7 @@
                 //- router-link(to="/") Home
                 router-link(to="/dynamiccommand") Dynamic Command
                 router-link(to="/rawcommand") Raw Command
+                router-link(to="/subtitles") Subtitles
         hr
 </template>
 
@@ -21,6 +22,6 @@
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 </style>

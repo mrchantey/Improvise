@@ -1,0 +1,73 @@
+{
+  "name": "Left Forearm Pronation and Supination",
+  "commandName": "commandSequence",
+  "commands": [
+    {
+      "commandName": "commandSequence",
+      "commands": [
+        {
+          "commandName": "naoqi",
+          "serviceName": "ALMotion",
+          "methodName": "setStiffnesses",
+          "paramCount": "2",
+          "param1": "Body",
+          "param2": 1
+        },
+        {
+          "commandName": "runBehavior",
+          "path": "custom_animations/body/stand"
+        },
+        {
+          "commandName": "say",
+          "phrase": "Lets do forearm pronation and supination. Start by raising your left elbow."
+        },
+        {
+          "commandName": "pose",
+          "async": true,
+          "poseName": "Head/look_down_left"
+        },
+        {
+          "commandName": "pose",
+          "poseName": "LArm/elbow_fwd_90"
+        }
+      ]
+    },
+    {
+      "commandName": "commandLoop",
+      "loopCount": 3,
+      "commands": [
+        {
+          "commandName": "pose",
+          "poseName": "LWrist/forearm_pronation"
+        },
+        {
+          "commandName": "internal",
+          "instruction": "pause",
+          "duration": 1
+        },
+        {
+          "commandName": "pose",
+          "poseName": "LWrist/forearm_supination"
+        },
+        {
+          "commandName": "internal",
+          "instruction": "pause",
+          "duration": 1
+        }
+      ]
+    },
+    {
+      "commandName": "commandSequence",
+      "commands": [
+        {
+          "commandName": "pose",
+          "poseName": "Full/stand"
+        },
+        {
+          "commandName": "say",
+          "phrase": "Good job!"
+        }
+      ]
+    }
+  ]
+}

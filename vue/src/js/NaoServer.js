@@ -1,6 +1,13 @@
 
 
 
+//CACHE IP ADDRESS
+// const storedAddress = sessionStorage['serverAddress']
+sessionStorage['serverAddress'] = sessionStorage['serverAddress']
+    ? sessionStorage['serverAddress'] :
+    prompt("Please enter NAO's IP Address", "http://127.0.0.1") + ":5000"
+// prompt("Please enter NAO's IP Address", "http://192.168.0.122") + ":5000"
+
 export default {
     ServerRequest,
 }
@@ -9,7 +16,8 @@ function ServerRequest(body) {
 
     // const url = "http://192.168.0.121:5000/command"
     // const url = "http://127.0.0.1:5000/ping"
-    const url = "http://127.0.0.1:5000/command"
+    const url = sessionStorage['serverAddress'] + "/command"
+    // const url = "http://127.0.0.1:5000/command"
 
     const request = {
         headers: {
@@ -18,13 +26,13 @@ function ServerRequest(body) {
         method: 'POST',
         body: JSON.stringify(body)
     }
-    console.log("request made:");
-    console.log(request);
+    // console.log("request made:");
+    // console.log(request);
 
     return new Promise((resolve, reject) => {
         fetch(url, request)
             .then((response) => {
-                console.log("response received: ", response, response.body);
+                // console.log("response received: ", response, response.body);
                 if (response.status == 200) {
                     const contentType = response.headers.get('content-type');
                     if (contentType == 'application/json') {

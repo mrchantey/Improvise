@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import RawCommand from './views/command/RawCommand.vue';
 import DynamicCommand from './views/command/DynamicCommand.vue';
+import Subtitles from './views/Subtitles.vue'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/dynamiccommand',
       name: 'dynamic command',
       component: DynamicCommand
+    },
+    {
+      path: '/subtitles',
+      name: 'subtitles',
+      component: Subtitles
     }
   ]
 })

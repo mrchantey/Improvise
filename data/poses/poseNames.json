@@ -1,0 +1,22 @@
+[
+  "Full/rest",
+  "Full/arms_out",
+  "Full/stand",
+  "Head/look_left_60",
+  "Head/look_right_60",
+  "Head/look_up_25",
+  "Head/look_down_25",
+  "Head/look_down_left",
+  "Head/look_down_right",
+  "Head/origin",
+  "LArm/elbow_fwd_90",
+  "LArm/origin",
+  "LWrist/forearm_pronation",
+  "LWrist/forearm_supination",
+  "LWrist/origin",
+  "RArm/elbow_fwd_90",
+  "RArm/origin",
+  "RWrist/forearm_pronation",
+  "RWrist/forearm_supination",
+  "RWrist/origin"
+]

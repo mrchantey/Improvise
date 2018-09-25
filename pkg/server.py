@@ -28,10 +28,10 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
-        print "POST REQUEST RECEIVED"
+        # print "POST REQUEST RECEIVED"
         reqBody = self.GetRequestBody()
-        print "body type", type(reqBody)
-        print reqBody
+        # print "body type", type(reqBody)
+        # print reqBody
         pathParams = self.GetPathParams()
         if pathParams[1] == 'command':
             resBody = self.OnCommand(reqBody)

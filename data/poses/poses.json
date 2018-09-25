@@ -1,0 +1,578 @@
+[
+  {
+    "name": "Full/rest",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "0.0934254"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "-0.00036203"
+      },
+      {
+        "name": "LAnklePitch",
+        "value": "-1.17859"
+      },
+      {
+        "name": "LAnkleRoll",
+        "value": "0.0719595"
+      },
+      {
+        "name": "LElbowRoll",
+        "value": "-1.06591"
+      },
+      {
+        "name": "LElbowYaw",
+        "value": "-0.792421"
+      },
+      {
+        "name": "LHand",
+        "value": "0.000847448"
+      },
+      {
+        "name": "LHipPitch",
+        "value": "-0.699077"
+      },
+      {
+        "name": "LHipRoll",
+        "value": "-0.0719187"
+      },
+      {
+        "name": "LHipYawPitch",
+        "value": "-0.243277"
+      },
+      {
+        "name": "LKneePitch",
+        "value": "2.10755"
+      },
+      {
+        "name": "LShoulderPitch",
+        "value": "1.40411"
+      },
+      {
+        "name": "LShoulderRoll",
+        "value": "0.166576"
+      },
+      {
+        "name": "LWristYaw",
+        "value": "0.149983"
+      },
+      {
+        "name": "RAnklePitch",
+        "value": "-1.17859"
+      },
+      {
+        "name": "RAnkleRoll",
+        "value": "-0.0719595"
+      },
+      {
+        "name": "RElbowRoll",
+        "value": "1.06591"
+      },
+      {
+        "name": "RElbowYaw",
+        "value": "0.792421"
+      },
+      {
+        "name": "RHand",
+        "value": "0.000847448"
+      },
+      {
+        "name": "RHipPitch",
+        "value": "-0.699077"
+      },
+      {
+        "name": "RHipRoll",
+        "value": "0.0719187"
+      },
+      {
+        "name": "RKneePitch",
+        "value": "2.10755"
+      },
+      {
+        "name": "RShoulderPitch",
+        "value": "1.40411"
+      },
+      {
+        "name": "RShoulderRoll",
+        "value": "-0.166576"
+      },
+      {
+        "name": "RWristYaw",
+        "value": "-0.140435"
+      }
+    ]
+  },
+  {
+    "name": "Full/arms_out",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "-0.18719"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "0.00455999"
+      },
+      {
+        "name": "LAnklePitch",
+        "value": "0.0919981"
+      },
+      {
+        "name": "LAnkleRoll",
+        "value": "-0.128814"
+      },
+      {
+        "name": "LElbowRoll",
+        "value": "-0.0459781"
+      },
+      {
+        "name": "LElbowYaw",
+        "value": "-1.20577"
+      },
+      {
+        "name": "LHand",
+        "value": "0.2884"
+      },
+      {
+        "name": "LHipPitch",
+        "value": "0.124296"
+      },
+      {
+        "name": "LHipRoll",
+        "value": "0.104354"
+      },
+      {
+        "name": "LHipYawPitch",
+        "value": "-0.170232"
+      },
+      {
+        "name": "LKneePitch",
+        "value": "-0.090548"
+      },
+      {
+        "name": "LShoulderPitch",
+        "value": "1.43425"
+      },
+      {
+        "name": "LShoulderRoll",
+        "value": "1.23943"
+      },
+      {
+        "name": "LWristYaw",
+        "value": "0.0889301"
+      },
+      {
+        "name": "RAnklePitch",
+        "value": "0.0859461"
+      },
+      {
+        "name": "RAnkleRoll",
+        "value": "0.128898"
+      },
+      {
+        "name": "RElbowRoll",
+        "value": "0.044528"
+      },
+      {
+        "name": "RElbowYaw",
+        "value": "1.18574"
+      },
+      {
+        "name": "RHand",
+        "value": "0.2876"
+      },
+      {
+        "name": "RHipPitch",
+        "value": "0.128814"
+      },
+      {
+        "name": "RHipRoll",
+        "value": "-0.0843279"
+      },
+      {
+        "name": "RKneePitch",
+        "value": "-0.082794"
+      },
+      {
+        "name": "RShoulderPitch",
+        "value": "1.49723"
+      },
+      {
+        "name": "RShoulderRoll",
+        "value": "-1.23338"
+      },
+      {
+        "name": "RWristYaw",
+        "value": "0.078192"
+      }
+    ]
+  },
+  {
+    "name": "Full/stand",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "-0.173786"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "-0.00036203"
+      },
+      {
+        "name": "LAnklePitch",
+        "value": "0.09"
+      },
+      {
+        "name": "LAnkleRoll",
+        "value": "-0.13"
+      },
+      {
+        "name": "LElbowRoll",
+        "value": "-0.416067"
+      },
+      {
+        "name": "LElbowYaw",
+        "value": "-1.19935"
+      },
+      {
+        "name": "LHand",
+        "value": "0.3"
+      },
+      {
+        "name": "LHipPitch",
+        "value": "0.13"
+      },
+      {
+        "name": "LHipRoll",
+        "value": "0.1"
+      },
+      {
+        "name": "LHipYawPitch",
+        "value": "-0.17"
+      },
+      {
+        "name": "LKneePitch",
+        "value": "-0.09"
+      },
+      {
+        "name": "LShoulderPitch",
+        "value": "1.46411"
+      },
+      {
+        "name": "LShoulderRoll",
+        "value": "0.178923"
+      },
+      {
+        "name": "LWristYaw",
+        "value": "0.0975684"
+      },
+      {
+        "name": "RAnklePitch",
+        "value": "0.0896553"
+      },
+      {
+        "name": "RAnkleRoll",
+        "value": "0.13"
+      },
+      {
+        "name": "RElbowRoll",
+        "value": "0.410576"
+      },
+      {
+        "name": "RElbowYaw",
+        "value": "1.18614"
+      },
+      {
+        "name": "RHand",
+        "value": "0.298877"
+      },
+      {
+        "name": "RHipPitch",
+        "value": "0.13"
+      },
+      {
+        "name": "RHipRoll",
+        "value": "-0.090312"
+      },
+      {
+        "name": "RKneePitch",
+        "value": "-0.09"
+      },
+      {
+        "name": "RShoulderPitch",
+        "value": "1.46721"
+      },
+      {
+        "name": "RShoulderRoll",
+        "value": "-0.1893"
+      },
+      {
+        "name": "RWristYaw",
+        "value": "0.0905004"
+      }
+    ]
+  },
+  {
+    "name": "Head/look_left_60",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "-0.173786"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "1.04506"
+      }
+    ]
+  },
+  {
+    "name": "Head/look_right_60",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "-0.173786"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "-1.04612"
+      }
+    ]
+  },
+  {
+    "name": "Head/look_up_25",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "-0.610865"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "-0.0087562"
+      }
+    ]
+  },
+  {
+    "name": "Head/look_down_25",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "0.254018"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "-0.0087562"
+      }
+    ]
+  },
+  {
+    "name": "Head/look_down_left",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "0.261799"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "0.785398"
+      }
+    ]
+  },
+  {
+    "name": "Head/look_down_right",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "0.261799"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "-0.783965"
+      }
+    ]
+  },
+  {
+    "name": "Head/origin",
+    "motors": [
+      {
+        "name": "HeadPitch",
+        "value": "-0.161112"
+      },
+      {
+        "name": "HeadYaw",
+        "value": "0.0106959"
+      }
+    ]
+  },
+  {
+    "name": "LArm/elbow_fwd_90",
+    "motors": [
+      {
+        "name": "LElbowRoll",
+        "value": "-1.53977"
+      },
+      {
+        "name": "LElbowYaw",
+        "value": "-1.57116"
+      },
+      {
+        "name": "LHand",
+        "value": "0.293529"
+      },
+      {
+        "name": "LShoulderPitch",
+        "value": "1.4596"
+      },
+      {
+        "name": "LShoulderRoll",
+        "value": "0.197834"
+      },
+      {
+        "name": "LWristYaw",
+        "value": "0.10667"
+      }
+    ]
+  },
+  {
+    "name": "LArm/origin",
+    "motors": [
+      {
+        "name": "LElbowRoll",
+        "value": "-0.409536"
+      },
+      {
+        "name": "LElbowYaw",
+        "value": "-1.20883"
+      },
+      {
+        "name": "LHand",
+        "value": "0.2916"
+      },
+      {
+        "name": "LShoulderPitch",
+        "value": "1.46493"
+      },
+      {
+        "name": "LShoulderRoll",
+        "value": "0.170232"
+      },
+      {
+        "name": "LWristYaw",
+        "value": "0.0889301"
+      }
+    ]
+  },
+  {
+    "name": "LWrist/forearm_pronation",
+    "motors": [
+      {
+        "name": "LWristYaw",
+        "value": "1.82134"
+      }
+    ]
+  },
+  {
+    "name": "LWrist/forearm_supination",
+    "motors": [
+      {
+        "name": "LWristYaw",
+        "value": "-1.82055"
+      }
+    ]
+  },
+  {
+    "name": "LWrist/origin",
+    "motors": [
+      {
+        "name": "LWristYaw",
+        "value": "0.0889301"
+      }
+    ]
+  },
+  {
+    "name": "RArm/elbow_fwd_90",
+    "motors": [
+      {
+        "name": "RElbowRoll",
+        "value": "1.54105"
+      },
+      {
+        "name": "RElbowYaw",
+        "value": "1.56914"
+      },
+      {
+        "name": "RHand",
+        "value": "0.29243"
+      },
+      {
+        "name": "RShoulderPitch",
+        "value": "1.46336"
+      },
+      {
+        "name": "RShoulderRoll",
+        "value": "-0.201702"
+      },
+      {
+        "name": "RWristYaw",
+        "value": "0.087981"
+      }
+    ]
+  },
+  {
+    "name": "RArm/origin",
+    "motors": [
+      {
+        "name": "RElbowRoll",
+        "value": "0.405018"
+      },
+      {
+        "name": "RElbowYaw",
+        "value": "1.20875"
+      },
+      {
+        "name": "RHand",
+        "value": "0.2868"
+      },
+      {
+        "name": "RShoulderPitch",
+        "value": "1.46041"
+      },
+      {
+        "name": "RShoulderRoll",
+        "value": "-0.165714"
+      },
+      {
+        "name": "RWristYaw",
+        "value": "0.0858622"
+      }
+    ]
+  },
+  {
+    "name": "RWrist/forearm_pronation",
+    "motors": [
+      {
+        "name": "RWristYaw",
+        "value": "-1.82134"
+      }
+    ]
+  },
+  {
+    "name": "RWrist/forearm_supination",
+    "motors": [
+      {
+        "name": "RWristYaw",
+        "value": "1.82097"
+      }
+    ]
+  },
+  {
+    "name": "RWrist/origin",
+    "motors": [
+      {
+        "name": "RWristYaw",
+        "value": "0.0858622"
+      }
+    ]
+  }
+]

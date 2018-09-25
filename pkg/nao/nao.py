@@ -42,16 +42,10 @@ class Nao():
     def SetDefaultPose(self):
         if self.defaultPose == 'stand':
             self.commandModule.Run({
-                "commandName": "naoqi",
-                "serviceName": "ALMotion",
-                "methodName": "setStiffnesses",
-                "param1": 'Body',
-                "param2": 1
+                "commandName": "pose",
+                "poseName": "Full/stand"
             })
-            self.commandModule.Run({
-                "commandName": "runBehavior",
-                "path": "custom_animations/body/stand"
-            })
+
         elif self.defaultPose == 'rest':
             self.commandModule.Run({
                 "commandName": "naoqi",
@@ -59,33 +53,3 @@ class Nao():
                 "methodName": "setState",
                 "param1": "disabled"
             })
-            # self.commandModule.Run({
-            #     "commandName": "naoqi",
-            #     "serviceName": "ALMotion",
-            #     "methodName": "setStiffnesses",
-            #     "param1": 'Body',
-            #     "param2": 1
-            # })
-            # self.commandModule.Run({
-            #     "commandName": "runBehavior",
-            #     "path": "custom_animations/body/crouch"
-            # })
-            # self.commandModule.Run({
-            #     "commandName": "naoqi",
-            #     "serviceName": "ALMotion",
-            #     "methodName": "setStiffnesses",
-            #     "param1": 'Body',
-            #     "param2": 0
-            # })
-
-
-# if __name__ == "__main__":
-    # ipAddress = sys.argv[1]
-    # # nao = Nao(ipAddress, )
-    # # nao.commandModule.StartAllListeners()
-    # try:
-    #     while True:
-    #         pass
-    # except KeyboardInterrupt:
-    #     nao.ExitProgram()
-    #     pass

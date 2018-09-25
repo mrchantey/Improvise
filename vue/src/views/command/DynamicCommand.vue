@@ -1,5 +1,5 @@
 <template lang="pug">
-  PageContent(title="Dynamic Command")
+  PageContent(title="Dynamic Command" @keypress="OnKeyPress")
     div
       button(@click="OnDownload") Download
       button(@click="OnUpload") Upload
@@ -16,7 +16,7 @@
       p.name Title
       input.value(v-model="title")
     button(@click="OnSubmit") Submit
-    TypedCommand(v-bind:command="command", v-bind:depth="0")
+    typedcommand(v-bind:command="command", v-bind:depth="0")
 </template>
 
 
@@ -34,7 +34,6 @@ export default Vue.extend({
     TypedCommand
   },
   data() {
-    // console.log(CommandUtility.GetCommandPresets());
     const presets = CommandUtility.GetCommandPresets();
     return {
       command: CommandUtility.CommandBodyToCommandFields(presets[0]),
@@ -44,16 +43,25 @@ export default Vue.extend({
       title: presets[0].name
     };
   },
-  // created() {
-  //   this.OnPresetUpdate();
-  // },
+  created() {
+    document.addEventListener("keypress",this.OnKeyPress)
+    // console.log('dynamic command created..');
+    this.OnPresetUpdate();
+  },
+  destroyed(){
+    // console.log('dynamic command destroyed');
+    document.removeEventListener("keypress",this.OnKeyPress)
+  },
   methods: {
     OnSubmit() {
       const commandBody = CommandUtility.CommandFieldsToCommandBody(
         this.command
       );
       NaoServer.ServerRequest(commandBody);
-      // console.log(simpleCommand);
+    },
+    OnKeyPress(event){
+      if(event.key === "Enter")
+        this.OnSubmit()
     },
     OnDownload() {
       const commandBody = CommandUtility.CommandFieldsToCommandBody(

@@ -1,55 +1,51 @@
 <template lang="pug">
   div.container
-    //- p {{title}}
-    div.field(v-for="(field,index) in command.fields" v-bind:key="index")
-          span.subcommands(v-if="field.name === 'commands'")
-            p.name {{field.name}}
-            TypedCommand.value(
-              v-for="(childCommand,index) in field.value" 
-              v-bind:key="index" 
-              v-bind:command="childCommand" 
-              v-bind:depth="depth + 1")
-          span.generic(v-else)
-            p.name {{field.name}}
-            span.value
-              select(
-                v-if="field.options !== undefined" 
-                v-model="field.value" 
-                @change="OnFieldUpdate")
-                option(v-for="(option,index) in field.options" v-bind:key="index")
-                  p {{option}}
-              span(v-else)
-                input(v-if="typeof(field.value) === 'string'" type="text" v-model="field.value" @input="OnFieldUpdate")
-                input(v-if="typeof(field.value) === 'number'" type="text" v-model="field.value" @input="OnFieldUpdate")
-                input(v-if="typeof(field.value) === 'boolean'" type="checkbox" v-model="field.value")
+    div.field(v-for="(field,index) in command.fields"
+      v-bind:key="index")
+      CommandListField.subcommands(
+        v-if="field.name === 'commands'"
+        v-bind:field="field"
+        v-bind:depth="depth"
+        )
+      span(v-else)
+      GenericField.generic(
+        v-else-if=("command.name !== 'name'")
+        v-bind:key="index"
+        v-bind:field="field"
+        v-bind:parentCommand="command"
+        )      
 </template>
 
 
 <script lang="ts">
 import CommandUtility from "../../js/CommandUtility.js";
+import CommandListField from "./CommandListField.vue";
+import GenericField from "./GenericField.vue";
 
 import Vue from "vue";
-export default Vue.extend({
-  name: "TypedCommand",
+export default Vue.component("typedcommand",{
+  components: {
+    CommandListField,
+    GenericField
+  },
   props: {
     command: Object,
     depth: Number
   },
   created() {
     CommandUtility.FilterCommand(this.command);
-    // this.command.fields.forEach(f => console.log(f.name, f.value));
   },
   methods: {
-    OnFieldUpdate() {
-      // console.log(this.command.fields);
-      CommandUtility.FilterCommand(this.command);
-    }
+    AddCommand() {},
+    DeleteCommand(command) {}
   }
 });
 </script>
 
 <style scoped>
 .container {
+  display:grid;
+  grid-template-columns: auto;
   /* border-left-style: solid; */
   /* border-top-style: solid; */
   border-color: gray;
@@ -59,6 +55,7 @@ export default Vue.extend({
 }
 
 .field {
+  grid-column: 1 / 2;
   /* margin: 0.5em; */
   /* height: 2em; */
   align-self: center;
@@ -72,22 +69,6 @@ export default Vue.extend({
   background-color: white;
 }
 
-.generic {
-  display: grid;
-  max-width: 30em;
-  grid-template-columns: 1fr 1fr;
-}
-
-.generic > .name {
-  /* background-color: aqua; */
-  grid-column: 1;
-}
-.generic > .value {
-  /* background-color: blueviolet; */
-  color: chartreuse;
-  font-size: 2em;
-  grid-column: 2;
-}
 input[type="checkbox"] {
   transform: scale(1.5);
 }

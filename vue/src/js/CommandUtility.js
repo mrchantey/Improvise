@@ -1,5 +1,7 @@
-import ORIGINAL_AvailableCommandFields from "../../../pkg/data/commandFields.json"
-import ORIGINAL_CommandPresets from "../../../pkg/data/presets.json"
+// import ORIGINAL_AvailableCommandFields from "../../../pkg/data/commandFields.json"
+// import ORIGINAL_CommandPresets from "../../../pkg/data/presets.json"
+import ORIGINAL_AvailableCommandFields from "../../../data/commands/commandFields.json"
+import ORIGINAL_CommandPresets from "../../../data/commands/presets.json"
 
 export default {
     GetDefaultCommand,
@@ -30,9 +32,9 @@ function GetDefaultCommand() {
     return command
 }
 
-function GetPresets() {
+// function GetPresets() {
 
-}
+// }
 
 function CommandFieldsToCommandBody(command) {
     const commandBody = {};
@@ -59,7 +61,7 @@ function CommandBodyToCommandFields(command) {
     return commandFields
 }
 
-function FilterCommand(command) {
+function FilterCommand(command, doNotRecurse) {
     const matchingFields = GetAvailableCommandFields()
         .filter(f => CheckFieldPredicate(f.predicates, command.fields))
     matchingFields.forEach(mf => {
@@ -68,6 +70,9 @@ function FilterCommand(command) {
             Object.assign(mf, existingField)
     })
     command.fields = matchingFields
+    //hack to ensure fields are fully fleshed
+    if (doNotRecurse !== true)
+        FilterCommand(command, true)
 }
 
 function CheckFieldPredicate(predicates, commandFields) {
@@ -112,13 +117,11 @@ function UploadCommandBodyAsync() {
         elt.setAttribute('accept', 'application/json')
         elt.addEventListener('change', OpenFile)
         function OpenFile(event) {
-            console.log('file upload');
             const input = event.target
             const reader = new FileReader()
             reader.onload = function () {
                 const text = reader.result
                 const obj = JSON.parse(text)
-                console.log(obj);
                 resolve(obj)
             }
             reader.readAsText(input.files[0])
