@@ -70,7 +70,7 @@ export default Vue.extend({
 }
 
 .list{
-  grid-column:1 / 3;
+  grid-column:1 / 4;
 }
 
 </style>

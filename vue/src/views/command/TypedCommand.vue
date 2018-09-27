@@ -7,7 +7,6 @@
         v-bind:field="field"
         v-bind:depth="depth"
         )
-      span(v-else)
       GenericField.generic(
         v-else-if=("command.name !== 'name'")
         v-bind:key="index"
@@ -50,6 +49,7 @@ export default Vue.component("typedcommand",{
   /* border-top-style: solid; */
   border-color: gray;
   border-style: solid;
+  box-shadow: 0.2em 0.2em 0.5em;
   margin: 1em;
   /* height: 10em; */
 }

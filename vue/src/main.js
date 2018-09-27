@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import EventPoller from './js/EventPoller'
+// import EventPoller from './js/EventPoller'
 
 
 Vue.config.productionTip = false
@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 
 new Vue({
   beforeCreate() {
-    EventPoller.BeginSpokenPhrasePolling()
+    // EventPoller.BeginSpokenPhrasePolling()
 
   },
   router,

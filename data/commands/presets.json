@@ -5,7 +5,7 @@
     "phrase": "hello world!"
   },
   {
-    "name": "Stop All",
+    "name": "Freeze All Motor Functions",
     "commandName": "commandSequence",
     "commands": [
       {
@@ -132,15 +132,5 @@
         "instruction": "exitProgram"
       }
     ]
-  },
-  {
-    "name": "",
-    "commandName": "commandSequence",
-    "commands": []
-  },
-  {
-    "name": "",
-    "commandName": "commandSequence",
-    "commands": []
   }
 ]

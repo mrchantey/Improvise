@@ -1,13 +1,13 @@
-
+from pkg.utilities.utility import OpenJson
 
 from commands.say import SayCommand
 from commands.naoqi import NaoQiCommand
 from commands.property import PropertyCommand
-from commands.action import ActionCommand
+# from commands.action import ActionCommand
 from commands.runBehavior import RunBehaviorCommand
 from commands.pose import PoseCommand
 from commands.internal import InternalCommand
-from commands.loopAction import LoopActionCommand
+# from commands.loopAction import LoopActionCommand
 from commands.loop import CommandLoop
 from commands.sequence import CommandSequence
 from commands.event import EventCommand
@@ -20,13 +20,14 @@ from commandListeners.firebase import FirebaseCommandListener
 class CommandModule:
     def __init__(self, serviceModule, eventModule, speechRecognitionModule, ExitProgramCallback):
 
-        actionCommand = ActionCommand(self.Run)
-        speechTriggeredActions = actionCommand.GetSpeechTriggeredActions()
+        presetCommands = OpenJson('data/commands/presets.json')
+        # actionCommand = ActionCommand(self.Run)
+        # speechTriggeredActions = actionCommand.GetSpeechTriggeredActions()
         internalSpeechCommandListener = InternalSpeechCommandListener(
             eventModule,
             speechRecognitionModule,
             self.Run,
-            speechTriggeredActions)
+            presetCommands)
 
         self.commandListeners = {
             'internalSpeech': internalSpeechCommandListener,
@@ -38,14 +39,14 @@ class CommandModule:
             'say': SayCommand(serviceModule, eventModule),
             'naoqi': NaoQiCommand(serviceModule),
             'property': PropertyCommand(serviceModule),
-            'action': actionCommand,
+            # 'action': actionCommand,
             'event': EventCommand(eventModule),
             'runBehavior': RunBehaviorCommand(serviceModule.services['ALBehaviorManager']),
             'pose': PoseCommand(serviceModule.services['ALMotion']),
             'commandSequence': CommandSequence(self.Run),
             'commandLoop': CommandLoop(self.Run),
             'internal': InternalCommand(ExitProgramCallback, self.commandListeners['internalSpeech']),
-            'loopAction': LoopActionCommand(self.Run)
+            # 'loopAction': LoopActionCommand(self.Run)
         }
 
     def StartAllListeners(self):

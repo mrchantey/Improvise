@@ -33,7 +33,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  /* text-decoration: none; */
   color: #2c3e50;
+}
+
+a {
+  /* color: #2c3e50; */
+  /* background-color: lightblue; */
+  background-color: #3b5998;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.3em;
+  font-size: 1.2em;
+  margin: 0.2em;
 }
 
 /* #nav {

@@ -43,13 +43,25 @@ class Nao():
         if self.defaultPose == 'stand':
             self.commandModule.Run({
                 "commandName": "pose",
-                "poseName": "Full/stand"
+                "fullName": "body_none_standOrigin"
             })
 
         elif self.defaultPose == 'rest':
+
             self.commandModule.Run({
                 "commandName": "naoqi",
                 "serviceName": "ALAutonomousLife",
                 "methodName": "setState",
                 "param1": "disabled"
             })
+
+            # self.commandModule.Run({
+            #     "commandName": "pose",
+            #     # "poseName": "Full/stand"
+            #     "fullName": "body_none_restOrigin"
+            # })
+            # self.commandModule.Run({
+            #     "commandName": "pose",
+            #     "poseName": "Full/stand"
+            #     # "poseName": "Full/rest"
+            # })

@@ -1,0 +1,173 @@
+[
+  {
+    "bodyPart": "body",
+    "bodySide": false,
+    "bodyPoses": [
+      "standOrigin",
+      "restOrigin"
+    ],
+    "motorNames": [
+      "HeadPitch",
+      "HeadYaw",
+      "LShoulderRoll",
+      "LShoulderPitch",
+      "LElbowYaw",
+      "LElbowRoll",
+      "LWristYaw",
+      "LHand",
+      "RShoulderRoll",
+      "RShoulderPitch",
+      "RElbowYaw",
+      "RElbowRoll",
+      "RWristYaw",
+      "RHand",
+      "LHipYawPitch",
+      "LHipPitch",
+      "LHipRoll",
+      "LKneePitch",
+      "LAnklePitch",
+      "LAnkleRoll",
+      "RHipPitch",
+      "RHipRoll",
+      "RKneePitch",
+      "RAnklePitch",
+      "RAnkleRoll"
+    ]
+  },
+  {
+    "bodyPart": "head",
+    "bodySide": false,
+    "bodyPoses": [
+      "standOrigin"
+    ],
+    "motorNames": [
+      "HeadPitch",
+      "HeadYaw"
+    ]
+  },
+  {
+    "bodyPart": "head",
+    "bodySide": false,
+    "bodyPoses": [
+      "flexion",
+      "extension"
+    ],
+    "motorNames": [
+      "HeadPitch"
+    ]
+  },
+  {
+    "bodyPart": "head",
+    "bodySide": false,
+    "bodyPoses": [
+      "rotateLeft",
+      "rotateRight"
+    ],
+    "motorNames": [
+      "HeadYaw"
+    ]
+  },
+  {
+    "bodyPart": "arm",
+    "bodySide": true,
+    "bodyPoses": [
+      "standOrigin"
+    ],
+    "motorNames": [
+      "ShoulderRoll",
+      "ShoulderPitch",
+      "ElbowYaw",
+      "ElbowRoll",
+      "WristYaw",
+      "Hand"
+    ]
+  },
+  {
+    "bodyPart": "shoulder",
+    "bodySide": true,
+    "bodyPoses": [
+      "standOrigin"
+    ],
+    "motorNames": [
+      "ShoulderRoll",
+      "ShoulderPitch"
+    ]
+  },
+  {
+    "bodyPart": "elbow",
+    "bodySide": true,
+    "bodyPoses": [
+      "standOrigin"
+    ],
+    "motorNames": [
+      "ElbowYaw",
+      "ElbowRoll"
+    ]
+  },
+  {
+    "bodyPart": "forearm",
+    "bodySide": true,
+    "bodyPoses": [
+      "standOrigin"
+    ],
+    "motorNames": [
+      "WristYaw"
+    ]
+  },
+  {
+    "bodyPart": "arm",
+    "bodySide": true,
+    "bodyPoses": [
+      "flexion",
+      "extension"
+    ],
+    "motorNames": [
+      "ShoulderPitch",
+      "ElbowRoll"
+    ]
+  },
+  {
+    "bodyPart": "shoulder",
+    "bodySide": true,
+    "bodyPoses": [
+      "flexion",
+      "extension"
+    ],
+    "motorNames": [
+      "ShoulderPitch"
+    ]
+  },
+  {
+    "bodyPart": "elbow",
+    "bodySide": true,
+    "bodyPoses": [
+      "flexion",
+      "extension"
+    ],
+    "motorNames": [
+      "ElbowRoll"
+    ]
+  },
+  {
+    "bodyPart": "shoulder",
+    "bodySide": true,
+    "bodyPoses": [
+      "abduction",
+      "adduction"
+    ],
+    "motorNames": [
+      "ShoulderRoll"
+    ]
+  },
+  {
+    "bodyPart": "forearm",
+    "bodySide": true,
+    "bodyPoses": [
+      "pronation",
+      "supination"
+    ],
+    "motorNames": [
+      "WristYaw"
+    ]
+  }
+]

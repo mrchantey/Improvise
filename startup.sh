@@ -4,8 +4,11 @@
 echo clearing port 5000
 fuser -k 5000/tcp
 
-echo "startup python script running..."
-``
+# echo "improvise running in 10 seconds..."
+
+# sleep 10
+
+echo "improvise running now"
 
 cd /
 
@@ -14,5 +17,5 @@ cd home/nao/improvise
 python -m pkg.auto_improvise na01.local -d -rest
 #python -m pkg.auto_improvise na02.local -d
 
-echo "startup python script terminated..."
+echo "improvise terminated..."
 

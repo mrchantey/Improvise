@@ -3,9 +3,22 @@ import NaoServer from "./NaoServer";
 
 
 export default {
-  BeginSpokenPhrasePolling,
+  BeginEventPolling,
+  EndEventPolling,
   AddPhraseListener,
   RemovePhraseListener
+}
+
+let intervalId = undefined;
+
+function BeginEventPolling() {
+  intervalId = setInterval(SpokenPhrasePollHandler, 2000)
+}
+
+function EndEventPolling() {
+  if (intervalId !== undefined)
+    clearInterval(intervalId)
+  intervalId = undefined;
 }
 
 const phraseListeners = []
@@ -23,9 +36,6 @@ function RemovePhraseListener(callback) {
 }
 
 
-function BeginSpokenPhrasePolling() {
-  setInterval(SpokenPhrasePollHandler, 2000)
-}
 
 function SpokenPhrasePollHandler() {
   RequestSpokenPhrases().then(phrases => {

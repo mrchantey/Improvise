@@ -246,15 +246,5 @@
                 "value": "pause"
             }
         ]
-    },
-    {
-        "name": "poseName",
-        "value": "Full/stand",
-        "predicates": [
-            {
-                "name": "commandName",
-                "value": "pose"
-            }
-        ]
     }
 ]

@@ -20,8 +20,10 @@ export default {
   },
   created() {
     EventPoller.AddPhraseListener(this.UpdatePhrases);
+    EventPoller.BeginEventPolling();
   },
   destroyed(){
+    EventPoller.EndEventPolling();
     EventPoller.RemovePhraseListener(this.UpdatePhrases);
   },
   data() {

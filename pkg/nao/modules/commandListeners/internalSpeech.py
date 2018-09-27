@@ -1,12 +1,12 @@
 
 
 class InternalSpeechCommandListener():
-    def __init__(self, eventModule, speechRecognitionModule, RunCommandCallback, speechCommands, alwaysListen=False):
+    def __init__(self, eventModule, speechRecognitionModule, RunCommandCallback, presetCommands, alwaysListen=False):
         self.speechRecognitionModule = speechRecognitionModule
         self.RunCommandCallback = RunCommandCallback
         self.alwaysListen = alwaysListen
-        self.speechCommands = speechCommands
-        self.triggerPhrases = map(lambda cmd: cmd['triggerPhrase'], self.speechCommands)
+        self.presetCommands = presetCommands
+        self.triggerPhrases = map(lambda cmd: cmd['name'], self.presetCommands)
         eventModule.AddListener("WordRecognized", self.OnWordRecognized)
 
     def StartListening(self):
@@ -15,7 +15,7 @@ class InternalSpeechCommandListener():
 
     def OnWordRecognized(self, word):
         self.StopListening()
-        matchingCommand = filter(lambda cmd: cmd['triggerPhrase'] == word[0], self.speechCommands)
+        matchingCommand = filter(lambda cmd: cmd['name'] == word[0], self.presetCommands)
         if len(matchingCommand) > 0:
             # print 'WORD RECOGNIZED MATCH:', word
             # print matchingCommand[0]

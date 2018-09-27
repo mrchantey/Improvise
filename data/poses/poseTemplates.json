@@ -1,0 +1,58 @@
+[
+  {
+    "rawPoses": [
+      "body_none_standOrigin"
+    ],
+    "rawBodyParts": [
+      "head"
+    ],
+    "rawBodySides": [
+      "none"
+    ]
+  },
+  {
+    "rawPoses": [
+      "body_none_standOrigin",
+      "arm_both_extension",
+      "arm_both_flexion"
+    ],
+    "rawBodyParts": [
+      "arm",
+      "shoulder",
+      "elbow"
+    ],
+    "rawBodySides": [
+      "both",
+      "left",
+      "right"
+    ]
+  },
+  {
+    "rawPoses": [
+      "shoulder_both_adduction",
+      "shoulder_both_abduction"
+    ],
+    "rawBodyParts": [
+      "shoulder"
+    ],
+    "rawBodySides": [
+      "both",
+      "left",
+      "right"
+    ]
+  },
+  {
+    "rawPoses": [
+      "forearm_both_supination",
+      "forearm_both_pronation"
+    ],
+    "rawBodyParts": [
+      "forearm"
+    ],
+    "rawBodySides": [
+      "both",
+      "left",
+      "right"
+    ]
+  }
+]
