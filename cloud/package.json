@@ -12,7 +12,7 @@
     "@google-cloud/language": "^1.2.0",
     "@google-cloud/text-to-speech": "^0.3.0",
     "@google-cloud/vision": "^0.21.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "firebase-admin": "^6.0.0"
   },
   "devDependencies": {},
